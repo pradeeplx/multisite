@@ -1,0 +1,247 @@
+# Copyright (C) 2018 SuitePlugins
+# This file is distributed under the GPLv2 or later..
+msgid ""
+msgstr ""
+"Project-Id-Version: GravityForm Entries for Ultimate Member 1.0.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/um-gf-entries\n"
+"POT-Creation-Date: 2018-10-05 22:41:42+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n1.0.2\n"
+
+#: includes/EDD_SL_Plugin_Updater.php:210
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+
+#: includes/EDD_SL_Plugin_Updater.php:218
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s "
+"or %5$supdate now%6$s."
+msgstr ""
+
+#: includes/EDD_SL_Plugin_Updater.php:408
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: includes/EDD_SL_Plugin_Updater.php:408
+msgid "Error"
+msgstr ""
+
+#: includes/umgf-setup.php:63
+msgid "Add New GF Tab"
+msgstr ""
+
+#: includes/umgf-setup.php:64
+msgid "New GF Tab"
+msgstr ""
+
+#: includes/umgf-setup.php:65
+msgid "Edit GF Tab"
+msgstr ""
+
+#: includes/umgf-setup.php:66
+msgid "View GF Tab"
+msgstr ""
+
+#: includes/umgf-setup.php:67
+msgid "All GF Tabs"
+msgstr ""
+
+#: includes/umgf-setup.php:68
+msgid "Search GF Tabs"
+msgstr ""
+
+#: includes/umgf-setup.php:69
+msgid "Parent GF Tabs:"
+msgstr ""
+
+#: includes/umgf-setup.php:70
+msgid "No gf tabs found."
+msgstr ""
+
+#: includes/umgf-setup.php:71
+msgid "No gf tabs found in Trash."
+msgstr ""
+
+#: includes/umgf-setup.php:76
+msgid "Gravity Form Entry tabs"
+msgstr ""
+
+#: includes/umgf-setup.php:95
+msgid "Tab Setup"
+msgstr ""
+
+#: includes/umgf-setup.php:104
+msgid "Tab Settings"
+msgstr ""
+
+#: includes/umgf-setup.php:192
+msgid "Tab Name"
+msgstr ""
+
+#: includes/umgf-setup.php:199
+msgid "Tab Slug"
+msgstr ""
+
+#: includes/umgf-setup.php:206
+msgid "Form"
+msgstr ""
+
+#: includes/umgf-setup.php:209
+msgid "-Gravity Form-"
+msgstr ""
+
+#: includes/umgf-setup.php:223
+msgid "Gravity Form Fields"
+msgstr ""
+
+#: includes/umgf-setup.php:224
+msgid "Fields for entries"
+msgstr ""
+
+#: includes/umgf-setup.php:245 includes/umgf-setup.php:274
+msgid "Field Label"
+msgstr ""
+
+#: includes/umgf-setup.php:250 includes/umgf-setup.php:254
+#: includes/umgf-setup.php:279 includes/umgf-setup.php:300
+#: includes/umgf-setup.php:305
+msgid "No fields listed"
+msgstr ""
+
+#: includes/umgf-setup.php:265
+msgid "Field"
+msgstr ""
+
+#: includes/umgf-setup.php:266
+msgid "Label"
+msgstr ""
+
+#: includes/umgf-setup.php:374
+msgid "Tab Section"
+msgstr ""
+
+#: includes/umgf-setup.php:376
+msgid "Profile"
+msgstr ""
+
+#: includes/umgf-setup.php:377
+msgid "Account"
+msgstr ""
+
+#: includes/umgf-setup.php:381
+msgid "Make Private"
+msgstr ""
+
+#: includes/umgf-setup.php:385
+msgid "Tab Icon"
+msgstr ""
+
+#: includes/umgf-setup.php:389
+msgid "Users with this role can view this tab"
+msgstr ""
+
+#: includes/umgf-setup.php:734
+msgid "No entries added"
+msgstr ""
+
+#: um-gf-entries.php:125
+msgid "UM GravityForm Entries requires you to install "
+msgstr ""
+
+#: umgf-license.php:46
+msgid "Plugin License"
+msgstr ""
+
+#: umgf-license.php:55
+msgid "License Key"
+msgstr ""
+
+#: umgf-license.php:59
+msgid "Enter your license key"
+msgstr ""
+
+#: umgf-license.php:65 umgf-license.php:74
+msgid "Activate License"
+msgstr ""
+
+#: umgf-license.php:69
+msgid "active"
+msgstr ""
+
+#: umgf-license.php:71
+msgid "Deactivate License"
+msgstr ""
+
+#: umgf-license.php:138 umgf-license.php:186 umgf-license.php:248
+msgid "An error occurred, please try again."
+msgstr ""
+
+#: umgf-license.php:152
+msgid "Your license key expired on %s."
+msgstr ""
+
+#: umgf-license.php:160
+msgid "Your license key has been disabled."
+msgstr ""
+
+#: umgf-license.php:165
+msgid "Invalid license."
+msgstr ""
+
+#: umgf-license.php:171
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#: umgf-license.php:176
+msgid "This appears to be an invalid license key for %s."
+msgstr ""
+
+#: umgf-license.php:181
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "GravityForm Entries for Ultimate Member"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://suiteplugins.com/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Display Gravity Form entries on Ultimate Member profile tab"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "SuitePlugins"
+msgstr ""
+
+#: includes/umgf-setup.php:58
+msgctxt "post type general name"
+msgid "GF Tabs"
+msgstr ""
+
+#: includes/umgf-setup.php:59
+msgctxt "post type singular name"
+msgid "GF Tab"
+msgstr ""
+
+#: includes/umgf-setup.php:60
+msgctxt "admin menu"
+msgid "GF Tabs"
+msgstr ""
+
+#: includes/umgf-setup.php:61
+msgctxt "add new on admin bar"
+msgid "GF Tab"
+msgstr ""
+
+#: includes/umgf-setup.php:62
+msgctxt "event"
+msgid "Add New"
+msgstr ""

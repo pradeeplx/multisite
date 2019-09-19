@@ -1,0 +1,259 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FooEvents Calendar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-25 17:05+0000\n"
+"PO-Revision-Date: 2019-02-06 16:56+0000\n"
+"Last-Translator: HR小薯蓉 <contact@mashedpatata.com>\n"
+"Language-Team: 繁體中文\n"
+"Language: zh-TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.2.0; wp-4.9.9"
+
+#: fooevents-calendar.php:776
+#, php-format
+msgid "%d events added. %d events updated."
+msgstr ""
+
+#: classes/calendarwidget.php:12
+msgid "A calendar or list view of your site's Events."
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Add event information to any post, page or custom post type and display it "
+"in a stylish calendar."
+msgstr ""
+
+#: templates/eventbrite-options.php:3
+msgid "Add event to EventBrite"
+msgstr ""
+
+#: templates/calendar-options.php:52
+msgid "Associate with post types"
+msgstr ""
+
+#: templates/background-color-option.php:5
+msgid "Background color of event on calendar"
+msgstr ""
+
+#: templates/event.php:8
+msgid "Book ticket:"
+msgstr "購票:"
+
+#: templates/background-color-option.php:3
+msgid "Calendar background color:"
+msgstr ""
+
+#: fooevents-calendar.php:1614
+msgid "Calendar Settings"
+msgstr ""
+
+#: templates/text-color-option.php:3
+msgid "Calendar text color:"
+msgstr ""
+
+#: fooevents-calendar.php:1645 templates/calendar-options.php:28
+msgid "Calendar theme"
+msgstr ""
+
+#: fooevents-calendar.php:1653
+msgid "Dark"
+msgstr ""
+
+#: fooevents-calendar.php:1669
+msgid "Dark Card"
+msgstr ""
+
+#: fooevents-calendar.php:1651 fooevents-calendar.php:1667
+msgid "Default"
+msgstr ""
+
+#: classes/calendarwidget.php:160
+msgid "Default date of calendar view"
+msgstr ""
+
+#: fooevents-calendar.php:185
+msgid "Done"
+msgstr ""
+
+#: fooevents-calendar.php:1620 templates/calendar-options.php:13
+msgid "Enable 24 hour time format"
+msgstr ""
+
+#: fooevents-calendar.php:1637 templates/calendar-options.php:23
+msgid "Enable full day events"
+msgstr ""
+
+#: templates/eventmetabox.php:47
+msgid "End time:"
+msgstr "完結時間"
+
+#: fooevents-calendar.php:582
+msgid "Event end date required for Eventbrite."
+msgstr ""
+
+#: fooevents-calendar.php:576
+msgid "Event start date required for Eventbrite."
+msgstr ""
+
+#: fooevents-calendar.php:588
+msgid "Event title required for Eventbrite."
+msgstr ""
+
+#: templates/calendar-options.php:8
+msgid "Eventbrite oAuth Token"
+msgstr ""
+
+#: fooevents-calendar.php:1661 templates/calendar-options.php:41
+msgid "Events list theme"
+msgstr ""
+
+#: fooevents-calendar.php:1654
+msgid "Flat"
+msgstr ""
+
+#. Author of the plugin
+msgid "FooEvents"
+msgstr ""
+
+#. Name of the plugin
+#: classes/calendarwidget.php:11
+msgid "FooEvents Calendar"
+msgstr ""
+
+#: fooevents-calendar.php:83
+msgid "FooEvents Calendar Introduction"
+msgstr ""
+
+#: fooevents-calendar.php:261
+msgid "FooEvents Calendar Settings"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.fooevents.com/"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://www.fooevents.com/fooevents-calendar/"
+msgstr ""
+
+#: fooevents-calendar.php:226
+msgid "Imported Event"
+msgstr ""
+
+#: fooevents-calendar.php:225
+msgid "Imported Events"
+msgstr ""
+
+#: fooevents-calendar.php:108
+msgid "Introduction"
+msgstr ""
+
+#: templates/eventmetabox.php:3
+msgid "Is this post an event?:"
+msgstr ""
+
+#: classes/calendarwidget.php:149
+msgid "Layout Type"
+msgstr ""
+
+#: fooevents-calendar.php:1652
+msgid "Light"
+msgstr ""
+
+#: fooevents-calendar.php:1668
+msgid "Light Card"
+msgstr ""
+
+#: fooevents-calendar.php:1655
+msgid "Minimalist"
+msgstr ""
+
+#: templates/eventmetabox.php:5
+msgid "No"
+msgstr ""
+
+#: templates/list_of_events.php:22
+msgid "No upcoming events."
+msgstr "沒有活動即將舉行"
+
+#: classes/calendarwidget.php:167
+msgid "Number of events to display"
+msgstr ""
+
+#: fooevents-calendar.php:1629 templates/calendar-options.php:18
+msgid "Only display start day"
+msgstr ""
+
+#: templates/calendar-options.php:10
+msgid "Optional API key used to add events to Eventbrite."
+msgstr ""
+
+#: fooevents-calendar.php:1641 templates/calendar-options.php:25
+msgid "Removes event time from calendar entry titles."
+msgstr ""
+
+#: fooevents-calendar.php:1657 templates/calendar-options.php:38
+msgid "Selects calendar theme to be used on Wordpress frontend."
+msgstr ""
+
+#: fooevents-calendar.php:1671 templates/calendar-options.php:49
+msgid "Selects events list theme to be used on Wordpress frontend."
+msgstr ""
+
+#: templates/calendar-options.php:60
+msgid "Selects which custom post types can be events."
+msgstr ""
+
+#: fooevents-calendar.php:105
+msgid "Settings"
+msgstr ""
+
+#: fooevents-calendar.php:189
+msgid "Show a different month"
+msgstr ""
+
+#: classes/calendarwidget.php:171
+msgid "Sort"
+msgstr ""
+
+#: templates/eventmetabox.php:16
+msgid "Start Date:"
+msgstr "開始日期:"
+
+#: templates/eventmetabox.php:24
+msgid "Start time:"
+msgstr "開始時間:"
+
+#: templates/text-color-option.php:5
+msgid "Text color of event on calendar"
+msgstr ""
+
+#: classes/calendarwidget.php:145
+msgid "Title"
+msgstr ""
+
+#: fooevents-calendar.php:186
+msgid "Today"
+msgstr "今天"
+
+#: fooevents-calendar.php:1624 templates/calendar-options.php:15
+msgid "Uses 24 hour time format on the calendar."
+msgstr ""
+
+#: fooevents-calendar.php:1633
+msgid "When multi-day plugin is active only display the event start day"
+msgstr ""
+
+#: templates/calendar-options.php:20
+msgid "When multi-day plugin is active only display the event start day."
+msgstr ""
+
+#: templates/eventmetabox.php:6
+msgid "Yes"
+msgstr ""

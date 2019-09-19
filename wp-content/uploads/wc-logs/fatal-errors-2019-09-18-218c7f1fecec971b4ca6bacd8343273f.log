@@ -1,0 +1,60 @@
+2019-09-18T05:17:09+00:00 CRITICAL syntax error, unexpected ',' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/functions.php on line 8
+
+2019-09-18T05:17:11+00:00 CRITICAL syntax error, unexpected ',' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/functions.php on line 8
+
+2019-09-18T05:17:33+00:00 CRITICAL syntax error, unexpected ',' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/functions.php on line 8
+
+2019-09-18T08:07:56+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:07:58+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:07:59+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:00+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:03+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:08+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:12+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:13+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:17+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:18+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:19+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:21+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:27+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:27+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:08:27+00:00 CRITICAL Cannot redeclare HaveFun_RestAPI::__construct() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_rest_api.php on line 58
+
+2019-09-18T08:15:57+00:00 CRITICAL Uncaught Error: Call to undefined method HaveFun_RestAPI::get_create_all_product() in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/test_demo.php:16
+Stack trace:
+#0 /home/blsoftware/public_html/havefan/wp-includes/template-loader.php(78): include()
+#1 /home/blsoftware/public_html/havefan/wp-blog-header.php(19): require_once('/home/blsoftwar...')
+#2 /home/blsoftware/public_html/havefan/index.php(17): require('/home/blsoftwar...')
+#3 {main}
+  thrown in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/test_demo.php on line 16
+
+2019-09-18T08:34:20+00:00 CRITICAL syntax error, unexpected '=', expecting ')' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/test_demo.php on line 16
+
+2019-09-18T11:30:27+00:00 CRITICAL syntax error, unexpected 'um_profile_header_cover_area' (T_STRING) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 9
+
+2019-09-18T11:30:29+00:00 CRITICAL syntax error, unexpected 'um_profile_header_cover_area' (T_STRING) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 9
+
+2019-09-18T11:30:40+00:00 CRITICAL syntax error, unexpected 'um_profile_header_cover_area' (T_STRING) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 9
+
+2019-09-18T11:30:41+00:00 CRITICAL syntax error, unexpected 'um_profile_header_cover_area' (T_STRING) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 9
+
+2019-09-18T11:30:44+00:00 CRITICAL syntax error, unexpected 'um_profile_header_cover_area' (T_STRING) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 9
+
+2019-09-18T11:30:47+00:00 CRITICAL syntax error, unexpected 'um_profile_header_cover_area' (T_STRING) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 9
+
+2019-09-18T13:25:04+00:00 CRITICAL syntax error, unexpected ''include_tool_' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 422
+

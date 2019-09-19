@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: GravityForms Entries for Ultimate Member\n"
+"POT-Creation-Date: 2016-09-14 11:35-0500\n"
+"PO-Revision-Date: 2016-09-14 11:35-0500\n"
+"Last-Translator: \n"
+"Language-Team: SuitePlugins <info@suiteplugins.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e;__;_x\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../includes/umgf-setup.php:46 ../includes/umgf-setup.php:48
+msgid "GF Tabs"
+msgstr ""
+
+#: ../includes/umgf-setup.php:47 ../includes/umgf-setup.php:49
+msgid "GF Tab"
+msgstr ""
+
+#: ../includes/umgf-setup.php:50
+msgid "Add New"
+msgstr ""
+
+#: ../includes/umgf-setup.php:51
+msgid "Add New GF Tab"
+msgstr ""
+
+#: ../includes/umgf-setup.php:52
+msgid "New GF Tab"
+msgstr ""
+
+#: ../includes/umgf-setup.php:53
+msgid "Edit GF Tab"
+msgstr ""
+
+#: ../includes/umgf-setup.php:54
+msgid "View GF Tab"
+msgstr ""
+
+#: ../includes/umgf-setup.php:55
+msgid "All GF Tabs"
+msgstr ""
+
+#: ../includes/umgf-setup.php:56
+msgid "Search GF Tabs"
+msgstr ""
+
+#: ../includes/umgf-setup.php:57
+msgid "Parent GF Tabs:"
+msgstr ""
+
+#: ../includes/umgf-setup.php:58
+msgid "No gf tabs found."
+msgstr ""
+
+#: ../includes/umgf-setup.php:59
+msgid "No gf tabs found in Trash."
+msgstr ""
+
+#: ../includes/umgf-setup.php:64
+msgid "Gravity Form Entry tabs"
+msgstr ""
+
+#: ../includes/umgf-setup.php:83
+msgid "Tab Setup"
+msgstr ""
+
+#: ../includes/umgf-setup.php:92
+msgid "Tab Settings"
+msgstr ""
+
+#: ../includes/umgf-setup.php:154
+msgid "Tab Name"
+msgstr ""
+
+#: ../includes/umgf-setup.php:161
+msgid "Tab Slug"
+msgstr ""
+
+#: ../includes/umgf-setup.php:168
+msgid "Form"
+msgstr ""
+
+#: ../includes/umgf-setup.php:171
+msgid "-Gravity Form-"
+msgstr ""
+
+#: ../includes/umgf-setup.php:185
+msgid "Gravity Form Fields"
+msgstr ""
+
+#: ../includes/umgf-setup.php:186
+msgid "Fields for entries"
+msgstr ""
+
+#: ../includes/umgf-setup.php:207 ../includes/umgf-setup.php:236
+msgid "Field Label"
+msgstr ""
+
+#: ../includes/umgf-setup.php:212 ../includes/umgf-setup.php:216
+#: ../includes/umgf-setup.php:241 ../includes/umgf-setup.php:262
+#: ../includes/umgf-setup.php:267
+msgid "No fields listed"
+msgstr ""
+
+#: ../includes/umgf-setup.php:227
+msgid "Field"
+msgstr ""
+
+#: ../includes/umgf-setup.php:228
+msgid "Label"
+msgstr ""
+
+#: ../includes/umgf-setup.php:333
+msgid "Tab Section"
+msgstr ""
+
+#: ../includes/umgf-setup.php:335
+msgid "Profile"
+msgstr ""
+
+#: ../includes/umgf-setup.php:336
+msgid "Account"
+msgstr ""
+
+#: ../includes/umgf-setup.php:340
+msgid "Make Private"
+msgstr ""
+
+#: ../includes/umgf-setup.php:344
+msgid "Tab Icon"
+msgstr ""
+
+#: ../includes/umgf-setup.php:348
+msgid "Users with this role"
+msgstr ""
+
+#: ../includes/umgf-setup.php:608
+msgid "No entries added"
+msgstr ""

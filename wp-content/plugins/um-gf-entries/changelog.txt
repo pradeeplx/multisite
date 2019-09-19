@@ -1,0 +1,14 @@
+== 09/14/2016 - 1.0.0 ==
+Plugin created
+
+== 1.0.1 ==
+- Fixed error on post edit form
+
+== 1.0.2 - 10/28/ 1.0.2 ==
+- Code clean up for WordPress Standards
+- Fixed issue with Admin notice not being removed
+
+== 1.0.3.1 ==
+- Tested compatibility with Gravity Forms 2.4.11.4
+- Upgraded automatic updater
+- Fixed conflict with CPTUI Extended

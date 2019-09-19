@@ -1,0 +1,56 @@
+2019-09-14T08:18:06+00:00 CRITICAL syntax error, unexpected end of file in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 951
+
+2019-09-14T08:23:08+00:00 CRITICAL syntax error, unexpected '$output_string' (T_VARIABLE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 71
+
+2019-09-14T08:23:20+00:00 CRITICAL syntax error, unexpected '$output_string' (T_VARIABLE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 71
+
+2019-09-14T08:23:21+00:00 CRITICAL syntax error, unexpected '$output_string' (T_VARIABLE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 71
+
+2019-09-14T08:23:31+00:00 CRITICAL syntax error, unexpected '$output_string' (T_VARIABLE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 71
+
+2019-09-14T08:23:31+00:00 CRITICAL syntax error, unexpected '$output_string' (T_VARIABLE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 71
+
+2019-09-14T08:23:33+00:00 CRITICAL syntax error, unexpected '$output_string' (T_VARIABLE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 71
+
+2019-09-14T08:23:33+00:00 CRITICAL syntax error, unexpected '$output_string' (T_VARIABLE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 71
+
+2019-09-14T08:23:36+00:00 CRITICAL syntax error, unexpected '$output_string' (T_VARIABLE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 71
+
+2019-09-14T08:50:48+00:00 CRITICAL syntax error, unexpected end of file in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 466
+
+2019-09-14T08:50:48+00:00 CRITICAL syntax error, unexpected end of file in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 466
+
+2019-09-14T08:50:49+00:00 CRITICAL syntax error, unexpected end of file in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 466
+
+2019-09-14T08:59:17+00:00 CRITICAL syntax error, unexpected end of file, expecting ')' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 947
+
+2019-09-14T09:45:40+00:00 CRITICAL syntax error, unexpected ''event_id' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 953
+
+2019-09-14T09:53:59+00:00 CRITICAL syntax error, unexpected ''<form method="post" id="submi' (T_ENCAPSED_AND_WHITESPACE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 902
+
+2019-09-14T10:13:34+00:00 CRITICAL syntax error, unexpected end of file in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 905
+
+2019-09-14T11:44:08+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+
+2019-09-14T11:44:12+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+
+2019-09-14T11:44:14+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+
+2019-09-14T11:44:19+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+
+2019-09-14T11:44:23+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+
+2019-09-14T11:44:31+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+
+2019-09-14T11:44:34+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+
+2019-09-14T11:44:40+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+
+2019-09-14T11:44:47+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+
+2019-09-14T11:44:49+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+
+2019-09-14T11:44:52+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+
+2019-09-14T11:44:53+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/ajax/custom-ajax.php on line 1150
+

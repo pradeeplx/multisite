@@ -1,0 +1,977 @@
+.wrap .update-nag{
+    max-width: 100%;
+    margin: 0px 20px 10px 2px;
+    width: calc(100% - 37px);
+}
+
+.dispavatar {
+   display: block;
+   text-align: center;
+   padding-top: 20px;
+   background-size: contain !important;
+}
+
+.dispavatar img {
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+   border: 2px solid #eee;
+}
+
+.dispname {
+   display: flex;
+   text-align: center;
+   position: relative;
+   justify-content: center;
+   align-items: center;
+}
+
+.dispname .mtrl-menu-profile-links {}
+
+li#wp-admin-bar-user-info img {
+   display: none;
+}
+
+.dispname .mtrl-menu-profile-links > i.open-links {
+   display: block;
+   position: relative;
+   padding: 0 5px;
+}
+
+.dispname .mtrl-menu-profile-links > i.open-links:before {
+   content: "";
+   display: block;
+   width: 6px;
+   height: 6px;
+   border: 1px solid #fff;
+   border-top-color: transparent;
+   border-right-color: transparent;
+   transform: rotate(-45deg);
+   transition: all 0.3s;
+}
+
+.notice{
+   opacity:0;
+}
+.wrap{
+  opacity:0;
+}
+.update-nag{
+    opacity:0;
+}
+.updated{
+    opacity:0;
+}
+.error{
+    display:0;
+}
+
+
+.disproles {
+   text-align: center;
+   color: #e6e6e6;
+   text-transform: uppercase;
+}
+
+.all-links li {
+   text-align: left;
+}
+.all-links li a{
+   text-decoration: none;
+   color:#000;
+}
+.dispname a {
+   color: #ddd;
+}
+
+
+    
+@media (min-width:601px){
+
+    .dispname .mtrl-menu-profile-links .all-links {
+    width: auto;
+    display: inline-block !important;
+    position: absolute;
+    top: 1.5em;
+    margin-top: -4px;
+    right: 0;
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.18);
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    }
+
+    .dispname:hover .mtrl-menu-profile-links .all-links {
+    opacity: 1;
+    pointer-events: initial;
+    }
+}
+@media (max-width:600px){
+.dispname{
+   display:block;
+}
+.dispname .mtrl-menu-profile-links{
+   position:relative;
+}
+
+
+.dispname .mtrl-menu-profile-links > i.open-links {
+   position: absolute;
+   top: -1.4em;
+   right: 0;
+   width: 20px;
+   height: 1.4em;
+   display: flex;
+   margin: auto;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   left: unset;
+}
+.dispname .mtrl-menu-profile-links .all-links{
+   background-color: #f1f1f1;
+   color: #000;padding:5px 15px;
+}
+.dispname .mtrl-menu-profile-links .all-links a, 
+#adminmenu .mtrl-menu-profile-links .all-links a{ 
+   color: #23282d;
+}
+.mtrl-menu-profile-links .all-links{
+   display: none;
+}
+}
+.notice{
+   opacity:0;
+}
+#wpwrap{
+   opacity:1;
+}
+.loader {
+  border: 5px solid #f3f3f3;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    border-top: 5px solid #555;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    opacity: 1;
+    position: fixed;
+}
+.loaderParent {
+    position: absolute;
+    top: 45%;
+    left: 48%;
+   opacity:1;
+   z-index: 9999;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+/* bls css */
+.wpas-label {
+    display: inline-block;
+    padding: 2px 8px;
+    font-weight: 700;
+    color: #fff;
+    vertical-align: baseline;
+    background-color: #999;
+    border-radius: 25px;
+}
+
+#adminmenu .wp-submenu, .folded #adminmenu .wp-has-current-submenu .wp-submenu, .folded #adminmenu a.wp-has-current-submenu:focus+.wp-submenu {
+    padding: 0px 0 8px;
+   
+    
+}
+
+#adminmenu .wp-submenu li.current a, #adminmenu a.wp-has-current-submenu:focus + .wp-submenu li.current a, #adminmenu .wp-has-current-submenu.opensub .wp-submenu li.current a {
+ 
+    border-left: 3px solid #007fff;
+    padding-left: 7px !important;
+    background: #1b2432;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+}
+
+#adminmenu .wp-submenu li {
+    padding: 0px 35px;
+    margin: 0;
+}
+
+#adminmenu a {
+ 
+    padding: 0px 10px !important;
+
+}
+#adminmenu .wp-submenu-head, #adminmenu a.menu-top {
+    font-size: 15px;
+
+ 
+}
+
+
+.menu-userinfo {
+    margin-bottom:55px;
+}
+.dispname a {
+    color: #fff;
+}
+
+.dispavatar {
+    display: block;
+    text-align: center;
+    padding: 100px 0px 20px 0;
+    background: url(https://generaltest.blsoftware.net/wp-content/uploads/2019/06/logo_BLS_Booking.jpg) no-repeat;
+    margin-top: -32px;
+}
+.stgh_colored_status {
+    margin-right: 5px;
+    padding: 5px 10px 5px 10px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-shadow: none;
+    font-weight: normal;
+    line-height: 0;
+    display: inline;
+    color: #fff;
+    text-transform: capitalize;
+    border-radius: 25em;
+}
+
+.post-type-stgh_ticket table .column-stgh_ticket-contact .contact-info {
+    padding-left: 42px;
+    padding-top: 5px;
+}
+
+.post-type-stgh_ticket table #cb {
+    padding: 25px 0 0 2px !important;
+}
+
+.post-type-stgh_ticket table.wp-list-table tr td {
+    font-size: 13px;
+    line-height: 1.5em;
+     padding: 10px 0px 10px 3px;
+    vertical-align: middle !important;
+ 
+}
+
+#post-body.columns-2 #postbox-container-1 {
+    float: right;
+    margin-right: -320px;
+    width: 300px;
+}
+
+.postbox {
+    position: relative;
+    min-width: 255px;
+    border: 0px solid #e5e5e5;
+    box-shadow: none;
+    background: #fff;
+}
+
+#poststuff #post-body.columns-2 #side-sortables {
+    width: 300px;
+    /* margin-top: -51px; */
+    border-left:1px solid #e8e8e8;
+    background:#fff;
+}
+
+.wrap .add-new-h2, .wrap .page-title-action, .tablenav .tablenav-pages a, .tablenav .tablenav-pages a {
+    color: #fff;
+    background: #008000;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    font-weight: normal;
+}
+
+.widefat thead td, .widefat thead th {
+   
+    color: #212121 !important;
+    font-weight:bold;
+    border-bottom:1px solid #e8e8e8;
+}
+
+.widefat thead td, .widefat thead th a {
+    
+     color: #212121 !important;
+    font-weight:bold;
+}
+
+.wp-admin p input[type=checkbox], .wp-admin p input[type=radio], td>input[type=checkbox] {
+    margin-top: -30px !important;
+}
+input[type=checkbox], input[type=radio] {
+    border: 1px solid #007fff !important;
+    background: #fff;
+    color: #555;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 0;
+    height: 18px;
+    margin: -4px 4px 0 0;
+    outline: 0;
+    padding: 0!important;
+    
+    vertical-align: middle !important;
+    width: 18px;
+    min-width: 18px;
+   
+    box-shadow: none;
+ 
+}
+
+#the-list .updates-table tbody td.check-column, .widefat tbody th.check-column, .widefat tfoot td.check-column, .widefat thead td.check-column {
+    padding: 30px 0 0 3px;
+}
+
+.wp-core-ui .button, .wp-core-ui .button-secondary {
+    color: #fff;
+    border-color: transparent;
+    background: #007fff;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    vertical-align: top;
+    border-radius: 25px;
+}
+.wp-core-ui .button:hover, .wp-core-ui .button-secondary:hover {
+    color: #fff;
+    border-color: transparent;
+    background: #008000;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+
+    border-radius: 25px;
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 0px solid #aaa;
+    border-radius: 0px;
+}
+
+input[type=checkbox], input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=radio], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea {
+    border: none;
+    box-shadow: none;
+    background-color: #fff;
+    color: #666;
+    outline: 0;
+    transition: 50ms border-color ease-in-out;
+   
+}
+
+.tablenav {
+    clear: both;
+    height: 45px;
+    margin: 15px 0 50px;
+    vertical-align: middle;
+    background: white;
+    padding: 20px 10px 15px 11px;
+    border-radius: .25em;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 -1px 0 rgba(0,0,0,.015);
+}
+
+.wp-header-end {
+    
+    margin: 50px 0 0;
+}
+
+.subsubsub {
+   
+    
+    font-size: 13px;
+    float: left;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.search-box input[name="s"], .tablenav .search-plugins input[name="s"], .tagsdiv .newtag {
+    float: left;
+    height: 28px;
+    margin: 0 15px 0 0;
+    background: transparent;
+    border-radius: .25em;
+    border: 1px solid #e8e8e8;
+}
+
+.row-actions .id {
+    display:none;
+}
+.row-actions .themify-builder {
+    display:none;
+}
+
+.row-action .hide-if-no-js {
+    display:none;
+}
+.row-actions {
+    color: #666 !important;
+    font-size: 13px;
+    padding: 2px 0 0;
+    position: relative;
+    left: 0;
+}
+
+table.wp-list-table td.column-thumb img {
+  
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: fit-content;
+    border-radius:.25em;
+    border: 1px solid #e8e8e8;
+}
+
+#wpcontent:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 0;
+    display: block;
+    background-color: #fff;
+   border-bottom: 1px solid #e8e8e8;
+}
+
+
+
+.wp-list-table a {
+    
+    color: #666;
+    
+}
+
+.widefat td, .widefat th {
+    color: #666;
+    border-bottom: 1px solid #e8e8e8;
+   vertical-align: middle;
+}
+
+
+
+#adminmenu li.current a.menu-top, #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu, #adminmenu li.wp-has-current-submenu .wp-submenu .wp-submenu-head, .folded #adminmenu li.current.menu-top {
+    color: #fff;
+    background: #007fff;
+}
+ul#adminmenu a.wp-has-current-submenu:after, ul#adminmenu > li.current > a.current:after {
+    border-right-color: #007fff;
+}
+#wpadminbar {
+   
+    padding:9px 0;
+    left:230px;
+    webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+ 
+}
+
+
+
+
+#wpcontent {
+   
+   
+    padding-top: 18px;
+}
+
+
+#menu-management .menu-edit, #menu-settings-column .accordion-container, .comment-ays, .feature-filter, .imgedit-group, .manage-menus, .menu-item-handle, .popular-tags, .stuffbox, .widget-inside, .widget-top, .widgets-holder-wrap, .wp-editor-container, p.popular-tags, table.widefat {
+    border: 0px solid #e5e5e5;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 -1px 0 rgba(0,0,0,.015);
+    border-radius:.25em;
+}
+/*---- developer A ----*/
+
+body * {
+	box-sizing: border-box;
+}
+
+#wpadminbar {
+	height: 50px;
+}
+
+.tablenav {
+    height: auto;
+}
+
+.nav-tab-wrapper {
+    overflow: auto;
+    display: flex;
+}
+.auto-fold #adminmenu {
+    height: auto !important;
+}
+.wrap.awebooking-settings .selectize-control, .wrap.awebooking-settings input.regular-text, .wrap.awebooking-settings select.cmb2_select{
+    max-width: 100%;
+}
+
+/* responsive scroll table */
+
+
+.res-table-wrapper {
+    overflow: auto;
+    display: block;
+    clear: both;
+}
+
+.res-table {
+    /* min-width: 700px; */
+}
+table.res-table {
+    display: table !important;
+    table-layout: auto !important;
+}
+
+table.res-table thead {
+    display: table-header-group !important;
+}
+
+table.res-table tr {
+    display: table-row !important;
+}
+
+table.res-table td {
+    display: table-cell !important;
+    position: relative;
+}
+table.res-table tbody {
+    display: table-row-group;
+}
+table.res-table th {
+    display: table-cell;
+    white-space: nowrap;
+}
+table.res-table .wpas-label {
+    white-space: nowrap;
+}
+table.res-table .row-actions {
+    white-space: nowrap;
+    clear: both
+}
+table.res-table thead td, table.res-table thead th a {
+    white-space: nowrap;
+}
+
+.sorting-indicator {
+    position: absolute;
+    right: 5px;
+}
+
+th.sortable a, th.sorted a {
+    position: relative;
+    padding-right: 25px;
+}
+
+.res-table .toggle-row {
+    /* position: absolute;
+    right: 8px;
+    top: 10px;
+    display: none;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: 0;
+    background: 0 0; */
+    display: none;
+}
+table.res-table.hidden,
+table.res-table thead.hidden,
+table.res-table tr.hidden,
+table.res-table td.hidden,
+table.res-table tbody.hidden,
+table.res-table th.hidden {
+    display : none !important
+}
+td.comment_status P,
+td.booking_check_in ,
+td.booking_date ,
+td.booking_check_out {
+    white-space: nowrap;
+}
+
+table.res-table td.column-thumb img {
+  
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: fit-content;
+    border-radius: 50%;
+    border: 1px solid #e8e8e8;
+    width: 35px;
+    height: auto;
+}
+
+/* end responsive scroll table */
+@media(min-width: 783px){
+    .folded #adminmenu a, .folded #adminmenu li.menu-top a, .folded #adminmenuback a, .folded #adminmenuwrap a {
+        padding-left: 0 !important;
+    }
+    .folded .dispavatar {
+        padding-top: 30px;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .folded .dispavatar img {
+        max-width: 96%;
+        height: auto;
+    }
+
+    .folded .dispname {
+        display: none;
+    }
+
+    .folded .disproles {
+        display: none;
+    }
+
+    .folded .menu-userinfo {
+        margin-bottom: 0;
+    }
+
+    .folded #wpadminbar {
+        left: 36px;
+    }
+}
+@media(min-width: 961px){
+    #wpcontent, #wpfooter {
+        margin-left: 230px;
+    }
+    #adminmenuback, #adminmenuwrap, #adminmenu, #adminmenu .wp-submenu {
+        width: 230px;
+    }
+}
+
+@media(min-width: 1024px){
+		
+	#post-body.columns-2 #postbox-container-1.sticky-enabled {
+		right: 0;
+		margin-right: 20px;
+	}
+	.acf-column-2.sticky-enabled {
+		right: 0;
+		margin-right: 20px;
+    }
+        
+    .bls-wp-post-container {
+        overflow: hidden;
+        width: calc(100% - 320px);
+    }
+
+    .bls-wp-sidebar {
+        overflow: hidden;
+        /* right: 0; */
+        margin-left: auto;
+    }
+
+    #poststuff #post-body.columns-2 {
+        margin: auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        position: relative;
+    }
+    #post-body.columns-2 #postbox-container-1 {
+        margin: auto;
+        float: none;
+    }
+    .wp-editor-expand div.mce-toolbar-grp {
+        top: 0 !important;
+    }
+}
+@media only screen and (max-width: 960px) {
+	.auto-fold #wpadminbar {
+		left: 36px;
+	}
+	.auto-fold .dispname {
+		display: none;
+	}
+	.auto-fold .disproles {
+		display: none;
+	}
+	.dispavatar {
+		padding-top: 60px;
+		padding-bottom: 0;
+	}
+	.auto-fold .menu-userinfo {
+		margin-bottom: 0;
+	}
+	.auto-fold .dispavatar img {
+		max-width: 80%;
+		height: auto;
+	}
+	.auto-fold #adminmenu a.menu-top {
+		padding-left: 0 !important;
+        padding-right: 0 !important;
+        height: auto !important;
+	}
+	
+	#adminmenu .wp-submenu li{
+		padding: 0 10px;
+	}
+}
+
+@media only screen and (max-width: 850px) {
+	#poststuff #post-body.columns-2 #side-sortables {
+		margin-top: 0;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 782px) {
+	.auto-fold #wpadminbar {
+		left: 0px;
+		padding: 0;
+	}
+	.postbox-container {
+		width: 100%;
+	}
+	#wpbody select {
+		max-width: 100%;
+	}
+	#adminmenu {
+		/* padding-top: 37px; */
+	}
+	.wp-responsive-open .dispname {
+		display: block;
+	}
+	.wp-responsive-open .dispname .mtrl-menu-profile-links>i.open-links {
+		position: absolute;
+		top: -1.4em;
+		right: 0;
+		width: 20px;
+		height: 1.4em;
+		display: flex;
+		margin: auto;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		left: unset;
+	}
+	.dispname .mtrl-menu-profile-links .all-links {
+		background: transparent;
+		color: #fff;
+	}
+	.dispname .mtrl-menu-profile-links .all-links a,
+	#adminmenu .mtrl-menu-profile-links .all-links a {
+		color: inherit
+	}
+	#wpcontent:before {
+		height: 120px;
+	}
+	.tablenav.bottom .displaying-num {
+		right: 11px
+	}
+	#adminmenu .wp-submenu li {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+    .post-type-awebooking .wp-list-table  {
+        display: block;
+    }
+
+    .post-type-awebooking  tr.type-awebooking {
+        display: block;
+        width: 100%;
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .post-type-awebooking .widefat .type-awebooking td p {
+        display: block;
+    }
+    .post-type-awebooking .wp-list-table tbody {
+        display: block;
+    }
+
+    .post-type-awebooking .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.check-column) {
+        padding-top: 20px;
+        margin-left: 40px;
+        overflow: hidden;
+    }
+
+    .post-type-awebooking .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before {
+        top: 0;
+    }
+
+    .post-type-awebooking th.sortable a, th.sorted a {
+        padding-right: 20px;
+        position: relative;
+    }
+    .post-type-awebooking  .sorting-indicator {
+        right: 0;
+        position: absolute;
+    }
+    .post-type-awebooking .wp-list-table tbody .check-column {
+        height: 100%;
+        position: absolute;
+    }
+
+    .scheduler__menu {
+        padding: 5px !important;
+    }
+    .scheduler__toolbar.scheduler__datepicker{
+        padding: 0 !important;
+    }
+    .nested-scheduler .scheduler__submenu .scheduler__menu {
+        padding-left: 10px;
+    }
+
+    .scheduler__aside, .scheduler__header-aside {
+        max-width: 230px !important;
+        flex: 0 0 230px !important;
+    }
+
+    .scheduler__header-toolbar {
+        max-width: calc(100% - 230px);
+    }
+    .scheduler__toolbar{
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+        padding: 0;
+    }
+    .scheduler__datepicker>input{
+        /* width: 100%; */
+        max-width: calc(100% - 60px);
+    }
+    .abrs-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .booking-section.booking-section--rooms {
+        overflow: auto;
+    }
+    .booking-section.booking-section--rooms > .awebooking-table{
+        width: 800px;
+    }
+    #adminmenu .wp-not-current-submenu .wp-submenu, 
+    .folded #adminmenu .wp-has-current-submenu .wp-submenu {
+        min-width: 100%;
+	}
+	.tippy-popper {
+		display: none !important;
+    }
+    .auto-fold #adminmenu, .auto-fold #adminmenuback, .auto-fold #adminmenuwrap {
+        width: 230px;
+    }
+    
+    .wp-responsive-open #wpbody {
+        right: -15rem;
+    }
+    .dispavatar {
+        margin-top: 0;
+    }
+    .auto-fold #adminmenu .selected .wp-submenu{
+        margin-top: 0 !important;
+    }
+    .widefat tfoot td input[type=checkbox]:before, 
+    .widefat th input[type=checkbox]:before, 
+    .widefat thead td input[type=checkbox]:before, 
+    input[type=checkbox]:checked:before{
+        font-size: 24px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+	.auto-fold #adminmenu {
+		padding-top: 20px;
+	}
+
+    .wp-list-table td.column-primary {
+        padding-right: 30px;
+    }
+
+    .wp-list-table .toggle-row {
+        width: 25px;
+        height: 25px;
+    }
+
+    .wp-list-table .toggle-row:before {top: 0;left: 0;}
+    .tablenav.bottom{
+        padding-top: 30px;
+        overflow: hidden;
+    }
+
+	.post-type-awebooking .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.check-column) a {
+		word-break: break-word;
+	}
+	.scheduler__aside, .scheduler__header-aside {
+		max-width: 130px !important;
+		flex: 0 0 130px !important;
+	}
+
+	.scheduler__header-toolbar {
+		max-width: calc(100% - 130px);
+	}
+	span.paging-input {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.tablenav-pages .pagination-links .current-page,.tablenav-pages .tablenav-paging-text {
+		padding-top: 3px;
+		padding-bottom: 2px;
+	}
+
+	.post-type-awebooking .wp-list-table td.comment_status p {
+		display: flex;
+		align-items: center;
+	}
+	.post-type-awebooking .wp-list-table td.comment_status p span {
+		position: static !important;
+		margin-left: 10px !important;
+    }	
+    .auto-fold #adminmenu {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    #activity-widget #the-comment-list .dashboard-comment-wrap{
+        padding-left: 10px;
+    }
+    .wc_addons_wrap .addons-column {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 400px){
+
+	.row-actions span {
+		font-size: 0;
+	}
+
+	.row-actions span a {
+		font-size: 13px;
+		padding: 2px;
+	}
+
+}
+
+.bls-update-nag {
+    clear: both;
+}
+
+/*----*/

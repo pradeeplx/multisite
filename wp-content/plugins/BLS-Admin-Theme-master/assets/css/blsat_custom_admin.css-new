@@ -1,0 +1,232 @@
+.wrap .update-nag{
+    max-width: 100%;
+    margin: 0px 20px 10px 2px;
+    width: calc(100% - 37px);
+}
+
+.dispavatar {
+   display: block;
+   text-align: center;
+   padding-top: 20px;
+}
+
+.dispavatar img {
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+   border: 2px solid #eee;
+}
+
+.dispname {
+   display: flex;
+   text-align: center;
+   position: relative;
+   justify-content: center;
+   align-items: center;
+}
+
+.dispname .mtrl-menu-profile-links {}
+
+li#wp-admin-bar-user-info img {
+   display: none;
+}
+
+.dispname .mtrl-menu-profile-links > i.open-links {
+   display: block;
+   position: relative;
+   padding: 0 5px;
+}
+
+.dispname .mtrl-menu-profile-links > i.open-links:before {
+   content: "";
+   display: block;
+   width: 6px;
+   height: 6px;
+   border: 1px solid #fff;
+   border-top-color: transparent;
+   border-right-color: transparent;
+   transform: rotate(-45deg);
+   transition: all 0.3s;
+}
+
+
+
+.disproles {
+   text-align: center;
+   color: #e6e6e6;
+   text-transform: uppercase;
+}
+
+.all-links li {
+   text-align: left;
+}
+.all-links li a{
+   text-decoration: none;
+   color:#000;
+}
+.dispname a {
+   color: #ddd;
+}
+@media (min-width:601px){
+
+.dispname .mtrl-menu-profile-links .all-links {
+   width: auto;
+   display: inline-block !important;
+   position: absolute;
+   top: 1.5em;
+   margin-top: -4px;
+   right: 0;
+   background: #f1f1f1;
+   padding: 10px;
+   border-radius: 5px;
+   box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.18);
+   z-index: 99;
+   opacity: 0;
+   pointer-events: none;
+}
+
+.dispname:hover .mtrl-menu-profile-links .all-links {
+   opacity: 1;
+   pointer-events: initial;
+}
+}
+@media (max-width:600px){
+.dispname{
+   display:block;
+}
+.dispname .mtrl-menu-profile-links{
+   position:relative;
+}
+
+
+.dispname .mtrl-menu-profile-links > i.open-links {
+   position: absolute;
+   top: -1.4em;
+   right: 0;
+   width: 20px;
+   height: 1.4em;
+   display: flex;
+   margin: auto;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   left: unset;
+}
+.dispname .mtrl-menu-profile-links .all-links{
+   background-color: #f1f1f1;
+   color: #000;padding:5px 15px;
+}
+.dispname .mtrl-menu-profile-links .all-links a, 
+#adminmenu .mtrl-menu-profile-links .all-links a{ 
+   color: #23282d;
+}
+.mtrl-menu-profile-links .all-links{
+   display: none;
+}
+}
+.notice{
+   opacity:0;
+}
+.wrap{
+  opacity:0;
+}
+.update-nag{
+	opacity:0;
+}
+.updated{
+	opacity:0;
+}
+.error{
+	display:0;
+}
+#wpwrap{
+   opacity:1;
+}
+.loader {
+  border: 5px solid #f3f3f3;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    border-top: 5px solid #555;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    opacity: 1;
+    position: fixed;
+}
+.loaderParent {
+    position: absolute;
+    top: 45%;
+    left: 48%;
+   opacity:1;
+   z-index: 9999;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {  
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media(min-width: 1024px){
+		
+	#post-body.columns-2 #postbox-container-1.sticky-enabled {
+		right: 0;
+		margin-right: 20px;
+	}
+	.acf-column-2.sticky-enabled {
+		right: 0;
+		margin-right: 20px;
+	}
+}
+
+
+
+
+
+.collapse-on-bls img {
+    width: 25px;
+    height: 25px;
+}
+
+.collapse-on-bls .dispname , .collapse-on-bls .disproles {
+    position:absolute;
+    left: 36px;
+    background: #32373c;
+    width: 197px;
+    padding: 5px;
+    text-align: left;
+    justify-content: left;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .4s;
+} 
+
+
+
+.collapse-on-bls .disproles {
+   top: 44px;
+   padding-bottom: 15px;
+}
+.collapse-on-bls .dispname {
+    top: 15px;
+    padding-top: 15px;
+ }
+
+/* .collapse-on-bls.dispavatar:hover~.dispname, .collapse-on-bls.dispavatar:hover~.disproles { */
+    /* display: block; */
+/* } */
+
+.collapse-on-bls.menu-userinfo:hover .dispname, 
+.collapse-on-bls.menu-userinfo:hover .disproles{
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+

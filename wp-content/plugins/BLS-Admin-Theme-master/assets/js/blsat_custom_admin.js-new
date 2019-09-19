@@ -1,0 +1,182 @@
+function blsat_menu_userinfo_ajax(){
+	jQuery.ajax({
+		type: 'POST',
+		url: cstm_ajax_object.ajaxurl,
+		data: {"action": "blsat_wp_stats_ajax_online_total"},
+		success: function(data)
+		{
+			jQuery("#adminmenuwrap").prepend(data);
+			jQuery("#adminmenu").height(window.innerHeight - 100);
+			var links = jQuery("#wp-admin-bar-user-actions").html();
+			jQuery(".mtrl-menu-profile-links .all-links").html(links);
+			jQuery("#wp-admin-bar-my-account").remove();
+			setTimeout(function(){
+				var collapseCheck=jQuery("#collapse-button").attr("aria-expanded");
+				console.log(collapseCheck,"xxxxxxxx");
+				if(collapseCheck == 'false'){
+					jQuery(".menu-userinfo").addClass("collapse-on-bls");
+				}
+				setUserNewMenu()
+				setToggelUser()
+				
+			}, 1000)
+		}
+	});
+	
+	
+
+
+}
+blsat_menu_userinfo_ajax();
+  
+function setUserNewMenu(){
+	
+	var windowWidth = window.innerWidth;
+
+	if(windowWidth <= 600 ){
+		jQuery(".menu-userinfo").prependTo("#adminmenu")
+	}else{
+		jQuery(".menu-userinfo").prependTo("#adminmenuwrap")
+	}
+//	document.getElementById("wpwrap").style.opacity = "1";
+	//jQuery(".loaderParent").hide();
+	jQuery(window).resize(function(){
+		setUserNewMenu();
+	})
+}
+
+function setToggelUser(){
+	jQuery("a.mtrl-menu-profile-links .open-links").off().click(function(){
+		jQuery(this).next().slideToggle()
+	})
+}
+jQuery(window).ready(function(){
+	//	jQuery("<div class='loaderParent'><div class='loader'></div></div>").insertBefore("#wpwrap");
+});	
+ jQuery(window).load(function(){
+	 jQuery(".wrap").css("opacity",1);
+	if( jQuery("#post-body-content").length > 0 ) {
+		var allNotice=[];
+		jQuery(".update-nag").each(function(){
+		  var singleNag=jQuery(this);
+		  allNotice.push(singleNag);
+		  })
+		jQuery(".updated").each(function(){
+		  var singleUpdate=jQuery(this);
+		  allNotice.push(singleUpdate);
+		  })
+		 jQuery(".error").each(function(){
+		  var singleError=jQuery(this);
+		  allNotice.push(singleError);
+		  })
+		 jQuery("#wpbody .notice").each(function(){
+		   	var singleNotice=jQuery(this);
+			allNotice.push(singleNotice);
+		 })
+		 
+		 var newNoticeDataString=allNotice.toString();
+		 allNotice.map(el => jQuery("#titlediv").prepend(el) )
+	}else{
+		var allNotice=[];
+		jQuery(".update-nag").each(function(){
+		  var singleNag=jQuery(this);
+		  allNotice.push(singleNag);
+		  })
+		jQuery(".updated").each(function(){
+		  var singleUpdate=jQuery(this);
+		  allNotice.push(singleUpdate);
+		  })
+		 jQuery(".error").each(function(){
+		  var singleError=jQuery(this);
+		  allNotice.push(singleError);
+		  })
+		 var newNoticeDataString=allNotice.toString();
+		 jQuery('<div class="bls-update-nag"></div>').insertAfter("#setting-error-tgmpa")
+         allNotice.map(el => jQuery(".bls-update-nag").prepend(el) )
+		 //allNotice.map(el => jQuery("#setting-error-tgmpa").prepend(el) )
+	}
+	//update-nag
+	
+	setInterval(function(){
+		jQuery(".notice").css("opacity",1);
+		jQuery(".updated").css("opacity",1);
+		jQuery(".error").css("opacity",1);
+		jQuery(".update-nag").css("opacity",1);
+	},300);
+	
+});
+
+jQuery( document ).ready(function($) {
+
+setSticky(
+	$('#post-body.columns-2 #postbox-container-1'),
+	$('#wpfooter'),
+	32,
+	1024,
+	$('#poststuff'),
+)
+setSticky(
+	$('.acf-columns-2 .acf-column-2'),
+	$('#wpfooter'),
+	32,
+	1024,
+	$('#acf-field-group-wrap'),
+)
+
+
+
+jQuery("#collapse-button").click(function(){
+	setTimeout(function(){
+	var collapseCheck=jQuery("#collapse-button").attr("aria-expanded");
+    if(collapseCheck == 'false'){
+		jQuery(".menu-userinfo").addClass("collapse-on-bls");
+	}else{
+		jQuery(".menu-userinfo").removeClass("collapse-on-bls");
+	}
+	},100)  
+})
+
+
+
+
+
+});
+
+//sticky side bar code
+function setSticky($sticky, $stickyStopper, stickOffset = 32, minWidth = 0, $wrapper) {
+// var $sticky = $('#post-body.columns-2 #postbox-container-1');
+// var $stickyStopper = $('#wpfooter');
+if (!!$sticky.offset()) { // make sure ".sticky" element exists
+var generalSidebarHeight = $sticky.innerHeight();
+var stickyTop = $sticky.offset().top;
+var wrapperHeight = $wrapper.height()
+var stickyStopperPosition = $stickyStopper.offset().top;
+var stopPoint = stickyStopperPosition - generalSidebarHeight - stickOffset;
+var diff = stopPoint + stickOffset;
+if(wrapperHeight < generalSidebarHeight){
+	$wrapper.css({
+		"min-height": generalSidebarHeight
+	})
+}
+jQuery(window).scroll(function(){ // scroll event
+if(window.innerWidth >= minWidth){
+$sticky.addClass("sticky-enabled")
+var windowTop = jQuery(window).scrollTop(); // returns number
+if (stopPoint < windowTop) {
+$sticky.css({ position: 'absolute', top: diff });
+} else if (stickyTop < windowTop+stickOffset) {
+$sticky.css({ position: 'fixed', top: stickOffset });
+} else {
+$sticky.css({position: 'absolute', top: 'initial'});
+}
+}else{
+$sticky.css({ position: '', top: "" });
+$sticky.remove("sticky-enabled")
+}
+});
+}
+}
+
+
+
+

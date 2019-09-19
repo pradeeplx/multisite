@@ -1,0 +1,24 @@
+2019-09-06T07:25:51+00:00 CRITICAL syntax error, unexpected 'die' (T_EXIT), expecting ',' or ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 14
+
+2019-09-06T07:25:51+00:00 CRITICAL syntax error, unexpected 'die' (T_EXIT), expecting ',' or ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 14
+
+2019-09-06T07:25:53+00:00 CRITICAL syntax error, unexpected 'die' (T_EXIT), expecting ',' or ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 14
+
+2019-09-06T14:40:13+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /home/blsoftware/public_html/havefan/wp-content/plugins/fooevents/classes/tickethelper.php:828
+Stack trace:
+#0 /home/blsoftware/public_html/havefan/wp-includes/class-wp-hook.php(286): FooEvents_Ticket_Helper->fetch_woocommerce_variations('')
+#1 /home/blsoftware/public_html/havefan/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /home/blsoftware/public_html/havefan/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#3 /home/blsoftware/public_html/havefan/wp-admin/admin-ajax.php(173): do_action('wp_ajax_fetch_w...')
+#4 {main}
+  thrown in /home/blsoftware/public_html/havefan/wp-content/plugins/fooevents/classes/tickethelper.php on line 828
+
+2019-09-06T14:41:41+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on boolean in /home/blsoftware/public_html/havefan/wp-content/plugins/fooevents/classes/tickethelper.php:828
+Stack trace:
+#0 /home/blsoftware/public_html/havefan/wp-includes/class-wp-hook.php(286): FooEvents_Ticket_Helper->fetch_woocommerce_variations('')
+#1 /home/blsoftware/public_html/havefan/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /home/blsoftware/public_html/havefan/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#3 /home/blsoftware/public_html/havefan/wp-admin/admin-ajax.php(173): do_action('wp_ajax_fetch_w...')
+#4 {main}
+  thrown in /home/blsoftware/public_html/havefan/wp-content/plugins/fooevents/classes/tickethelper.php on line 828
+

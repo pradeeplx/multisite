@@ -1,0 +1,974 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FooEvents\n"
+"POT-Creation-Date: 2019-05-15 12:05+0200\n"
+"PO-Revision-Date: 2019-05-15 12:05+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: classes/checkouthelper.php:66 classes/tickethelper.php:115
+#: classes/tickethelper.php:489 fooevents.php:633
+msgid "Attendee"
+msgstr ""
+
+#: classes/checkouthelper.php:70
+#, php-format
+msgid "%s %d"
+msgstr ""
+
+#: classes/checkouthelper.php:109
+msgid "First Name"
+msgstr ""
+
+#: classes/checkouthelper.php:128
+msgid "Last Name"
+msgstr ""
+
+#: classes/checkouthelper.php:146
+msgid "Email"
+msgstr ""
+
+#: classes/checkouthelper.php:166
+msgid "Telephone"
+msgstr ""
+
+#: classes/checkouthelper.php:188
+msgid "Company"
+msgstr ""
+
+#: classes/checkouthelper.php:210
+msgid "Designation"
+msgstr ""
+
+#: classes/checkouthelper.php:341
+#, php-format
+msgid "Name is required for %s attendee %d"
+msgstr ""
+
+#: classes/checkouthelper.php:348
+#, php-format
+msgid "Last name is required for %s attendee %d"
+msgstr ""
+
+#: classes/checkouthelper.php:355
+#, php-format
+msgid "Email is required for %s attendee %d"
+msgstr ""
+
+#: classes/checkouthelper.php:363
+#, php-format
+msgid "Telephone is required for %s attendee %d"
+msgstr ""
+
+#: classes/checkouthelper.php:372
+#, php-format
+msgid "Company is required for %s attendee %d"
+msgstr ""
+
+#: classes/checkouthelper.php:381
+#, php-format
+msgid "Designation is required for %s attendee %d"
+msgstr ""
+
+#: classes/checkouthelper.php:389
+#, php-format
+msgid "Email is not valid for %s attendee %d"
+msgstr ""
+
+#: classes/themehelper.php:89
+msgid "Theme already exists."
+msgstr ""
+
+#: classes/themehelper.php:110
+msgid "Theme has been uploaded."
+msgstr ""
+
+#: classes/themehelper.php:114
+msgid "File does not contain valid theme files."
+msgstr ""
+
+#: classes/themehelper.php:129
+msgid "Please upload valid .zip file"
+msgstr ""
+
+#: classes/themehelper.php:161
+msgid "Preview ticket has been sent"
+msgstr ""
+
+#: classes/themehelper.php:186
+msgid "Local Stadium"
+msgstr ""
+
+#: classes/themehelper.php:204
+msgid "Preview Event"
+msgstr ""
+
+#: classes/themehelper.php:210
+msgid "John"
+msgstr ""
+
+#: classes/themehelper.php:211
+msgid "Doe"
+msgstr ""
+
+#: classes/tickethelper.php:54 classes/tickethelper.php:55
+msgid "Ticket"
+msgstr ""
+
+#: classes/tickethelper.php:56
+msgid "Add New"
+msgstr ""
+
+#: classes/tickethelper.php:57
+msgid "Add New Ticket"
+msgstr ""
+
+#: classes/tickethelper.php:58
+msgid "Edit Ticket"
+msgstr ""
+
+#: classes/tickethelper.php:59
+msgid "New Ticket"
+msgstr ""
+
+#: classes/tickethelper.php:60
+msgid "All Tickets"
+msgstr ""
+
+#: classes/tickethelper.php:61
+msgid "View Ticket"
+msgstr ""
+
+#: classes/tickethelper.php:62
+msgid "Search Tickets"
+msgstr ""
+
+#: classes/tickethelper.php:63
+msgid "No tickets found"
+msgstr ""
+
+#: classes/tickethelper.php:64
+msgid "No tickets found in the Trash"
+msgstr ""
+
+#: classes/tickethelper.php:66
+msgid "Tickets"
+msgstr ""
+
+#: classes/tickethelper.php:70
+msgid "Event Tickets"
+msgstr ""
+
+#: classes/tickethelper.php:111
+msgid "Select"
+msgstr ""
+
+#: classes/tickethelper.php:112
+msgid "Title"
+msgstr ""
+
+#: classes/tickethelper.php:113 classes/tickethelper.php:336
+msgid "Event"
+msgstr ""
+
+#: classes/tickethelper.php:114
+msgid "Purchaser"
+msgstr ""
+
+#: classes/tickethelper.php:116
+msgid "Purchase Date"
+msgstr ""
+
+#: classes/tickethelper.php:117
+msgid "Status"
+msgstr ""
+
+#: classes/tickethelper.php:311
+msgid "Ticket Details"
+msgstr ""
+
+#: classes/tickethelper.php:318
+msgid "Ticket Status"
+msgstr ""
+
+#: classes/tickethelper.php:325
+msgid "Resend Ticket"
+msgstr ""
+
+#: classes/tickethelper.php:671 classes/tickethelper.php:672
+msgid "Resend Tickets"
+msgstr ""
+
+#: classes/tickethelper.php:1237 classes/woohelper.php:167
+#: classes/woohelper.php:1191
+msgid "{OrderNumber} Ticket"
+msgstr ""
+
+#: classes/tickethelper.php:1317 classes/woohelper.php:1245
+#: classes/woohelper.php:1304 classes/woohelper.php:1313
+msgid ""
+"Your tickets are attached. Please print them and bring them to the event."
+msgstr ""
+
+#: classes/woohelper.php:58
+msgid ""
+"WooCommerce is required for FooEvents. Please install and activate the "
+"latest version of WooCommerce."
+msgstr ""
+
+#: classes/woohelper.php:70
+msgid " Event"
+msgstr ""
+
+#: classes/woohelper.php:962 templates/eventtab.php:1
+msgid "Event Details"
+msgstr ""
+
+#: classes/woohelper.php:972 templates/eventtabmap.php:1
+msgid "Description"
+msgstr ""
+
+#: classes/woohelper.php:1878
+msgid "No tickets found."
+msgstr ""
+
+#: fooevents.php:82
+msgid ""
+"WooCommerce Events has re-branded to FooEvents. Please disable and remove "
+"the older WooCommerce Events plugin."
+msgstr ""
+
+#: fooevents.php:88 fooevents.php:92 fooevents.php:98 fooevents.php:104
+#, php-format
+msgid "Directory %s is not writeable"
+msgstr ""
+
+#: fooevents.php:112
+msgid ""
+"We have detected that you have overridden FooEvents ticket template files in "
+"your Wordpress theme. Please move these to an overridden ticket theme "
+"directory. Please consult the FooEvents documentation on how to do this."
+msgstr ""
+
+#: fooevents.php:126
+msgid "Purchaser username already used. Ticket was not created"
+msgstr ""
+
+#: fooevents.php:127
+msgid "An error occured. Ticket was not created"
+msgstr ""
+
+#: fooevents.php:128
+msgid "Purchaser email address already used. Ticket was not created"
+msgstr ""
+
+#: fooevents.php:194 fooevents.php:202 fooevents.php:212 fooevents.php:222
+#, php-format
+msgid ""
+"FooEvents failed to create the directory %s please manually create this "
+"directory on your server."
+msgstr ""
+
+#: fooevents.php:259
+msgid "Done"
+msgstr ""
+
+#: fooevents.php:260
+msgid "Today"
+msgstr ""
+
+#: fooevents.php:263
+msgid "Show a different month"
+msgstr ""
+
+#: fooevents.php:445
+msgid "Events"
+msgstr ""
+
+#: fooevents.php:474
+msgid "Event Settings"
+msgstr ""
+
+#: fooevents.php:480
+msgid "FooEvents API key"
+msgstr ""
+
+#: fooevents.php:483
+msgid "API key used for plugin updates"
+msgstr ""
+
+#: fooevents.php:486
+msgid "Envato purchase code"
+msgstr ""
+
+#: fooevents.php:489
+msgid "Purchase key used for plugin updates"
+msgstr ""
+
+#: fooevents.php:492
+msgid "Google Maps API key"
+msgstr ""
+
+#: fooevents.php:495
+msgid "Enable Google Maps on product page."
+msgstr ""
+
+#: fooevents.php:498
+msgid "Global ticket border"
+msgstr ""
+
+#: fooevents.php:504
+msgid "Global ticket button"
+msgstr ""
+
+#: fooevents.php:510
+msgid "Global ticket button text"
+msgstr ""
+
+#: fooevents.php:516
+msgid "Global ticket logo"
+msgstr ""
+
+#: fooevents.php:519
+msgid "URL to ticket logo file"
+msgstr ""
+
+#: fooevents.php:523
+msgid "Global ticket header image"
+msgstr ""
+
+#: fooevents.php:526
+msgid "URL to ticket main header file"
+msgstr ""
+
+#: fooevents.php:530
+msgid "Change add to cart text"
+msgstr ""
+
+#: fooevents.php:533
+msgid "Changes \"Add to cart\" to \"Book ticket\" for event products"
+msgstr ""
+
+#: fooevents.php:537
+msgid "Hide event details tab"
+msgstr ""
+
+#: fooevents.php:540
+msgid "Hides the event details tab on the product page"
+msgstr ""
+
+#: fooevents.php:544
+msgid "Use placeholders on checkout form"
+msgstr ""
+
+#: fooevents.php:547
+msgid ""
+"Displays the form place holders. Useful for themes that don't support form "
+"labels."
+msgstr ""
+
+#: fooevents.php:551
+msgid "Hide unpaid tickets in app"
+msgstr ""
+
+#: fooevents.php:554
+msgid "Hides the unpaid tickets in the iOS and Android apps"
+msgstr ""
+
+#: fooevents.php:558
+msgid "Hide unpaid tickets"
+msgstr ""
+
+#: fooevents.php:561
+msgid "Hides unpaid tickets in ticket admin"
+msgstr ""
+
+#: fooevents.php:564
+msgid "Email copy of ticket to admin"
+msgstr ""
+
+#: fooevents.php:567
+msgid "Sends admin a ticket copy"
+msgstr ""
+
+#: fooevents.php:578
+msgid "Pro App Settings"
+msgstr ""
+
+#: fooevents.php:584
+msgid "App logo"
+msgstr ""
+
+#: fooevents.php:587
+msgid ""
+"URL to the image that will display on the app's sign-in screen. A PNG image "
+"with transparency and a width of around 940px is recommended"
+msgstr ""
+
+#: fooevents.php:591
+msgid "Color"
+msgstr ""
+
+#: fooevents.php:594
+msgid "Used for the app's top navigation bar and sign-in button"
+msgstr ""
+
+#: fooevents.php:598
+msgid "Text color"
+msgstr ""
+
+#: fooevents.php:601
+msgid "Used for the text in the app's top navigation bar and sign-in button"
+msgstr ""
+
+#: fooevents.php:605
+msgid "Background color"
+msgstr ""
+
+#: fooevents.php:608
+msgid "Used for the sign-in screen's background"
+msgstr ""
+
+#: fooevents.php:612
+msgid "Sign-in screen text color"
+msgstr ""
+
+#: fooevents.php:615
+msgid "Used for the text beneath the logo on the app's sign-in screen"
+msgstr ""
+
+#: fooevents.php:627
+msgid "Override Terminology"
+msgstr ""
+
+#: fooevents.php:636 fooevents.php:642 fooevents.php:648 fooevents.php:661
+msgid "Your ticket has been canceled."
+msgstr ""
+
+#: fooevents.php:639 fooevents.php:813
+msgid "Book ticket"
+msgstr ""
+
+#: fooevents.php:645 fooevents.php:1011
+msgid "Day"
+msgstr ""
+
+#: fooevents.php:658
+msgid "Canceled ticket message"
+msgstr ""
+
+#: fooevents.php:690
+msgid "FooEvents Introduction"
+msgstr ""
+
+#: fooevents.php:712
+msgid "Settings"
+msgstr ""
+
+#: fooevents.php:715
+msgid "Introduction"
+msgstr ""
+
+#: templates/addticketmeta.php:4 templates/ticketdetailmeta.php:180
+msgid "Event:"
+msgstr ""
+
+#: templates/addticketmeta.php:17
+msgid "Existing user:"
+msgstr ""
+
+#: templates/addticketmeta.php:26
+msgid "Username:"
+msgstr ""
+
+#: templates/addticketmeta.php:30
+msgid "Display Name:"
+msgstr ""
+
+#: templates/addticketmeta.php:34 templates/addticketmeta.php:47
+msgid "Email address:"
+msgstr ""
+
+#: templates/addticketmeta.php:39
+msgid "First name:"
+msgstr ""
+
+#: templates/addticketmeta.php:43
+msgid "Last name:"
+msgstr ""
+
+#: templates/email/ticket.php:37
+msgid "Ticket Number:"
+msgstr ""
+
+#: templates/email/ticket.php:40
+msgid "Ticket Holder:"
+msgstr ""
+
+#: templates/email/ticket.php:43
+msgid "Telephone Number:"
+msgstr ""
+
+#: templates/email/ticket.php:46 templates/ticketdetailmeta.php:155
+msgid "Company:"
+msgstr ""
+
+#: templates/email/ticket.php:49 templates/ticketdetailmeta.php:165
+msgid "Designation:"
+msgstr ""
+
+#: templates/email/ticket.php:53 templates/ticketdetailmeta.php:22
+msgid "Ticket Type:"
+msgstr ""
+
+#: templates/email/ticket.php:56
+msgid "Price:"
+msgstr ""
+
+#: templates/email/ticket.php:96
+msgid "Location:"
+msgstr ""
+
+#: templates/email/ticket.php:100 templates/eventmetaoptions.php:98
+#: templates/eventtab.php:72
+msgid "Directions:"
+msgstr ""
+
+#: templates/email/ticket.php:105
+msgid "Contact us for questions and concerns:"
+msgstr ""
+
+#: templates/email/ticket.php:114
+msgid "Add to calendar"
+msgstr ""
+
+#: templates/eventmetaoptions.php:5
+msgid "Is this product an event?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:7
+msgid "No"
+msgstr ""
+
+#: templates/eventmetaoptions.php:8
+msgid "Yes"
+msgstr ""
+
+#: templates/eventmetaoptions.php:10
+msgid "Enable this option to add event and ticketing features."
+msgstr ""
+
+#: templates/eventmetaoptions.php:18
+msgid "Start Date:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:20
+msgid ""
+"The date that the event is scheduled to take place. This is used as a label "
+"on the frontend of the website. FooEvents Calendar uses this to display the "
+"event."
+msgstr ""
+
+#: templates/eventmetaoptions.php:26 templates/eventtab.php:48
+#: templates/ticketdetailmeta.php:200
+msgid "Start time:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:44
+msgid "The time that the event is scheduled to start"
+msgstr ""
+
+#: templates/eventmetaoptions.php:49 templates/eventtab.php:54
+#: templates/ticketdetailmeta.php:210
+msgid "End time:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:67
+msgid "The time that the event is scheduled to end"
+msgstr ""
+
+#: templates/eventmetaoptions.php:73 templates/eventtab.php:60
+#: templates/ticketdetailmeta.php:220
+msgid "Venue:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:75
+msgid "The venue where the event will be held"
+msgstr ""
+
+#: templates/eventmetaoptions.php:80 templates/ticketdetailmeta.php:230
+msgid "GPS Coordinates:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:82
+msgid "The venue's GPS coordinates "
+msgstr ""
+
+#: templates/eventmetaoptions.php:87
+msgid "Google Map Coordinates:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:89
+msgid ""
+"The GPS coordinates used to determine the pin position on the Google map "
+"that is displayed on the event page. A valid Google Maps API key is required "
+"under WooCommerce -> Settings -> Events."
+msgstr ""
+
+#: templates/eventmetaoptions.php:92
+msgid "Google Maps API key not set."
+msgstr ""
+
+#: templates/eventmetaoptions.php:92
+msgid "Please set one in your global event options."
+msgstr ""
+
+#: templates/eventmetaoptions.php:105 templates/eventtab.php:78
+#: templates/ticketdetailmeta.php:100 templates/ticketdetailmeta.php:240
+msgid "Phone:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:107
+msgid "Event organizer's landline or mobile phone number"
+msgstr ""
+
+#: templates/eventmetaoptions.php:112 templates/eventtab.php:84
+#: templates/ticketdetailmeta.php:90 templates/ticketdetailmeta.php:135
+#: templates/ticketdetailmeta.php:250
+msgid "Email:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:114
+msgid "Event organizer's email address"
+msgstr ""
+
+#: templates/eventmetaoptions.php:119
+msgid "Ticket Theme:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:130
+msgid "Ticket logo:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:134 templates/eventmetaoptions.php:146
+#: templates/eventmetaoptions.php:449
+msgid "Clear"
+msgstr ""
+
+#: templates/eventmetaoptions.php:136
+msgid "The logo which will be displayed on the ticket in JPG or PNG format"
+msgstr ""
+
+#: templates/eventmetaoptions.php:142
+msgid "Ticket header image:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:148
+msgid ""
+"The main image which will be displayed on the ticket in JPG or PNG format"
+msgstr ""
+
+#: templates/eventmetaoptions.php:153
+msgid "Ticket subject:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:155 templates/eventmetaoptions.php:303
+#: templates/eventmetaoptions.php:308
+msgid ""
+"Subject of ticket emails sent out. Insert {OrderNumber} to dispay order "
+"number."
+msgstr ""
+
+#: templates/eventmetaoptions.php:161
+msgid "Ticket text:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:169
+msgid "Thank you page text:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:177
+msgid "Event details tab text:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:186
+msgid "Ticket border:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:188
+msgid "The color of the ticket border"
+msgstr ""
+
+#: templates/eventmetaoptions.php:195
+msgid "Ticket buttons:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:197
+msgid "The color of the ticket button"
+msgstr ""
+
+#: templates/eventmetaoptions.php:204
+msgid "Ticket button text:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:206
+msgid "The color of the ticket buttons text"
+msgstr ""
+
+#: templates/eventmetaoptions.php:213
+msgid "Include purchaser or attendee details on ticket?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:215
+msgid ""
+"Selecting this will display the purchaser or attendee details on the ticket"
+msgstr ""
+
+#: templates/eventmetaoptions.php:220
+msgid "Display \"Add to calendar\" on ticket?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:222
+msgid ""
+"Selecting this will display an - Add to calendar - button on the ticket. "
+"Clicking this will generate a .ics file"
+msgstr ""
+
+#: templates/eventmetaoptions.php:227
+msgid "Display date and time on ticket?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:229
+msgid ""
+"Selecting this will display the time and date of the event, on the ticket"
+msgstr ""
+
+#: templates/eventmetaoptions.php:234
+msgid "Display barcode on ticket?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:236
+msgid "Selecting this will display the barcode on the ticket"
+msgstr ""
+
+#: templates/eventmetaoptions.php:241
+msgid "Display price on ticket?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:243
+msgid "Selecting this will display the ticket price, on the ticket"
+msgstr ""
+
+#: templates/eventmetaoptions.php:248
+msgid "Capture individual attendee details?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:250
+msgid "Selecting this will add attendee capture fields on the checkout screen"
+msgstr ""
+
+#: templates/eventmetaoptions.php:256
+msgid "Email attendee rather than purchaser?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:258
+msgid "Selecting this will email the ticket to the attendee"
+msgstr ""
+
+#: templates/eventmetaoptions.php:263
+msgid "Capture attendee telephone?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:265
+msgid ""
+"Selecting this will add a telephone number field to the attendee capture "
+"fields on the checkout screen"
+msgstr ""
+
+#: templates/eventmetaoptions.php:270
+msgid "Capture attendee company?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:272
+msgid ""
+"Selecting this will add a company field to the attendee capture fields on "
+"the checkout screen"
+msgstr ""
+
+#: templates/eventmetaoptions.php:277
+msgid "Capture attendee designation?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:279
+msgid ""
+"Selecting this will add a designation field to the attendee capture fields "
+"on the checkout screen"
+msgstr ""
+
+#: templates/eventmetaoptions.php:284
+msgid "Email tickets?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:286
+msgid "Selecting this will email out tickets once the order has been completed"
+msgstr ""
+
+#: templates/eventmetaoptions.php:292
+msgid "Display \"View seating chart\" option on checkout page?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:294
+msgid ""
+"Selecting this will display a - View seating chart - link on the checkout "
+"page. If you enable this option, please make sure that you have set up a "
+"seating chart under the \"Seating\" tab."
+msgstr ""
+
+#: templates/eventmetaoptions.php:299
+msgid "Override terminology"
+msgstr ""
+
+#: templates/eventmetaoptions.php:301
+msgid "Attendee:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:306
+msgid "Book ticket:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:314
+msgid "Export attendees"
+msgstr ""
+
+#: templates/eventmetaoptions.php:317
+msgid "Include unpaid tickets:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:318
+msgid "Include billing details:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:319
+msgid "Download CSV of attendees"
+msgstr ""
+
+#: templates/eventmetaoptions.php:327
+msgid "Attendee badge options"
+msgstr ""
+
+#: templates/eventmetaoptions.php:330
+msgid "Choose a badge size:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:341
+msgid "Choose field 1:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:363
+msgid "Choose field 2:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:385
+msgid "Choose field 3:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:406 templates/eventmetaoptions.php:612
+msgid "Include cut lines?:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:413
+msgid "Print attendee badges"
+msgstr ""
+
+#: templates/eventmetaoptions.php:423 templates/eventmetaoptions.php:619
+msgid "Print tickets"
+msgstr ""
+
+#: templates/eventmetaoptions.php:426
+msgid "Choose a ticket size:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:437
+msgid "Logo options:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:438
+msgid "Don't show the event logo"
+msgstr ""
+
+#: templates/eventmetaoptions.php:440
+msgid "Show current event logo"
+msgstr ""
+
+#: templates/eventmetaoptions.php:442
+msgid "Upload and show new logo"
+msgstr ""
+
+#: templates/eventmetaoptions.php:454
+msgid "Fields to display on the main ticket:"
+msgstr ""
+
+#: templates/eventmetaoptions.php:532
+msgid "Fields to display on the ticket stub:"
+msgstr ""
+
+#: templates/eventtab.php:15
+msgid "Start date:"
+msgstr ""
+
+#: templates/eventtab.php:21
+msgid "End date:"
+msgstr ""
+
+#: templates/eventtab.php:29
+#, php-format
+msgid "%s %d: "
+msgstr ""
+
+#: templates/eventtab.php:41 templates/ticketdetailmeta.php:190
+msgid "Date:"
+msgstr ""
+
+#: templates/eventtab.php:66
+msgid "Coordinates:"
+msgstr ""
+
+#: templates/ticketdetailmeta.php:7
+msgid "Status:"
+msgstr ""
+
+#: templates/ticketdetailmeta.php:60
+msgid "Barcode:"
+msgstr ""
+
+#: templates/ticketdetailmeta.php:74
+msgid "Name:"
+msgstr ""
+
+#: templates/ticketdetailmeta.php:115
+msgid "First Name:"
+msgstr ""
+
+#: templates/ticketdetailmeta.php:125
+msgid "Last Name:"
+msgstr ""
+
+#: templates/ticketdetailmeta.php:145
+msgid "Telephone:"
+msgstr ""
+
+#: templates/ticketresendticketmeta.php:9
+msgid "Resend"
+msgstr ""
+
+#: templates/ticketstatusmeta.php:6
+msgid "Set Status:"
+msgstr ""

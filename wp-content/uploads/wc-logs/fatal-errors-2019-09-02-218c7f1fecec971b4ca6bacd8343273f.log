@@ -1,0 +1,10 @@
+2019-09-02T06:40:24+00:00 CRITICAL require_once(): Failed opening required 'user-sidebar.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 4
+
+2019-09-02T06:40:42+00:00 CRITICAL require_once(): Failed opening required 'user-sidebar.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 4
+
+2019-09-02T07:55:32+00:00 CRITICAL syntax error, unexpected 'require_once' (T_REQUIRE_ONCE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 5
+
+2019-09-02T07:55:33+00:00 CRITICAL syntax error, unexpected 'require_once' (T_REQUIRE_ONCE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 5
+
+2019-09-02T07:55:34+00:00 CRITICAL syntax error, unexpected 'require_once' (T_REQUIRE_ONCE) in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/child-init.php on line 5
+
