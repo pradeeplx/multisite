@@ -1,10 +1,10 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
 
-<div class="um <?php echo esc_attr( $this->get_class( $mode ) ); ?> p-20 um-shadow um-<?php echo esc_attr( $form_id ); ?>">
+<div class="um <?php echo esc_attr( $this->get_class( $mode ) ); ?> p-20  um-<?php echo esc_attr( $form_id ); ?>">
 
 	<div class="um-form">
 	
-		<form method="post" action="">
+		
 			
 			<?php
 			/**
@@ -26,7 +26,7 @@
 			 * }
 			 * ?>
 			 */
-			do_action( 'um_account_page_hidden_fields', $args ); ?>
+			 ?>
           
 			<div class="um-account-meta radius-<?php echo esc_attr( UM()->options()->get( 'profile_photocorner' ) ); ?> uimob340-show uimob500-show">
 
@@ -48,7 +48,7 @@
 
 			</div>
 			
-			<div class="um-account-side uimob340-hide uimob500-hide">
+			<div class="um-account-side um-shadow uimob340-hide uimob500-hide">
 
 				<div class="um-account-meta radius-<?php echo esc_attr( UM()->options()->get( 'profile_photocorner' ) ); ?>">
 
@@ -119,10 +119,11 @@
 					} ?>
 				</ul>
 			</div>
-			
+			<form method="post" action="">
 			<div class="um-account-main" data-current_tab="<?php echo esc_attr( UM()->account()->current_tab ); ?>">
 			
 				<?php
+				do_action( 'um_account_page_hidden_fields', $args );
 				/**
 				 * UM hook
 				 *

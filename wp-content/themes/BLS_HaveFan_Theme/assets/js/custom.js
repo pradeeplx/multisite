@@ -1,4 +1,10 @@
-jQuery(document).ready(function() {
+jQuery(window).load(function() {
+	jQuery(".toggle-sidebar-event").click(function(){
+	    jQuery(".sidebar-toggle-wraper").toggle();
+	    jQuery(".down-sidebar").toggle();
+	    jQuery(".up-sidebar").toggle();
+	    
+	})
 	var scrollLink = jQuery('.scroll');
 
 	// Smooth scrolling
@@ -73,9 +79,7 @@ jQuery(document).ready(function() {
 		var a = jQuery('#passions').html();
 		jQuery(a).insertAfter('.um-form');
 
-		jQuery('.about-passion').prepend(
-			'<div class="um-shadow-about-header"><h6>Passions</h6></div>'
-		);
+		jQuery('.about-passion').prepend('<div class="um-shadow-about-header"><h6>Passions</h6></div>');
 
 		// code for add acf form in accout section
 		var parsnalForm = jQuery('#acfFormParsnal').html();
@@ -91,7 +95,6 @@ jQuery(document).ready(function() {
 		var biographyId = jQuery('#biography_id').html();
 		jQuery('#biographyId').html(biographyId);
 	} else {
-		
 		jQuery('.about-being-a-fan').prepend(
 			'<div class="um-shadow-about-header"><h6>Being a Fan</h6><p class="sub-heading" id="beingAFanId">Sub Heading</p></div>'
 		);
@@ -104,7 +107,6 @@ jQuery(document).ready(function() {
 			'<div class="um-shadow-about-header"><h6>Passions</h6><p class="sub-heading" id="passionId">Sub Heading</p></div>'
 		);
 		jQuery('.about-biography').attr('id', 'biography');
-
 
 		var a = jQuery('#passions').html();
 		jQuery(a).insertAfter('.um-form');
@@ -125,8 +127,6 @@ jQuery(document).ready(function() {
 
 		var passion_id = jQuery('#passion_id').html();
 		jQuery('#passionId').html(passion_id);
-
-		
 	}
 
 	//profiletab
@@ -134,20 +134,109 @@ jQuery(document).ready(function() {
 	// jQuery("#team-names").html(list);
 
 	function setSidebarSticky(sidebar) {
-    console.log(sidebar)
 		var windowWidth = window.innerWidth;
 
 		if (windowWidth > 768) {
-			jQuery(sidebar).stick_in_parent({ 
-        offset_top: 64 + 64 + 20,
-        // recalc_every: true
-      });
+			jQuery(sidebar).stick_in_parent({
+				offset_top: 64 + 64 + 20
+				// recalc_every: true
+			});
 		} else {
-			jQuery(sidebar).trigger("sticky_kit:detach");
-    }
-    jQuery(window).resize(function () {
-      setSidebarSticky(sidebar)
-    })
-  }
-  setSidebarSticky('.side-container')
+			jQuery(sidebar).trigger('sticky_kit:detach');
+		}
+		jQuery(window).resize(function() {
+			setSidebarSticky(sidebar);
+		});
+	}
+	setSidebarSticky('.side-container');
+
+	// sticky sub header code
+
+	var stickyHeaders = (function() {
+		var jQuerywindow = jQuery(window),
+			jQuerystickies, tempWidth;
+		var load = function(stickies) {
+			if (typeof stickies === 'object' && stickies instanceof jQuery && stickies.length > 0) {
+				jQuerystickies = stickies.each(function() {
+					var jQuerythisSticky = jQuery(this).wrap('<div class="followWrap" />');
+					tempWidth = jQuerythisSticky.outerWidth()
+
+					jQuerythisSticky
+						.data('originalPosition', jQuerythisSticky.offset().top)
+						.data('originalHeight', jQuerythisSticky.outerHeight())
+						.parent()
+						.height(jQuerythisSticky.outerHeight());
+				});
+
+				jQuerywindow.off('scroll.stickies').on('scroll.stickies', function() {
+					_whenScrolling(tempWidth);
+				});
+			}
+		};
+
+		var _whenScrolling = function(tempWidth) {
+			
+			jQuerystickies.each(function(i) {
+				var jQuerythisSticky = jQuery(this),
+					jQuerystickyPosition = jQuerythisSticky.data('originalPosition');
+				if (jQuerystickyPosition <= jQuerywindow.scrollTop()) {
+					var jQuerynextSticky = jQuerystickies.eq(i + 1),
+						jQuerynextStickyPosition =
+							jQuerynextSticky.data('originalPosition') - jQuerythisSticky.data('originalHeight');
+
+					jQuerythisSticky.addClass('fixed').css({
+						"width": tempWidth
+					});
+
+					if (jQuerynextSticky.length > 0 && jQuerythisSticky.offset().top >= jQuerynextStickyPosition) {
+						jQuerythisSticky.addClass('absolute').css('top', jQuerynextStickyPosition);
+					}
+				} else {
+					var jQueryprevSticky = jQuerystickies.eq(i - 1);
+
+					jQuerythisSticky.removeClass('fixed').css({
+						"width": ""
+					});;
+
+					if (
+						jQueryprevSticky.length > 0 &&
+						jQuerywindow.scrollTop() <=
+							jQuerythisSticky.data('originalPosition') - jQuerythisSticky.data('originalHeight')
+					) {
+						jQueryprevSticky.removeClass('absolute').removeAttr('style');
+					}
+				}
+			});
+		};
+
+		return {
+			load: load
+		};
+	})();
+
+	jQuery(function() {
+		stickyHeaders.load(jQuery('.followMeBar'));
+	});
+
+	jQuery(function(){
+	    var dtToday = new Date();
+	    
+	    var month = dtToday.getMonth() + 1;
+	    var day = dtToday.getDate();
+	    var year = dtToday.getFullYear();
+	    if(month < 10)
+	        month = '0' + month.toString();
+	    if(day < 10)
+	        day = '0' + day.toString();
+	    
+	    var minDate= year + '-' + month + '-' + day;
+	    // var minDate= day + '-' + month + '-' + year;
+	    
+	    jQuery('#by_date').attr('min', minDate);
+	});
+
+	
 });
+
+
+

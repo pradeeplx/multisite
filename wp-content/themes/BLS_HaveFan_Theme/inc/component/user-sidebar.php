@@ -30,7 +30,7 @@ $twitter=get_user_meta( $profile_id, 'twitter', 'true');
 $instagram=get_user_meta( $profile_id, 'instagram', 'true'); 
 $googleplus=get_user_meta( $profile_id, 'googleplus', 'true'); 
 $country=get_user_meta( $profile_id, 'country', 'true'); 
-$where_i_live =  get_user_meta( $profile_id, 'user-city', 'true');
+$where_i_live =  get_user_meta( $profile_id, 'user-citys', 'true');
 $stadium_position =  get_user_meta( $profile_id, 'stadium-position', 'true');
 
 $passions_position =  get_user_meta( $profile_id, 'passions', 'true');
@@ -569,7 +569,7 @@ $countryCode= [
               ?>
           </ul>
       </div>
-      <div class="language-section">
+      <div class="language-section" id="passion-list">
           <h6>Passions</h6>
           <ul class="passions-details">
             <?php

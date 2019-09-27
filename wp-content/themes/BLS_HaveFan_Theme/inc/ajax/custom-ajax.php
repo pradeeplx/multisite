@@ -12,7 +12,7 @@ function get_upcoming_event(){
 		}
 		$paged = $paged;
 		$user_country = trim(get_user_meta( $profile_id, 'country', true ));
-		$event_city = trim(get_user_meta( $profile_id, 'user-city', true ));
+		$event_city = trim(get_user_meta( $profile_id, 'user-citys', true ));
 	    $event_address_array =  array();
 	    if( $event_city != '' ){
 	        $event_address_array[] = $event_city;
@@ -114,16 +114,7 @@ function get_guest_upcoming_matches(){
 		$curret_date = date('Y-m-d');
 		 
 		$host_avatar = get_avatar_url( $profile_id );
-		$user_country = trim(get_user_meta( $profile_id, 'country', true ));
-    	$event_city = trim(get_user_meta( $profile_id, 'user-city', true ));
-    	$event_address_array =  array();
-	    if( $event_city != '' ){
-	        $event_address_array[] = $event_city;
-	    }
-	    if( $user_country != ''  ){
-	        $event_address_array[] = $user_country;
-	    }
-	    $event_address = implode(' - ', $event_address_array);
+		
 		$guest_arg = array(
         'post_type' => 'product',
         'status' => array('publish'),
@@ -150,6 +141,16 @@ function get_guest_upcoming_matches(){
 			 while ( $the_query->have_posts() ) {
 			 	$the_query->the_post();
 	            $prod_id = get_the_ID();
+	            $user_country = trim(get_post_meta( $prod_id, 'match_country', true ));
+		    	$event_city = trim(get_post_meta( $prod_id, 'match_city', true ));
+		    	$event_address_array =  array();
+			    if( $event_city != '' ){
+			        $event_address_array[] = $event_city;
+			    }
+			    if( $user_country != ''  ){
+			        $event_address_array[] = $user_country;
+			    }
+			    $event_address = implode(' - ', $event_address_array);
 	            $team1 = get_post_meta( $prod_id, 'Team1', true);
 	            $team2 = get_post_meta( $prod_id, 'Team2', true);
 	            $match_country = get_post_meta( $prod_id, 'match_country', true);
@@ -214,9 +215,15 @@ error_reporting(E_ALL);
 			$hv_match_id = sanitize_text_field(trim( $_POST['hv_host_event_id']) );
 			$host_id = trim($_POST['hv_host_id']);
 			$product_img = get_field('banner_image', 'user_'.$host_id);
+			$event_city = trim(get_user_meta( $host_id, 'user-citys', true ));
 			$product_img_url = get_avatar_url( $host_id );
+		 	$default_cover = UM()->options()->get( 'default_cover' );
 			if(isset($product_img['url'])){
 				$product_img = $product_img['url'];
+			}else if( $default_cover && $default_cover['url'] ) {
+				$product_img = $default_cover['url'];
+			}else {
+				$product_img = $product_img_url;
 			}
 			// $host_avatar = get_avatar_url( $host_id );
 			$max_people = get_user_meta( $host_id , "max_people" ,true);
@@ -496,6 +503,7 @@ error_reporting(E_ALL);
 				}
 				$included_service['other_services'] = $ex_temp;
 			} 
+			 
 			$data_array = array(
 				'name' => $title,
 				'type' => 'simple',
@@ -513,6 +521,7 @@ error_reporting(E_ALL);
 			$HaveAPI =  new HaveFun_RestAPI();
 			// $output = $HaveAPI->create_product_wcfm_api( $data_array, $host_id );
 			$output = $HaveAPI->create_product_wchf_api( $data_array, $host_id );
+			 
 			$output = json_decode($output,  true);
 			 
 			if(isset($output['id'])){
@@ -526,12 +535,14 @@ error_reporting(E_ALL);
     			$match_details = $wpdb->get_results("SELECT * FROM $table_name WHERE `match_id` = '".$hv_match_id."' LIMIT 1");
     			update_post_meta( $new_post_id, 'MaximumPeople', $max_people);
     			update_post_meta( $new_post_id, 'MinimumAge', $minimum_age);
+    			update_post_meta( $new_post_id, 'match_city', $event_city );
     			foreach ($match_details as $match ) {
     				update_post_meta( $new_post_id, 'MatchTime', $match->match_time);
     				update_post_meta( $new_post_id, 'MatchDate', $match->match_date);
     				update_post_meta( $new_post_id, 'Team1', $match->match_hometeam_name);
     				update_post_meta( $new_post_id, 'Team2', $match->match_awayteam_name);
     				update_post_meta( $new_post_id, 'match_country', $match->country_name);
+    				
     				update_post_meta( $new_post_id, 'WooCommerceEventsDate', date('F d, Y', strtotime($match->match_date)));
 					update_post_meta( $new_post_id, 'WooCommerceEventsLocation', $match->country_name);
 					$dd_string = $match->match_date .' '.$match->match_time;
@@ -595,7 +606,7 @@ function update_host_product(){
 			wp_update_post( $my_post );
 			$hv_match_id = sanitize_text_field(trim( $_POST['u_hv_host_event_id']) );
 			$host_id = trim($_POST['u_hv_host_id']);
-			 
+			$event_city = trim(get_user_meta( $host_id, 'user-citys', true )); 
 			// $host_avatar = get_avatar_url( $host_id );
 			$max_people = get_user_meta( $host_id , "max_people" ,true);
 	 		$minimum_age = get_user_meta( $host_id , "minimum_age" ,true);
@@ -932,7 +943,7 @@ function update_host_product(){
 				update_post_meta( $product_id, 'WooCommerceEventsEvent', 'Event');
 				update_post_meta( $product_id, '_basic_price', $basic_price);
 				
-				
+				update_post_meta( $product_id, 'match_city', $event_city );
 				
 
 				update_post_meta( $product_id, 'match_id', $hv_match_id);
@@ -1231,5 +1242,162 @@ function get_event_form(){
 	exit();
 }
 add_action( 'wp_ajax_get_event_form', 'get_event_form');
+
+/**
+ * Submit acf user form  data  with ajax for 
+ * @return json
+ *
+ */
+ function havefan_save_acf_usermeta(){
+ 	if(isset($_POST['user_id'], $_POST['action'], $_POST['wp_nonce']) && wp_verify_nonce( $_POST['wp_nonce'], 'hfwc-fro-form-ajax' )) {
+ 		global $wpdb;
+ 		$current_user_id = get_current_user_id();
+ 		$user_id = str_replace('user_', '', trim($_POST['user_id']));
+ 		unset($_POST['user_id']);
+ 		unset($_POST['action']);
+ 		unset($_POST['wp_nonce']);
+ 		if( $current_user_id ==  $user_id ){
+ 			foreach ($_POST as $key => $value) {
+
+ 			 	if( '' !=  trim($key) ){
+ 			 		update_user_meta( $current_user_id, trim($key), $value );
+ 			 	}
+ 			}
+
+ 		echo json_encode(array('status' => 'success', 'message' => 'User data successfully updated'));
+ 		UM()->user()->remove_cache( $current_user_id );
+ 			exit();
+ 		}else{
+ 			echo json_encode(array('status' => 'error', 'message' => 'Invalid User Request.'));
+ 			exit();
+ 		}
+ 	}
+ 	echo json_encode(array('status' => 'error', 'message' => 'Invalid Request.'));		
+ 	exit();
+ }
+ add_action( 'wp_ajax_havefan_save_acf_usermeta', 'havefan_save_acf_usermeta');
+
+
+ /**
+ * Submit acf user form  data  with ajax for 
+ * @return json
+ *
+ */
+ function havefan_event_list(){
+ 	if(isset($_POST['type'], $_POST['wp_nonce']) && wp_verify_nonce( $_POST['wp_nonce'], 'hfwc-fro-form-ajax' )) {
+ 		$type=$_POST['type'];
+ 		if($type=='calendar'){
+           echo do_shortcode('[fooevents_calendar]'); 
+ 		}else{
+           echo do_shortcode('[fooevents_events_list]'); 
+ 		} 
+ 		
+ 	}
+ 	//echo json_encode(array('status' => 'error', 'message' => 'Invalid Request.'));		
+ 	exit();
+ }
+ add_action( 'wp_ajax_havefan_event_list', 'havefan_event_list');
+ add_action( 'wp_ajax_nopriv_havefan_event_list', 'havefan_event_list');
+
+/** Set search form data **/
+ 
+function havefan_set_search_from_field_data(){
+	if(isset($_POST['searchtype'], $_POST['search_country'], $_POST['search_city'], $_POST['search_team']) ) {
+		global $wpdb;
+		$postMeta_table = $wpdb->prefix.'postmeta';
+		$searchtype = trim( $_POST['searchtype']);
+		$search_country = trim( $_POST['search_country'] );
+		$search_city = trim( $_POST['search_city'] );
+		$search_team = trim( $_POST['search_team'] );
+		$city_array = array();
+		$date_array = array();
+		$team_array = array();
+		 
+		  
+			$curret_date = date('Y-m-d');
+		    $meta_query_array = array('relation' => 'AND',array(
+		                'key' => 'MatchDate',
+		                'value' => $curret_date,
+		                'compare' => '>=',
+		                'type' => 'DATE',
+		                ));
+			if( $search_country != ''){
+				$meta_query_array[] = array(
+		                'key' => 'match_country',
+		                'value' => $search_country,
+		                'compare' => '=',
+		                );
+			}
+			if( $search_city != ''){
+				$meta_query_array[] = array(
+		                'key' => 'match_city',
+		                'value' => $search_city,
+		                'compare' => '=',
+		                );
+			}if( $search_team != ''){
+				$meta_query_array[] = array('relation' => 'OR', array(
+		                'key' => 'Team1',
+		                'value' => $search_team,
+		                'compare' => '=',
+		                ), array(
+		                'key' => 'Team2',
+		                'value' => $search_team,
+		                'compare' => '=',
+		                ));
+		 
+			}
+			 
+		    $guest_arg = array(
+		        'post_type' => 'product',
+		        'status' => array('publish'),
+		        'posts_per_page' => -1,
+		        'meta_key' => 'MatchDate',
+		        'orderby'   => 'meta_value',
+		        'order'     => 'ASC',
+		        'meta_query' => $meta_query_array
+		    );
+		   
+		   
+			$the_query = new WP_Query( $guest_arg );
+			
+			if ( $the_query->have_posts() ) {
+				while ( $the_query->have_posts() ) {
+			 		$the_query->the_post();
+	            	$prod_id = get_the_ID();
+					  
+					$city = trim(get_post_meta( $prod_id, 'match_city', true));
+					if( '' != $city ){
+						$city_array[] = $city;
+					}  
+					$date = trim(get_post_meta( $prod_id, 'MatchDate', true));
+					if( '' != $date ){
+						$date_array[] = date('j-n-Y',strtotime(trim($date))) ;
+					}
+					$Team1 = trim(get_post_meta( $prod_id, 'Team1', true));
+					$Team2 = trim(get_post_meta( $prod_id, 'Team2', true));
+					if( '' != $Team1 ){
+						$team_array[] = $Team1;
+					}
+					if( '' != $Team2 ){
+						$team_array[] = $Team2;
+					}
+
+				}
+				wp_reset_postdata();
+				echo json_encode(array('status'=> 'success', 'message' => 'data successfully','cities'=> array_unique($city_array), 'teams'=> array_unique($team_array), 'all_dates' => array_unique($date_array) ));
+				exit();
+			}
+			wp_reset_postdata();
+			echo json_encode(array('status'=> 'success', 'message' => 'data successfully', 'cities' =>$city_array, 'teams'=> $team_array, 'all_dates' => $date_array));
+				exit();
+		 
+		  
+	}
+	echo json_encode(array( 'status' => 'error', 'message' => 'Invalid Request.' ));
+	exit();
+}
+
+ add_action( 'wp_ajax_havefan_set_search_from_field_data', 'havefan_set_search_from_field_data');
+ add_action( 'wp_ajax_nopriv_havefan_set_search_from_field_data', 'havefan_set_search_from_field_data');
 
 ?>

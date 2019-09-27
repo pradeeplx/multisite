@@ -2,38 +2,29 @@
 
 
 
+
+
+
+
 <div class="um <?php echo esc_attr( $this->get_class( $mode ) ); ?> um-<?php echo esc_attr( $form_id ); ?> um-role-<?php echo esc_attr( um_user( 'role' ) ); ?> ">
+
  <div style="display: none">
                             	<p id="being_a_fan_id"><?php the_field('being_a_fan_sub_heading','options');?></p>
                             	<p id="biography_id"><?php the_field('biography_sub_heading','options');?></p>
                             	<p id="passion_id"><?php the_field('pass_sub_heading','options');?></p>
+                            	<p id="passion_id"><?php the_field('pass_sub_heading','options');?></p>
+                            	<?php //um_profile_id()
+                            	$user = get_userdata( um_profile_id());
+								$user_roles = $user->roles;
+								$roleis='';
+								if ( in_array( 'customer', $user_roles, true ) ) {
+                                   $roleis='customer';
+                                }
+ ?>
+                         <input type="hidden" id="page-user-role" value="<?php echo $roleis; ?>" />
                             	
                             </div>
-<?php
 
-if($_GET['um_action']=="edit1"){
-
-							?>
-							<div style="display: none">
-							 <div class="main-container" id="passions">
-								<div class="um-shadow passions_section">
-									<div class="um-shadow-header">
-										<h6>Passions</h6>
-									</div>
-									<div class="um-shadow-body">
-										<div class="gallery-section">
-											<?php echo do_shortcode('[my_acf_user_form field_group="431"]'); ?>
-										</div>
-										
-									</div>
-
-								</div>
-							</div> 
-						</div>
-								<?php
-
-							
-						} ?>
 
 	<div class="um-form wrapper-with-sidebar">
 
@@ -169,8 +160,10 @@ if($_GET['um_action']=="edit1"){
 		 * ?>
 
 		 */
+	
    if(isset($_GET['um_action']) && $_GET['um_action']=='edit'){
    		do_action( 'um_profile_header', $args );
+
    }
  
      
@@ -223,15 +216,7 @@ if($_GET['um_action']=="edit1"){
 		$classes = apply_filters( 'um_profile_navbar_classes', '' ); ?>
 
 <div class="um-profile-container right-section">
-<?php
 
-if(isset($_GET['experienceId'])){
-	$url =  get_permalink( $_GET['experienceId'] ); 
-                  ?>
-                  <a class="um-button um-custom-book-now" href="<?php echo $url ; ?>">Book Now</a>
-                  <?php
-                }
-                ?>
 		<div class="um-profile-navbar <?php echo esc_attr( $classes ); ?>">
 
 			<?php
@@ -507,6 +492,13 @@ if(isset($_GET['experienceId'])){
 					 */
                     if($nav=="main"){
                     	$profile_id = um_profile_id();
+                    	um_fetch_user( $profile_id );
+						//if ( $ultimatemember->user->get_role() == 'customer' ) {
+						//  echo 'matched matched ';
+						//} else {
+						//  echo 'dont matched matched ';
+						//}
+						
                         ?>
                         <style>
                         	.about-information{
@@ -516,21 +508,28 @@ if(isset($_GET['experienceId'])){
                         		display: none;
                         	}
                         </style>
-						<div class="main-container">
-							<div class="subnavigation">
-								<ul class="um-sub-menu">
-									<li class='active' ><a href="#informations" class="scroll">Information</a>
-									</li>
-									<li >
-										<a href="#being-a-fan" class="scroll">Being a Fan</a>
-									</li>
-									<li  >
-										<a href="#biography" class="scroll">Biography</a>
-									</li>
-									<!-- <li  > <a href="#photo-gallery" class="scroll">Photo Gallery</a>
-									</li> -->
-								</ul>
-							</div>
+						<div class="main-container followMeBar">
+							<?php if(esc_attr( um_user( 'role' )) == 'customer'){
+
+							}else{
+								?>
+								<div class="subnavigation">
+									<ul class="um-sub-menu">
+										<li class='active' ><a href="#informations" class="scroll">Information</a>
+										</li>
+										<li >
+											<a href="#being-a-fan" class="scroll">Being a Fan</a>
+										</li>
+										<li  >
+											<a href="#biography" class="scroll">Biography</a>
+										</li>
+										<!-- <li  > <a href="#photo-gallery" class="scroll">Photo Gallery</a>
+										</li> -->
+									</ul>
+								</div>
+								<?php
+							} ?>
+							
 							</div>
 
 							<div class="main-container" id="informations">

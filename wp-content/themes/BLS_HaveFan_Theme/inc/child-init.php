@@ -11,11 +11,12 @@ require_once("classes/havefun_rest_api.php");
 
 
 require_once("component/list-view.php");
-
+//require_once("component/become_a_host.php");
 require_once("classes/havefun_extra_services.php");
 require_once("classes/havefun_extra_option_in_services.php");
 require_once("classes/havefun_role_parmission.php");
 require_once("classes/role_parmission_submit.php");
+
 
  function sendMail($POST="NOT FOUND"){
  //	echo "Please add code for create product";

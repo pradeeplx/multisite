@@ -10,18 +10,10 @@
     
     $curret_date = date('Y-m-d');
     $host_avatar = get_avatar_url( $profile_id );
-    $user_country = trim(get_user_meta( $profile_id, 'country', true ));
-    $event_city = trim(get_user_meta( $profile_id, 'user-city', true ));
-    
-    $host_full_name = get_user_meta( $profile_id, 'first_name', true). ' '.get_user_meta( $profile_id, 'last_name', true);
-    $event_address_array =  array();
-    if( $event_city != '' ){
-        $event_address_array[] = $event_city;
-    }
-    if( $user_country != ''  ){
-        $event_address_array[] = $user_country;
-    }
-    $event_address = implode(' - ', $event_address_array);
+    // $user_country = trim(get_user_meta( $profile_id, 'country', true ));
+    // $event_city = trim(get_user_meta( $profile_id, 'user-citys', true ));
+  $host_full_name = get_user_meta( $profile_id, 'first_name', true). ' '.get_user_meta( $profile_id, 'last_name', true);
+   
     // The Query
     $guest_arg = array(
         'post_type' => 'product',
@@ -54,6 +46,18 @@
         while ( $the_query->have_posts() ) {
             $the_query->the_post();
             $prod_id = get_the_ID();
+            $user_country = trim(get_post_meta( $prod_id, 'match_country', true ));
+            $event_city = trim(get_post_meta( $prod_id, 'match_city', true ));
+            
+          
+            $event_address_array =  array();
+            if( $event_city != '' ){
+                $event_address_array[] = $event_city;
+            }
+            if( $user_country != ''  ){
+                $event_address_array[] = $user_country;
+            }
+            $event_address = implode(' - ', $event_address_array);
             $team1 = get_post_meta( $prod_id, 'Team1', true);
             $team2 = get_post_meta( $prod_id, 'Team2', true);
             $match_country = get_post_meta( $prod_id, 'match_country', true);
@@ -102,7 +106,7 @@
         }
         echo "</div>";
       }else{
-        echo "<p class='no-product-found'>No Product Found.</p>";
+        echo "<p class='no-product-found'>No Match Found.</p>";
       }
 
       /* Restore original Post Data */

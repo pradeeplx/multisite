@@ -380,6 +380,7 @@ class PP_Fields {
 	function profile_form( $type, $key, $slug, $link ) {
 		
 		$profile_id = um_profile_id();
+		
 
 		add_filter( "um_{$key}_form_edit_field", function ( $output, $mode ) use ( $type, $key, $slug, $profile_id ) {
 			$ids     = get_user_meta( $profile_id, $key, true );
@@ -425,6 +426,28 @@ class PP_Fields {
 					
 				  }
 				} 
+				
+			}
+
+			if($key==='user-citys'){
+				//require_once("city.php");
+				//$cityArray= json_decode($cityjson); 
+				//print_r($cityArray);
+				//foreach($cityArray as $keys =>$value ){ 
+					//$i=0;
+				//	foreach ($value as $key ) {
+					//	$replace .= '<option  value="'.$key.'" >'.$key.'</option>';
+					//}
+					// while ($value) {
+					// 	$replace .= '<option  value="'.$value[$i].'" >'.$value[$i].'</option>';
+					// 	$i++;
+					// }
+                 // } 
+				if($ids){
+				  $replace .= '<option selected  value="'.$ids.'" >'.$ids.'</option>';
+				}else{
+					//$replace .= '<option value="Genova" >Genova</option>';
+				}
 				
 			}
 			$output = preg_replace( '%<option .*</option>%', $replace, $output );

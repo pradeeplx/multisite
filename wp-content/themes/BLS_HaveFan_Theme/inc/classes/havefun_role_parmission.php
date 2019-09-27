@@ -70,7 +70,7 @@ function custom_post_type_parmission() {
     * unnecessarily executed. 
     */
      
-    add_action( 'init', 'custom_post_type_parmission', 0 );
+   // add_action( 'init', 'custom_post_type_parmission', 0 );
 
 
 

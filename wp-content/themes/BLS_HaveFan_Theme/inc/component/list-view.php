@@ -10,7 +10,7 @@
     $tabName=$_GET['subtab'];
   }
     ?>
-     <div class="main-container">
+     <div class="main-container followMeBar">
       <div class="subnavigation">
         <ul class="um-sub-menu">
           <li class='active' ><a href="#information">Information</a>
@@ -126,8 +126,8 @@ add_action( 'wp_head', 'add_acf_form_head', 7 );
     
     $options = array(
       'post_id' => 'user_'.$uid,
+      'id' =>'form_id_'.$a['field_group'],
       'field_groups' => array( intval( $a['field_group'] ) ),
-      // 'uploader'      => 'basic',
       'return' => add_query_arg( 'updated', 'true', $redirect_url )
     );
     

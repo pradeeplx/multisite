@@ -5,7 +5,7 @@
     <?php
 
      global $wpdb;
-
+      $user_array = array();
       foreach($events as $event) : ?>
 
         <?php if (is_array($event)) :?>
@@ -13,7 +13,13 @@
         <?php $thumbnail = get_the_post_thumbnail_url($event['post_id']); ?>
         
         <?php
+        
+         
             $postData = get_post($event['post_id']); 
+             if(in_array($postData->post_author, $user_array)){
+             	continue;
+             }
+            $user_array[]=$postData->post_author;
             $userInfo = get_user_by('ID', $postData->post_author);
             $host_product_url = get_permalink($event->ID);
             $host_full_name = '';
@@ -21,25 +27,27 @@
             $event_city = '';
             $host_avatar = '';
             $product_img_url = $thumbnail;
+            $default_cover = UM()->options()->get( 'default_cover' );
+            $event_title = '';
             if( $userInfo ){
                 $host_product_url = site_url('user/'.$userInfo->user_login.'/?profiletab=next-matches&experienceId='.$event['post_id']);
                 $host_full_name = get_user_meta( $userInfo->ID, 'first_name', true). ' '.get_user_meta( $userInfo->ID, 'last_name', true);
                 $user_team = trim(get_user_meta( $userInfo->ID, 'team-names', true ));
-                $event_city = trim(get_user_meta( $userInfo->ID, 'user-city', true ));
+                $event_city = trim(get_user_meta( $userInfo->ID, 'user-citys', true ));
                 $host_avatar = get_avatar_url( $userInfo->ID );
+                $event_title = trim(get_user_meta( $userInfo->ID, 'title', true ));
                 $product_img = get_field('banner_image', 'user_'.$userInfo->ID);
+                
                 if(isset($product_img['url'])){
                    $product_img_url = $product_img['url'];
+                }else if( $default_cover && $default_cover['url'] ) {
+                    $product_img_url = $default_cover['url'];
                 }
             }
-            // $userData = um_fetch_user( $userInfo->ID );
-            // echo "<pre>";
-            // print_r($userData);
+           
             global $woocommerce;
             $product_data = new WC_Product($event['post_id']);
-              
             $thePrice = $product_data->get_price_html();
-            
             $match_country = get_post_meta( $event['post_id'], 'match_country', true);
             $MaximumPeople = get_post_meta( $event['post_id'], 'MaximumPeople', true);
             $MinimumAge = get_post_meta( $event['post_id'], 'MinimumAge', true);
@@ -48,12 +56,11 @@
             $match_id = get_post_meta( $event['post_id'], 'match_id', true);
             $table_name = $wpdb->prefix.'events';
             $matchId= $event['post_id'];
-
             $match_id_detail = $wpdb->get_row("SELECT * FROM $table_name WHERE `match_id` = '".$match_id."' ");
             $default_team1 = '';
             $default_team2 = '';
             $default_trophy = '';
-            
+            //print_r($match_id_detail);
             if(isset( $match_id_detail->league_name ) ){
                 $default_trophy = $match_id_detail->league_name;
             }
@@ -90,19 +97,23 @@
               <div class="event-title-wrap">
                     <div class="event-title-left">
                        <h5 class="event-title" >
-                         <?php //echo esc_html($event['title']); 
-                         echo $event_title = "Football match Experience in ".$event_city;
+                         <?php //echo esc_html($event['title']);
+                         
+                         echo $event_title;
                          ?>
                        </h5>
                     </div>
                     <div class="event-title-right">
                       <span class="event-title" >
-                          <?php echo $user_team;?>
+                          <?php //echo $user_team .' <b> VS </b> '. $default_team2;
+
+                          echo $user_team ;
+                           ?>
                       </span>
                     </div> 
               </div>
               <p><span><strong class="fa fa-users">Max People : </strong><?php echo $MaximumPeople;?></span></p>
-          <p><span><strong class="fa fa-home">Minimum Age : </strong><?php echo $MinimumAge;?></span></p>
+          <p><span><strong class="fa fa-date">Minimum Age : </strong><?php echo $MinimumAge;?></span></p>
           <p><span><strong class="fa fa-marker">Location : </strong><?php echo $match_country;?></span></p>
           <p><span><strong class="fa fa-trophy">League : </strong><?php echo $default_trophy;?></span></p>
           <div class="event-footer-wrap">

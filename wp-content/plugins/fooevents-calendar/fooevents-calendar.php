@@ -2614,41 +2614,71 @@ class FooEvents_Calendar {
     public function get_events($include_cats = array()) {
 
         
+        $searchArray=array();
         $by_destination = '';
-        if(isset($_GET['by_destination'])){
-            $by_destination = ( trim($_GET['by_destination']) != '' ) ? trim($_GET['by_destination']) : '';
+        if(isset($_GET['by_country']) && strlen($_GET['by_country']) ){
+            $by_destination = ( trim($_GET['by_country']) != '' ) ? trim($_GET['by_country']) : '';
+
+            $searchArray[]=array ('key' => 'match_country',
+                                 'value' => $by_destination,
+                                 'compare' => '=');
         }
         $by_checkin = '';
-        if(isset($_GET['by_checkin'])){
-            $by_checkin = ( trim($_GET['by_checkin']) != '' ) ? trim($_GET['by_checkin']) : '';
+        if(isset($_GET['by_date']) && strlen($_GET['by_date'])){
+            $by_checkin = ( trim($_GET['by_date']) != '' ) ? trim($_GET['by_date']) : '';
+            $searchArray[]=array ('key' => 'MatchDate',
+                                 'value' => $by_checkin,
+                                 'compare' => '=');
         }
-        $by_checkout = '';
-        if(isset($_GET['by_checkout'])){
-            $by_checkout = ( trim($_GET['by_checkout']) != '' ) ? trim($_GET['by_checkout']) : '';
+        $by_city = '';
+        if(isset($_GET['by_city']) && strlen($_GET['by_city']) && strtolower(trim($_GET['by_city'])) !='all'){
+            $by_city = ( trim($_GET['by_city']) != '' ) ? trim($_GET['by_city']) : '';
+         
+            $searchArray[]=array ('key' => 'match_city',
+                                 'value' => $by_city,
+                                 'compare' => '=');
         }
+        
+        // $by_checkout = '';
+        // if(isset($_GET['by_checkout'])){
+        //     $by_checkout = ( trim($_GET['by_checkout']) != '' ) ? trim($_GET['by_checkout']) : '';
+        // }
+        $by_team = '';
+        if(isset($_GET['by_team']) && strlen($_GET['by_team'])){
+            $by_team = ( trim($_GET['by_team']) != '' ) ? trim($_GET['by_team']) : '';
+           $searchArray[]=array(
+                            'relation' => 'OR',
+                            array(
+                                'key' => 'Team1',
+                                'value' => $by_team,
+                                'compare' => '=',
+                            ),
+                            array(
+                                'key' => 'Team2',
+                                'value' => $by_team,
+                                'compare' => '=',
+                            )
+                        );
+        }
+
+        $searchArray[]=array ('key' => 'WooCommerceEventsEvent',
+
+                                'value' => 'Event',
+
+                                'compare' => '=',
+
+                                );
         // var_dump($by_destination);
         //  var_dump($by_checkin);
-        //   var_dump($by_checkout);
+         //  var_dump($searchArray);
+         //  echo '----------'.strlen($_GET['by_team']);
         $args = array (
 
         'post_type' => 'product',
 
         'posts_per_page' => -1,
 
-        'meta_query' => array (
-
-            array (
-
-                'key' => 'WooCommerceEventsEvent',
-
-                'value' => 'Event',
-
-                'compare' => '=',
-
-                ),
-            
-
-            ),
+        'meta_query' => array ($searchArray),
 
         );
 

@@ -1,0 +1,40 @@
+2019-09-23T06:46:33+00:00 CRITICAL syntax error, unexpected 'add_action' (T_STRING), expecting ',' or ')' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/functions.php on line 33
+
+2019-09-23T06:46:33+00:00 CRITICAL syntax error, unexpected 'add_action' (T_STRING), expecting ',' or ')' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/functions.php on line 33
+
+2019-09-23T06:46:33+00:00 CRITICAL syntax error, unexpected 'add_action' (T_STRING), expecting ',' or ')' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/functions.php on line 33
+
+2019-09-23T06:46:33+00:00 CRITICAL syntax error, unexpected 'add_action' (T_STRING), expecting ',' or ')' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/functions.php on line 33
+
+2019-09-23T06:46:47+00:00 CRITICAL syntax error, unexpected 'add_action' (T_STRING), expecting ',' or ')' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/functions.php on line 33
+
+2019-09-23T07:38:44+00:00 CRITICAL syntax error, unexpected end of file in /home/blsoftware/public_html/havefan/wp-content/plugins/ultimate-member/includes/core/um-actions-profile.php on line 1026
+
+2019-09-23T09:12:23+00:00 CRITICAL syntax error, unexpected '}', expecting ',' or ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/templates/front-event-list.php on line 36
+
+2019-09-23T10:01:54+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T10:01:55+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T10:01:57+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T10:01:57+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T10:01:59+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T10:02:04+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T10:02:07+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T10:02:09+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T10:02:10+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T10:02:11+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T10:02:19+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T10:02:25+00:00 CRITICAL syntax error, unexpected ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/inc/classes/havefun_extra_option_in_services.php on line 103
+
+2019-09-23T11:01:03+00:00 CRITICAL syntax error, unexpected '}', expecting ',' or ';' in /home/blsoftware/public_html/havefan/wp-content/themes/BLS_HaveFan_Theme/templates/front-event-calendar.php on line 35
+

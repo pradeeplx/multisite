@@ -669,27 +669,35 @@ function um_profile_header_cover_area( $args ) {
                       if($_GET['profiletab']=='experience' || $_GET['profiletab'] == 'next-matches'){
                       	   $profile_id = um_profile_id();
                       	   $img=get_field('banner_image', 'user_'.$profile_id); 
-                           if ( UM()->mobile()->isMobile() ) {
-							if ( UM()->mobile()->isTablet() ) {
+                      	   
+                      	  // print_r($img);
+                      	   if(isset( $img['url'] ) ){
+                      	   		if ( UM()->mobile()->isMobile() ) {
+									if ( UM()->mobile()->isTablet() ) {
 
-								?>
+										?>
 
-								<img src="" alt="bls_admin_xzk4">
-								<?php
-							} else {
-								?>
+										<img src="<?php echo $img['url']; ?>" alt="bls_admin_xzk4">
+										<?php
+									} else {
+										?>
 
-								<img src="" alt="bls_admin_xzk4">
-								<?php
-							}
-						  } else {
-						  	 
-						  	?>
+										<img src="<?php echo $img['url']; ?>" alt="bls_admin_xzk4">
+										<?php
+									}
+								  } else {
+								  	 
+								  	?>
 
-								<img src="<?php echo $img['url']; ?>" alt="bls_admin_xzk4">
-								<?php
-							//echo um_user( 'cover_photo', 1000 );
-						}
+										<img src="<?php echo $img['url']; ?>" alt="bls_admin_xzk4">
+										<?php
+								}
+                      	   }else{
+                      	   	$default_cover = $default_cover['url'];
+
+					echo '<img src="' . esc_url( $default_cover ) . '" alt="" />';
+                      	   }
+                           
                       }else{
                       	 if ( UM()->mobile()->isMobile() ) {
 							if ( UM()->mobile()->isTablet() ) {
@@ -710,10 +718,10 @@ function um_profile_header_cover_area( $args ) {
 					echo '<img src="' . esc_url( $default_cover ) . '" alt="" />';
 
 				} else {
-
+//print_r($default_cover);
 					if ( ! isset( UM()->user()->cannot_edit ) ) { ?>
-
-						<a href="javascript:void(0);" class="um-cover-add"><span class="um-cover-add-i"><i
+                        
+						<a href="javascript:void(0);" class="um-cover-add testing-cover"><span class="um-cover-add-i"><i
 									class="um-icon-plus um-tip-n"
 									title="<?php esc_attr_e( 'Upload a cover photo', 'ultimate-member' ); ?>"></i></span></a>
 

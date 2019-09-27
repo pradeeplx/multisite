@@ -5,7 +5,7 @@
       global $wpdb;
     $table_name = $wpdb->prefix ."events";
     $user_country = trim(get_user_meta( $profile_id, 'country', true ));
-    $event_city = trim(get_user_meta( $profile_id, 'user-city', true ));
+    $event_city = trim(get_user_meta( $profile_id, 'user-citys', true ));
     $event_address_array =  array();
     if( $event_city != '' ){
         $event_address_array[] = $event_city;
@@ -119,7 +119,7 @@
         }
         echo "</div>";
       }else{
-         echo "<p class='no-product-found'>No Product Found.</p>";
+         echo "<p class='no-product-found'>No Match Found.</p>";
       }
     ?>
      
