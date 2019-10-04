@@ -1,7 +1,7 @@
 === WP phpMyAdmin ===
 
 Tags			 : phpmyadmin,phpminiadmin,mysql,sql,database,manager,management,browser
-Stable tag		 : 2.42
+Stable tag		 : 2.91
 WordPress URI	 : https://wordpress.org/plugins/wp-phpmyadmin-extension/
 Plugin URI		 : https://puvox.software/wordpress/
 Contributors	 : puvoxsoftware,tazotodua

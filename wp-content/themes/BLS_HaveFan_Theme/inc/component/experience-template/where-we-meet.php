@@ -9,8 +9,10 @@
 			<?php } ?>
 	 		<?php 
 				if($profile_id==get_current_user_id()){
+					if ($_GET['um_info_action']=='edit') { 
 				  ?>
 			 <span title="<?php the_field('where_we_meet_toll_tip_text', 'option'); ?>" class="tooltip">?</span>
+			<?php }?>
 	 		<a href="?profiletab=experience&subtab=where-we-meet&um_info_action=edit" class="pull-right edit-profile-btn"><?php the_field('where_we_meet_edit_button_text', 'option'); ?></a>
 	 	<?php } ?>
 	 	</div>
@@ -30,9 +32,9 @@
 	 				 	<p class="where-we-meet-details">
 	 				 		<?php echo  get_user_meta( $profile_id , "city-where-to-meet" ,true); ?>
 	 				 	</p>
-	 				 	<p class="where-we-meet-details">
-	 				 		<?php echo  get_user_meta( $profile_id , "country-where-we-meet" ,true); ?>
-	 				 	</p>
+	 				 	<!-- <p class="where-we-meet-details">
+	 				 		<?php //echo  get_user_meta( $profile_id , "country-where-we-meet" ,true); ?>
+	 				 	</p> -->
 	 				 </div>
 	 			</div>
 	 			<div class="single-included-services">
@@ -43,6 +45,18 @@
 	 				 	<h6 class="where-we-meet-details">Address</h6>
 	 				 	<p class="where-we-meet-details">
 	 				 		<?php echo  get_user_meta( $profile_id , "address-where-to-meet" ,true); ?>
+	 				 	</p>
+	 				 </div>
+	 			</div>
+	 			<div class="single-included-services">
+	 				 <div class="single-icon">
+	 				 	<i class="fa fa-city"></i>
+	 				 </div>
+	 				 <div class="single-details">
+	 				 	<h6>Country</h6>
+	 				 	 
+	 				 	<p class="where-we-meet-details">
+	 				 		<?php echo  get_user_meta( $profile_id , "country-where-we-meet" ,true); ?>
 	 				 	</p>
 	 				 </div>
 	 			</div>
@@ -71,3 +85,4 @@
       </div>
       
 </div>
+ 

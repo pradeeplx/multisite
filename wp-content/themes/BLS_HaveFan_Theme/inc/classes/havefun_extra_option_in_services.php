@@ -1,4 +1,37 @@
-<?php 
+<?php
+/**
+ * After add to cart product redirect to checkout page.
+ *
+ */
+function havefan_redirect_checkout_add_cart( $url ) {
+   $url = get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); 
+   return $url;
+}
+ 
+add_filter( 'woocommerce_add_to_cart_redirect', 'havefan_redirect_checkout_add_cart' );
+
+/**
+ * Change 'Add to cart' text button
+ *
+ */
+function woo_havefan_single_add_to_cart_text() {
+    return __( 'Book Now', 'woocommerce' );
+}
+add_filter( 'add_to_cart_text', 'woo_havefan_single_add_to_cart_text' );               
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_havefan_single_add_to_cart_text' );
+
+/**
+ * Redirect shop to event page
+ *
+ */
+function havefan_shop_page_redirect() {
+    if( is_shop() ){
+        wp_redirect( home_url( 'event/?view=list' ) );
+        exit();
+    }
+}
+add_action( 'template_redirect', 'havefan_shop_page_redirect' );
+
 /* add new tab called "mytab" */
 
 add_filter('um_account_page_default_tabs_hook', 'my_custom_tab_in_um', 10 );
@@ -195,6 +228,71 @@ function default_hf_search_form( $atts ){
 		sort($available_city_array);
 		sort($available_date_array);
 		sort($available_team_list);
+
+		//** get all list from the current date
+		$curret_date = date('Y-m-d');
+		$meta_query_array1 = array('relation' => 'AND',array(
+            'key' => 'MatchDate',
+            'value' => $curret_date,
+            'compare' => '>=',
+            'type' => 'DATE',
+            )
+		);
+		$guest_arg1 = array(
+	        'post_type' => 'product',
+	        'status' => array('publish'),
+	        'posts_per_page' => -1,
+	        'meta_key' => 'MatchDate',
+	        'orderby'   => 'meta_value',
+	        'order'     => 'ASC',
+	        'meta_query' => $meta_query_array1
+	    );
+	    
+	    
+		$the_query1 = new WP_Query( $guest_arg1 );
+		$full_country_array = array();
+		$full_city_array = array();
+		$full_teams_array = array();
+		$full_dates_array = array();
+		if ( $the_query1->have_posts() ) {
+			while ( $the_query1->have_posts() ) {
+		 	$the_query1->the_post();
+            $prod_id1 = get_the_ID();
+
+
+            	$country = trim(get_post_meta( $prod_id1, 'match_country', true));
+				if( '' != $country ){
+					$full_country_array[] = $country;
+				}
+				$city = trim(get_post_meta( $prod_id1, 'match_city', true));
+				if( '' != $city ){
+					$full_city_array[] = $city;
+				}
+				$date = trim(get_post_meta( $prod_id1, 'MatchDate', true));
+				if( '' != $date ){
+					$full_dates_array[] = date('j-n-Y',strtotime(trim($date))) ;
+				}
+				$Team1 = trim(get_post_meta( $prod_id1, 'Team1', true));
+				$Team2 = trim(get_post_meta( $prod_id1, 'Team2', true));
+				if( '' != $Team1 ){
+					$full_teams_array[] = $Team1;
+				}
+				if( '' != $Team2 ){
+					$full_teams_array[] = $Team2;
+				}
+				
+			}
+		}
+		wp_reset_postdata();
+		$full_country_list = array_unique($full_country_array);
+		$full_city_list = array_unique($full_city_array);
+		$full_teams_list = array_unique($full_teams_array);
+		$full_dates_list = array_unique($full_dates_array);
+
+		sort($full_country_list);
+		sort($full_city_list);
+		sort($full_teams_list);
+		sort($full_dates_list);
 				 
 	?>
 	 <div class="<?php if($atts['layout']=='horizontal'){ echo 'default-search-box'; } ?>  um-shadow <?php echo $form_class;?>">
@@ -311,12 +409,20 @@ function default_hf_search_form( $atts ){
 				 
 		 		<select name="by_city" id="by_city" class="um-form-field valid not-required um-s1">
 					<option value="">All</option>
-					<?php
-						 foreach ($available_city_array as $ev_city) {
+					<?php 
+					if(isset($_GET['by_country']) && '' == trim($_GET['by_country'])){
+		 				foreach ($full_city_list as $ev_city) {
 							$seleced = ( $selected_city == trim($ev_city)) ? 'selected' : '';
-							 echo '<option '. $seleced.' value="'.trim($ev_city).'">'.$ev_city.'</option>';
+						 	echo '<option '. $seleced.' value="'.trim($ev_city).'">'.$ev_city.'</option>';
 						}
-						?>
+					}else{
+						foreach ($available_city_array as $ev_city) {
+							$seleced = ( $selected_city == trim($ev_city)) ? 'selected' : '';
+						 	echo '<option '. $seleced.' value="'.trim($ev_city).'">'.$ev_city.'</option>';
+						}
+					}
+					 
+				?>
 				</select> 
 			</div>
 			<div class="sidebar-search-form">
@@ -324,12 +430,19 @@ function default_hf_search_form( $atts ){
 				<select name="by_team" id="by_team" class="um-form-field um-s1">
 				   <option value="">All</option>
 				<?php 
-	 				foreach ($available_team_list as $ev_team) {
+				if(isset($_GET['by_city'], $_GET['by_country']) && '' == trim($_GET['by_city']) && '' == trim($_GET['by_country'])){
+		 				foreach ($full_teams_list as $ev_team) {
 						$seleced = ( $selected_team == trim($ev_team)) ? 'selected' : '';
-						echo '<option '. $seleced.' value="'.trim($ev_team).'">'.trim($ev_team).'</option>';
+						echo '<option '. $seleced.' value="'.trim($ev_team).'" class="12">'.trim($ev_team).'</option>';
 					}
- 				
-					?>
+				}else{
+					foreach ($available_team_list as $ev_team) {
+						$seleced = ( $selected_team == trim($ev_team)) ? 'selected' : '';
+						echo '<option '. $seleced.' value="'.trim($ev_team).'" class="13">'.trim($ev_team).'</option>';
+					}
+				}
+				
+				?>
 			   </select>
 			</div>
 
@@ -522,4 +635,19 @@ function um_become_host_form( ){
 	return $output;
 }
 add_shortcode('um_become_host_form', 'um_become_host_form');
+add_filter( 'woocommerce_get_availability', 'havefan_wcs_custom_get_availability', 1, 2);
+function havefan_wcs_custom_get_availability( $availability, $_product ) {
+    
+    // Change In Stock Text
+    
+    if ( $_product->is_in_stock() ) {
+    	$stock_message = 'Max People: ' .$_product->get_stock_quantity();
+        $availability['availability'] = __($stock_message, 'woocommerce');
+    }
+    // Change Out of Stock Text
+    if ( ! $_product->is_in_stock() ) {
+        $availability['availability'] = __('Sold Out', 'woocommerce');
+    }
+    return $availability;
+}
 ?>

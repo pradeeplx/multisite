@@ -35,6 +35,15 @@ $stadium_position =  get_user_meta( $profile_id, 'stadium-position', 'true');
 
 $passions_position =  get_user_meta( $profile_id, 'passions', 'true');
 $team_name=   get_user_meta( $profile_id, 'team-names', 'true');
+$user = get_userdata( um_profile_id());
+$user_roles = $user->roles;
+$roleis='';
+  if ( in_array( 'customer', $user_roles, true ) ) {
+     $roleis='customer';
+}
+ 
+
+
 // for langugas
 $languages=get_user_meta( $profile_id, 'languages', 'true'); 
  $isoLangs = [
@@ -475,9 +484,16 @@ $countryCode= [
           </p>
           <?php 
             if(get_current_user_id()==$profile_id ){
+             
                ?>
 			   
-                <a href="?um_action=edit" class="edit-profile-btn"><span title="<?php the_field('about_toll_tip', 'option'); ?>"class="tooltip" >?</span>
+                <a href="?um_action=edit" class="edit-profile-btn">
+                <?php 
+                if ($_GET['um_action']=='edit') {
+                ?>
+                  <span title="<?php the_field('about_toll_tip', 'option'); ?>"class="tooltip" >?</span>
+                <?php }?>
+
 				Edit Profile</a>
 				<?php
 			   
@@ -521,11 +537,11 @@ $countryCode= [
    	  	 	</ul>
    	  	 </div> -->
    	  </div>
-        <div class="team-section">
+      <?php  if($roleis !='customer'){ ?>
+      <div class="team-section">
           <h6>Team</h6>
           
           <p>
-<!--              <img src="http://aux2.iconspalace.com/uploads/spain-national-team-logo-logo-icon-256.png" class="um-team-logo-left"> -->
              <span>
                 <?php echo $team_name; ?>
              </span>
@@ -534,10 +550,7 @@ $countryCode= [
       <div class="stadium-section">
           <h6>Where I live</h6>
           <ul class="location-details">
-             <!-- <li><i class="fa fa-home color-first"></i>Stadium : <span><?php foreach ($stadium_position as $key => $value) {
-                 echo $value . " , ";
-             } ?></span></li> -->
-             <li><i class="fa fa-users color-second"></i>City : <span><?php echo $where_i_live ?></span></li>
+            <li><i class="fa fa-users color-second"></i>City : <span><?php echo $where_i_live ?></span></li>
              <li><i class="fa fa-birthday-cake color-third"></i>Country : <span><?php echo $country; ?></span></li>
 
           </ul>
@@ -583,6 +596,7 @@ $countryCode= [
             ?>
           </ul>
       </div>
+    <?php } ?>
       
    </div>
 

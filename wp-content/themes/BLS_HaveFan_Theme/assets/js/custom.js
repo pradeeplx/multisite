@@ -7,17 +7,32 @@ jQuery(window).load(function() {
 	})
 	var scrollLink = jQuery('.scroll');
 
+
+
+
+
 	// Smooth scrolling
 	scrollLink.click(function(e) {
 		e.preventDefault();
+		 
 		jQuery('.um-sub-menu li').removeClass('active');
 		jQuery(this).parent().addClass('active');
+		var tempTop  = 150;
+		if( jQuery( window ).width() > 776) {
+			if(jQuery('div.um-profile-nav-experience').hasClass('active')){
+				 tempTop = 200;
+			}
+			
+		}
+	
 		jQuery('body,html').animate(
 			{
-				scrollTop: jQuery(this.hash).offset().top
+
+				scrollTop: jQuery(this.hash).offset().top-tempTop
 			},
 			1000
 		);
+		
 	});
 
 	var scrollAccount = jQuery('.scrollAccount');
@@ -29,7 +44,7 @@ jQuery(window).load(function() {
 		jQuery(this).parent().addClass('active');
 		jQuery('body,html').animate(
 			{
-				scrollTop: jQuery(this.hash).offset().top
+				scrollTop: jQuery(this.hash).offset().top-140
 			},
 			1000
 		);
@@ -47,8 +62,9 @@ jQuery(window).load(function() {
 		// })
 	});
 	// code for about information header
-	//jQuery(".about-information").prepend('<div class="um-shadow-about-header"><h6>Information</h6></div>');
-	// jQuery('.about-information').attr('id', 'information');
+	var information_id=jQuery("#information_id").html();
+	jQuery(".about-information").prepend('<div class="um-shadow-about-header"><h6>Information</h6><p class="sub-heading" id="informationId">'+ information_id +'</p></div>');
+	 jQuery('.about-information').attr('id', 'information');
 
 	function getQueryParams(qs) {
 		qs = qs.split('+').join(' ');
@@ -237,6 +253,7 @@ jQuery(window).load(function() {
 
 	
 });
+
 
 
 

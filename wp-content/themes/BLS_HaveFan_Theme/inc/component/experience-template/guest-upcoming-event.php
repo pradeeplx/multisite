@@ -89,7 +89,7 @@
               </div>    
           <div class="event-list">
             <div class="event-list-mid">
-            <p><span><strong class="fa fa-marker">Location : </strong><?php echo $event_address;?></span></p>
+            <p><span><strong class="fa fa-users">Max People : </strong><?php echo $product_data->get_stock_quantity();?></span></p>
             <p><span><strong class="fa fa-date">Date &amp; Time : </strong><?php echo date('d F Y', strtotime($MatchDate)). ' '. $MatchTime;?></span></p>
             </div>
             <div class='event-footer-wrap'>

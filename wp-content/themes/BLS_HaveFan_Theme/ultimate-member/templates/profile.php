@@ -11,7 +11,7 @@
  <div style="display: none">
                             	<p id="being_a_fan_id"><?php the_field('being_a_fan_sub_heading','options');?></p>
                             	<p id="biography_id"><?php the_field('biography_sub_heading','options');?></p>
-                            	<p id="passion_id"><?php the_field('pass_sub_heading','options');?></p>
+                            	<p id="information_id"><?php the_field('about_information_heading','options');?></p>
                             	<p id="passion_id"><?php the_field('pass_sub_heading','options');?></p>
                             	<?php //um_profile_id()
                             	$user = get_userdata( um_profile_id());
@@ -445,7 +445,7 @@
 
 
 
-				<div class="um-profile-body um-view-section  <?php echo esc_attr( $nav . ' ' . $nav . '-' . $subnav ); ?>">
+				<div class="hide-havefan-field um-profile-body um-view-section  <?php echo esc_attr( $nav . ' ' . $nav . '-' . $subnav ); ?>">
 
 
 
@@ -535,12 +535,112 @@
 							<div class="main-container" id="informations">
 							   <div class="um-shadow">
 								 	<div class="um-shadow-header">
-										 <h6>Information</h6>
+										 <h6>Information </h6>
 										 <?php
 													if($_GET['um_action']=="edit1"){ ?>
 										 <p class="sub-heading"><?php the_field('about_information_heading','options');?></p>
 													<?php } ?>
 								 </div>
+								 <?php  if($roleis=='customer'){ 
+								 	?>
+								 	<div class="um-shadow-body">
+								 		<div class="included-services">
+								 			<div class="single-information-section-2">
+								 				 <div class="single-icon">
+								 				 	<i class="um-icon-android-boat"></i>
+								 				 </div>
+								 				 <div class="single-details">
+								 				 	<h6 class="where-we-meet-details">Team</h6>
+								 				 	<p class="where-we-meet-details">
+								 				 		<?php echo  get_user_meta( $profile_id , "team-names" ,true); ?>
+								 				 	</p>
+								 				 </div>
+								 			</div>
+								 			<div class="single-information-section-2">
+								 				 <div class="single-icon">
+								 				 	<i class="fa fa-map-marker "></i>
+								 				 </div>
+								 				 <div class="single-details">
+								 				 	<h6 class="where-we-meet-details">Where I Live</h6>
+								 				 	<p class="where-we-meet-details">
+								 				 		<?php echo  get_user_meta( $profile_id , "street_address" ,true) .' '. get_user_meta( $profile_id , "city" ,true); ?>
+								 				 	</p>
+								 				 	<p class="where-we-meet-details">
+								 				 		<?php echo  get_user_meta( $profile_id , "user-citys" ,true); ?> , <?php echo  get_user_meta( $profile_id , "country" ,true); ?>
+								 				 	</p>
+								 				 	
+								 				 </div>
+								 			</div>
+								 			
+								 			
+								 			
+								 			<div class="single-information-section-2">
+								 				 <div class="single-icon">
+								 				 	<i class="um-icon-headphone"></i>
+								 				 </div>
+								 				 <div class="single-details">
+								 				 	<h6 class="where-we-meet-details">Spoken Languages</h6>
+								 				 	<ul class="location-details">
+								 				 	<?php
+								 				 	require_once("lan.php");
+								 				 	
+								 				 	$languages=get_user_meta( $profile_id, 'languages', 'true'); 
+									                   foreach ($languages as $key => $value) {
+									                     foreach ($isoLangs as $key2 => $value2) {
+									                        if($value2==$value){
+									                          foreach ($countryCode as $key3 => $value3) {
+									                             if($key3==$key2){
+									                              ?>
+									                          <li>
+									                           <p><img src="https://www.geonames.org/flags/x/<?php echo strtolower($value3); ?>.gif" class="flag-image">
+									                             <span class="te-right"><?php echo $value; ?></span>
+									                          </p>
+									                           </li>
+									                          <?php
+									                             }
+									                          }
+									                          
+									                        }
+									                     }
+									                      
+									                   }
+									              ?>
+									          </ul>
+								 				 	
+								 				 </div>
+								 			</div>
+
+
+								 			<div class="single-information-section-2">
+								 				 <div class="single-icon">
+								 				 	<i class="fa fa-birthday-cake color-third"></i>
+								 				 </div>
+								 				 <div class="single-details">
+								 				 	<h6>Passions</h6>
+								 				 	
+								 				 	<ul class="passions-details">
+										            <?php
+										            for( $ps = 1; $ps <= 10; $ps++){
+										                $passions_val = trim(get_user_meta( $profile_id, 'passion-'.$ps, true));
+										                if( '' != $passions_val ){
+										                    echo "<li>". $passions_val .",</li>";
+										                }
+										            }
+										              
+										            ?>
+										          </ul>
+
+								 				 	
+								 				 </div>
+								 			</div>
+
+
+								 			
+								 		</div>
+								 		 		
+								 	</div>
+								 	<?php
+								 }else{	?>
 								 	<div class="um-shadow-body">
 								 		<div class="included-services">
 								 			<div class="single-information-section">
@@ -595,8 +695,18 @@
 								 		</div>
 								 		 		
 								 	</div>
+
+
+
+
+
+								 	
+<?php } ?>
+
 							      </div>
 							</div>
+
+							
 						<?php
 						
 					}

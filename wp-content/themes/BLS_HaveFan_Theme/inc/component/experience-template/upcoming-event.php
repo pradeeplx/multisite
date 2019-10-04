@@ -34,8 +34,10 @@
       <?php }?>
       <?php 
         if($profile_id==get_current_user_id() && !empty($events)){
+           if ( $_GET['edit_um_event']=='edit') {
           ?>
           <span title="<?php the_field('next_matches_toll_tip_text','options'); ?>" class="tooltip">?</span>
+        <?php } ?>
       <a href="?profiletab=next-matches&edit_um_event=edit" class="pull-right edit-profile-btn"><?php the_field('next_matches_edit_button_text','options'); ?></a>
       <?php } ?>
     </div>
@@ -181,7 +183,7 @@
                 Price *
               </td>
               <td>
-                <input type="number" min="0" name="hv_price" value="<?php echo  get_user_meta( $profile_id, 'include_services_base_price', true); ?>" id="hv_price">
+                <input type="number" min="0" name="hv_price" data-price="<?php echo  get_user_meta( $profile_id, 'include_services_base_price', true); ?>" value="<?php echo  get_user_meta( $profile_id, 'include_services_base_price', true); ?>" id="hv_price">
               </td>
             </tr>
             <tr>

@@ -1,5 +1,7 @@
 var GLOBAL_CITY_OBJECT = undefined;
 var GLOBAL_COUNTRY_CITY_OBJECT = undefined;
+var default_host_country = '';
+var default_host_city = '';
 if(jQuery('ul#menu-user-menu li').hasClass('user-experiance-menu')){
     var a=jQuery(".user-experiance-menu a").attr('href');
     jQuery(".user-experiance-menu a").attr('href',a+'?profiletab=experience&subtab=information&um_info_action=edit');
@@ -97,6 +99,8 @@ jQuery(".open-gallery-modal").click(function(){
                 
         });
    });
+
+   
 
    /** This Pagination for Guest **/
    jQuery("#guest-event-pagination li").on("click", function($){
@@ -240,6 +244,10 @@ jQuery(".open-gallery-modal").click(function(){
         var event_title = jQuery('.event-list-'+event_id+ ' .event-title').attr('data-title');
         
         jQuery('#hv_title').val(event_title);
+        jQuery('#hv_descr').val();
+        // jQuery("#assing_product select").val('');
+        jQuery("#assing_product select option").prop('selected', false);
+        jQuery('#hv_price').val(jQuery('#hv_price').attr('data-price'));
         var modal = document.getElementById("HaveFunModal");
         modal.style.display = "block";
          
@@ -298,12 +306,26 @@ jQuery(".open-gallery-modal").click(function(){
        var city_where_to_meet=jQuery("#acf-field_5d75e87f19f52").val();
        var address_where_to_meet=jQuery("#acf-field_5d75e88f19f53").val();
        var details_whare_we_meet=jQuery("#acf-field_5d75e91a19f55").val();
+       var country_where_to_meet = jQuery("#acf-field_5d75eaa0f73be").val();
+
+        var myLng =  jQuery('[name="acf[field_5d96fde9f29f7][lng]"]').val();
+        var myLat =  jQuery('[name="acf[field_5d96fde9f29f7][lat]"]').val();
+        var myAddress =  jQuery('[name="acf[field_5d96fde9f29f7][address]"]').val();
        var user_id=jQuery("#_acf_post_id").val();
-      
+      var map_data = [];
+      map_data = {
+        'address': myAddress,
+        'lat': myLat,
+        'lng': myLng,
+      }
+      console.log(map_data);
+
        var data={
           "city-where-to-meet":city_where_to_meet,
+          'country-where-we-meet': country_where_to_meet,
           "address-where-to-meet":address_where_to_meet,
           "details-whare-we-meet":details_whare_we_meet,
+          "map":map_data,
           user_id:user_id,
           action:  'havefan_save_acf_usermeta',
           wp_nonce:cstmf_object.cstmf_ajax_nonce,
@@ -369,7 +391,8 @@ jQuery(".open-gallery-modal").click(function(){
        var user_id=jQuery("#user_id").val();
        var beingafan=jQuery("textarea#being-a-fan").val();
        var biography=jQuery("textarea#biography").val();
-
+       default_host_country = country;
+       default_host_city = extra_drink_services;
        var passion1=jQuery("#passion-1-45").val();
        var passion2=jQuery("#passion-2-45").val();
        var passion3=jQuery("#passion-3-45").val();
@@ -478,8 +501,10 @@ jQuery(".open-gallery-modal").click(function(){
       return false;
    })
 
+ 
 
 
+  
 
    // final code  for acf form submit.
 
@@ -498,7 +523,7 @@ jQuery(".open-gallery-modal").click(function(){
         url:    cstmf_object.ajaxurl,
         data:    data,
         success: function(data) {
-        // remove_loader(); 
+         remove_loader(); 
         if(data.status == 'success') {
          // alert(data.message);
          if(formType==1){
@@ -530,7 +555,9 @@ jQuery(".open-gallery-modal").click(function(){
      jQuery("body").append(htmlToast);
      var x = document.getElementById("toast")
      x.className = "show";
-     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+     setTimeout(function(){ x.className = x.className.replace("show", ""); 
+      jQuery('div#toast').remove();
+   }, 5000);
   }
 
     // open Become host form
@@ -599,7 +626,7 @@ jQuery(".open-gallery-modal").click(function(){
 
 
     // code for show about section by role
-    if(jQuery("#page-user-role").val()=='customer'){ jQuery(".about-being-a-fan , .about-biography , .about-passion, #passion-list").remove() }
+    if(jQuery("#page-user-role").val()=='customer'){ jQuery(".about-being-a-fan , .about-biography ,.um-field-season-ticket-holder , .um-field-stadium-position").remove() }
     
 })
 
@@ -614,14 +641,16 @@ jQuery(".open-gallery-modal").click(function(){
       }else{
          jQuery(".list-btn").addClass('active');
       }
+      var by_date = jQuery("#by_date").val();
       var data={
            action:  'havefan_event_list',
            wp_nonce:cstmf_object.cstmf_ajax_nonce,
-           type:type
+           type:type,
+           
        }
       add_loader2();
       jQuery.ajax({
-        type:    "POST",
+        type:    "GET",
         url:    cstmf_object.ajaxurl+urlGetParameter,
         data:    data,
         success: function(data) {
@@ -645,9 +674,20 @@ jQuery(".open-gallery-modal").click(function(){
       jQuery("body #hf_inifiniteLoader").hide('1000');
       jQuery("body #hf_inifiniteLoader").remove();
    }
-
+  function launch_toast2(type,msg) {
+     
+    var htmlToast='<div id="toast"><div id="img">'+type+'!</div><div id="desc">'+msg+'</div></div>';
+     //jQuery("#img").html(type);
+     jQuery("body").append(htmlToast);
+     var x = document.getElementById("toast")
+     x.className = "show";
+     setTimeout(function(){
+      x.className = x.className.replace("show", ""); 
+      jQuery("div#toast").remove();
+    }, 5000);
+  }
   jQuery("form select#by_team").on('change', function(){
-      console.log("ff1 team");
+     
       var countryName = jQuery("select#by_country").val();
       var cityName = jQuery("select#by_city").val();
       var teamName = jQuery(this).val();
@@ -656,33 +696,16 @@ jQuery(".open-gallery-modal").click(function(){
       
    });
 jQuery("form select#by_country").on('change', function(){
-      console.log("ff country");
+      
        jQuery("input#by_city").val('');
       var countryName = jQuery(this).val();
       var cityName = '';
       var teamName = '';
        var serach_type = 'country';
 
-      // if( countryName == '' || countryName == 'all'){
-
-      //     var default_all_teams=jQuery("#default_all_teams_data").val();
-      //     var default_all_teams_data=JSON.parse(default_all_teams) ;
-      //     var $select_team = jQuery('#by_team');                        
-      //     $select_team.find('option').remove();  
-      //     $select_team.append('<option value="">All</option>');
-      //     jQuery.each(default_all_teams_data,function(key, value) 
-      //     {
-      //         $select_team.append('<option value=' + value + '>' + value + '</option>');
-      //     })
-      //    setDefaultDatesCalendar();
-      // }else{
+       
           SetSearchFromTeamData1( countryName, cityName, teamName, serach_type)
-      // }
-     
-      // var cities = getCities(countryName)      
-      // console.log({
-      //   cities
-      // })
+       
    });
 jQuery("form select#by_city").on('change', function(){
       console.log("ff city");
@@ -693,31 +716,7 @@ jQuery("form select#by_city").on('change', function(){
       SetSearchFromTeamData1( countryName, cityName, teamName, serach_type)
       
    });
-// jQuery("form select#by_city").on('change', function(){
-//       console.log("ff");
-//       var countryName = jQuery("select#by_country").val();
-//       var cityName = jQuery(this).val();
-//       var teamName = '';
-//        var serach_type = 'city';
-//       if( ('' != cityName || cityName == 'all') && (countryName == '' || countryName == 'all')  ){
-//           console.log("New Selct city", cityName, "Selct country", countryName)
-//            var default_all_teams=jQuery("#default_all_teams_data").val();
-//           var default_all_teams_data=JSON.parse(default_all_teams) ;
-//           var $select_team = jQuery('#by_team');                        
-//           $select_team.find('option').remove();  
-//           $select_team.append('<option value="">All</option>');
-//           jQuery.each(default_all_teams_data,function(key, value) 
-//           {
-//               $select_team.append('<option value=' + value + '>' + value + '</option>');
-//           })
-//          setDefaultDatesCalendar();
-//       }else{
-//           console.log("Selct city", cityName, "Selct country", countryName)
-//           SetSearchFromTeamData1( countryName, cityName, teamName, serach_type)
-//       }
-      
-      
-//    });
+ 
 function SetSearchFromTeamData1( countryName, cityName, teamName, serach_type){
     
       
@@ -833,48 +832,7 @@ function SetSearchFromTeamData1( countryName, cityName, teamName, serach_type){
         });
       return false;
    }
-   
-   // if( jQuery('div').hasClass('form_vertical')){
-   //      var url_by_country = jQuery('#url_by_country').val();
-   //      var url_by_city = jQuery('#url_by_city').val();
-   //      var url_by_team = jQuery('#url_by_team').val();
-   //      console.log("url_by_country", url_by_country, "url_by_city", url_by_city, "url_by_team", url_by_team)
-   //      if( '' ==  url_by_country  ){
-   //        console.log("default country")
-   //          var countryName = ''
-   //          var cityName = '';
-   //          var teamName = '';
-   //          var serach_type = 'country';
-   //          SetSearchFromTeamData1( countryName, cityName, teamName, serach_type)
-   //      }else if( '' == url_by_city ){
-   //          console.log("default city")
-   //          var countryName = url_by_country;
-   //          var cityName = '';
-   //          var teamName = '';
-   //          var serach_type = 'city';
-   //          SetSearchFromTeamData1( countryName, cityName, teamName, serach_type)
-   //      }else if( '' == url_by_team){
-   //          console.log("default team")
-   //          var countryName = url_by_country;
-   //          var cityName = url_by_city;
-   //          var teamName = url_by_team;
-   //          var serach_type = 'team';
-   //          SetSearchFromTeamData1( countryName, cityName, teamName, serach_type)
-   //      }
-      
-
-   // }
-// var  country   =jQuery("#country").val();
-// if(country && country.length>0){
-//   console.log("length",country.length);
-//   jQuery("#country").prop('disabled', 'disabled');
-// }else{
-//   console.log("length2",country.length);
-// }
-// var  city=jQuery("#user-citys").val();
-// if( city && city.length>0   ){
-//  jQuery("#user-citys ").prop('disabled', 'disabled');
-// }
+ 
 jQuery('ul.search_city_list li span').live('click', function(){
       var cityName = jQuery(this).attr('data-city');
       jQuery('#by_city').val(cityName);
@@ -888,45 +846,17 @@ jQuery('ul.search_city_list li span').live('click', function(){
     console.log("Click");
 
 })
- // jQuery('#by_city').on('change', function() {
- //     var searchKeyword = jQuery(this).val().toLowerCase();
- //      jQuery("ul.search_city_list").empty();
- //       jQuery('ul.search_city_list').append('<li><span data-city="All">All</span></li>');
- //      jQuery('ul.search_city_list').css('display', 'block');
- //     if (searchKeyword.length >= 3) {
- //          // console.log("searchKeyword", searchKeyword);
- //          var countryName = jQuery("#by_country").val()
-         
- //          if(countryName && countryName !== ''){
- //              var cityArr = GLOBAL_COUNTRY_CITY_OBJECT.filter(el => el.toLowerCase().startsWith(searchKeyword))
-              
- //              jQuery.each(cityArr, function(key, value) {
-              
- //                  jQuery('ul.search_city_list').append('<li><span data-city="' + value + '">' + value + '</span></li>');
- //              });
- //          }else{
- //            var cities = Object.values(GLOBAL_CITY_OBJECT)
- //            .reduce((a, b)=> [...a, ...b], [])
-
- //            var filteredCity = cities.filter(el => el.toLowerCase().startsWith(searchKeyword))
- //            console.log({
- //              filteredCity
- //            })
-            
- //              jQuery.each(filteredCity, function(key, value) {
- //                console.log(key, value);
- //                  jQuery('ul.search_city_list').append('<li><span data-city="' + value + '">' + value + '</span></li>');
- //              });
- //          }
-         
- //     }
- // });
-
-
+  
+ if( jQuery('select#country').length > 0 ){
+     default_host_city = jQuery("#user-citys").val();
+    default_host_country = jQuery("#country").val();
+ }
+ 
    jQuery("#country").change(function(){
-      console.log("ff",this.value);
+       
       var ctry=this.value;
       jQuery(".city-List").remove();
+      
       jQuery.ajax({
           
           type:    "POST",
@@ -934,9 +864,29 @@ jQuery('ul.search_city_list li span').live('click', function(){
           url:   cstmf_object.site_url+'/assets/js/city.json',
           success: function(data) {
             var cty=data[ctry];
-            for(var i=0; i<=cty.length ; i++){
-              jQuery("#user-citys").append("<option class='city-List'>"+cty[i]+"</option>");
+            
+             jQuery("#user-citys option").remove()
+
+            jQuery("#user-citys").select2('destroy');
+            jQuery("#user-citys").select2()
+            if( cty != undefined){
+                for(var i=0; i<= cty.length ; i++){
+                  if(default_host_country == ctry && default_host_city == cty[i] ){
+                   
+                     jQuery("#user-citys").append("<option selected='' class='city-List' value='"+cty[i]+"'>"+cty[i]+"</option>");
+                  }else{
+                     jQuery("#user-citys").append("<option class='city-List' value='"+cty[i]+"'>"+cty[i]+"</option>");
+                  }
+             
+              }
+               if(default_host_country == ctry){
+               
+                jQuery('span#select2-user-citys-container').text(default_host_city);
+                jQuery('span#select2-user-citys-container').attr('title',default_host_city);
+                // jQuery("#user-citys").select2('val', default_host_city)
+              }
             }
+            
 
           },
           error: function( error ){
@@ -1002,3 +952,136 @@ jQuery(document).ready(function($){
       GLOBAL_CITY_OBJECT = cityObj
     })
 })  
+
+
+jQuery("#reviewFormSubmit").live('submit',function(e){
+       e.preventDefault;
+       var data=[];
+       var review=jQuery("#selected-review").val();
+       var user_id=jQuery("#user_id").val();
+       var review_title=jQuery("#review_title").val();
+       var review_details=jQuery("#review_details").val();
+       var url = window.location.href;
+       var res = url.split("/");
+       var length=res.length;
+       var data={
+          review:review,
+          user_id:user_id,
+          review_title:review_title,
+          review_details:review_details,
+          order_id:res[length-1],
+          action:  'havefan_save_userReview',
+          wp_nonce:cstmf_object.cstmf_ajax_nonce,
+       }
+       if((review && review.trim().length > 0)){
+       		
+       }else{
+        
+          alert("review are required")
+          return false
+       }
+       console.log('review form submit',data);
+       reviewAdd(data);
+      return false;
+   })
+function reviewAdd(data){
+
+ // return false;
+  add_loader2();
+      var formType=0;
+      jQuery.ajax({
+        type:    "POST",
+        dataType : "json",
+        url:    cstmf_object.ajaxurl,
+        data:    data,
+        success: function(data) {
+         remove_loader2();
+
+        if(data.status == 'success') {
+          jQuery('.um-popup a.um-woo-order-hide').trigger('click');
+        
+          launch_toast2('Success',data.message);
+          return;
+        }else{
+          alert('fail');
+        }
+        
+        },
+        error: function( error ){
+        //  alert(data.message);
+          //launch_toast('Error',data.message)
+         // remove_loader(); 
+        },
+      });
+    return false;
+  
+   
+}
+/** Find google  city and country from the address using google map **/
+jQuery('[name="acf[field_5d96fde9f29f7][lng]"]').on("change", function(){
+     var myLng = jQuery(this).val();
+     var myLat =  jQuery('[name="acf[field_5d96fde9f29f7][lat]"]').val();
+     var myAddress =  jQuery('[name="acf[field_5d96fde9f29f7][address]"]').val();
+     
+        // var latlng = '-37.81302609999999,145.02317889999995';
+        var latlng = myLat+','+myLng;
+         
+  var key = 'AIzaSyA8zWhe-ePA2DlDhiuKZE0MErk2_7PrZ6M';
+  var data = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latlng+'&key='+key+'&sensor=true&language=en';
+ 
+  const Http = new XMLHttpRequest();
+// const url='https://jsonplaceholder.typicode.com/posts';
+  const url = data
+  Http.open("GET", url);
+  Http.send();
+
+  Http.onreadystatechange = (e) => {
+    // var obj = JSON.parse(Http.responseText);
+    var jsonData = JSON.parse(Http.responseText);
+    // console.log(Http.responseText)
+    
+    if(jsonData.status === "OK"){
+      if(jsonData.results && jsonData.results.length > 0){
+      if(jsonData.results[0].address_components){
+        var address_data = jsonData.results[0].address_components.map(function (item) {
+          if(item.types[0] === "locality"){
+            return {
+              city: item.long_name
+            }
+          }
+          if(item.types[0] === "country"){
+            return {
+              country: item.long_name
+            }
+
+          }
+          return null
+        }).filter(el => el)
+
+       
+        jQuery('#city_where_to_meet #acf-field_5d75e87f19f52').val()
+        jQuery('#country_where_we_meet #acf-field_5d75eaa0f73be').val()
+        jQuery(address_data).each(function(key, value){
+          
+          if( value.city != undefined ){
+             
+            jQuery('#city_where_to_meet #acf-field_5d75e87f19f52').val(value.city)
+          }
+          if( value.country != undefined ){
+           
+            jQuery('#country_where_we_meet #acf-field_5d75eaa0f73be').val(value.country)
+          }
+        })
+        
+        myAddress = jQuery('[name="acf[field_5d96fde9f29f7][address]"]').val();
+        // console.log("myAddress", myAddress)
+        jQuery('#acf-field_5d75e88f19f53').val(myAddress)
+         
+
+      }
+      }
+    }
+    // console.log('obj', obj)
+  }
+      
+})

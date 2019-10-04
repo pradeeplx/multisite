@@ -2,7 +2,9 @@
 Theme Name: BLS HaveFan Theme
 Template: um-theme
 */
-
+.um{
+	font-size:17px !important;
+}
 .rounded-icon {
 	border: 1px solid;
 	padding: 10px;
@@ -143,6 +145,34 @@ ul.um-event-list-menu li {
 	display:none;
 }
 /*-------------- end -----------------*/
+/*------------- tooltip css -----------------*/
+span.um-tip.um-tip-w,
+span.um-tip.um-tip-w:hover{
+    color: #0074a2;
+    width: 18px;
+    height: 18px;
+}
+span.um-tip.um-tip-w i{
+   color: #0074a2;
+    width: 15px;
+    height: 15px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+body .tipsy-inner {
+    border-radius: 0 !important;
+	background-color: #000000 !important;
+}
+.tipsy-w .tipsy-arrow {
+   border: solid #000 !important;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+/*--------------- tooltip css end ------------------*/
 .user-container.um-theme-profile-single-content-container {
 	margin-top: -150px;
 }
@@ -153,45 +183,47 @@ ul.um-event-list-menu li {
 }
 
 .um-profile-container {
-	width:875px;
-	margin-top: -75px
+	width: 75%;
+	margin-top: -75px;
+	padding-right: 60px !important;
 }
 
-/* .um-profile-nav {
-	margin-left: 25%;
-} */
 .side-container {
-    width:295px;
-	flex: 0 0 295px;
+    width: 25%;
+    flex: 0 0 25%;
+    padding-left: 60px;
+	padding-right: 0;
 }
 .fooevents-calendar-list .img-wrapper img.event-host-avatar {
         position: absolute !important;
-    top: 20px;
-    left: 10px;
-    border-radius: 50px !important;
-    width: 80px !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid #fff;
-    margin: auto !important;
+        bottom: 20px;
+        left: 10px;
+        border-radius: 50px !important;
+        width: 80px !important;
+        height: 80px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid #fff;
+        margin: auto !important;
 }
 .fooevents-calendar-list .event_host_name {
     position: absolute;
     display: flex;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    right: unset;
+    top: unset;
+    bottom: 46px;
+    left: 109px;
     margin: 0;
-    justify-content: flex-start;
-    align-items: flex-start;
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
     font-weight: 600;
     color: #fff;
-    padding: 15px;
-    padding-top: 120px;
+    /* padding: 15px; */
+    /* padding-top: 120px; */
     font-size: 19px;
-    background: rgba(0, 0, 0, 0.38);
-    width: 100%;
+    background: transparent;
+    /* width: 100%; */
 }
 .wrapper-with-sidebar {
     width: 100%;
@@ -361,6 +393,19 @@ ul.location-details,
 	/*color: bisque;*/
 }
 
+
+/*form.cs-profile-form .um-field-being-a-fan .um-field-label, form.cs-profile-form .um-field-biography .um-field-label {
+display:block !important;
+}
+.um-field-being-a-fan .um-field-label, .um-field-biography .um-field-label {
+display:none !important;
+}*/
+.hide-havefan-field #beingAFanId, .hide-havefan-field #biographyId{
+	display:none;
+}
+.hide-havefan-field .um-field-being-a-fan .um-field-label, .hide-havefan-field .um-field-biography .um-field-label{
+	display:none !important;
+}
 .color-third {
 	/*color: cadetblue;*/
 }
@@ -660,10 +705,6 @@ i.fa.fa-life-ring {
 }
 
 /*-------------- horizontal form end -------------------------*/
-.website-canvas .boot-row {
-    max-width: 1170px;
-    margin: auto;
-}
 .boot-order-first {
     width: 100%;
     padding: 0;
@@ -724,8 +765,13 @@ input#by_date {
     background: #fff;
 }
 .boot-order-second {
-    padding: 0px 40px 0 40px;
+    padding: 0px 60px;
     margin-top: -83px;
+    padding-left: 40px;
+}
+.boot-order-second .boot-row {
+	padding-left: 15px;
+	padding-right: 15px;
 }
 .event_subnavigation {
     margin-bottom: 70px;
@@ -743,6 +789,12 @@ input#by_date {
 
 .single-information-section {
     width: 24%;
+    float: left;
+    margin-top: 20px;
+}
+
+.single-information-section-2 {
+    width: 50%;
     float: left;
     margin-top: 20px;
 }
@@ -819,7 +871,7 @@ ul.passions-details {
 
 .about-information .um-col-121>div,
 .about-information .um-col-122>div {
-	margin-left: auto;
+	/*margin-left: auto;*/
 	margin-right: auto;
 	width: 45%;
 }
@@ -829,7 +881,7 @@ ul.passions-details {
 }
 
 .about-information .um-col-122>div {
-	margin-right: 0;
+	/*margin-right: 0;*/
 }
 
 /*--------- End -----------*/
@@ -983,10 +1035,13 @@ ul.um-sub-menu li a {
 	min-width: 150px;
 	overflow: hidden;
 	border-radius: 5px;
-	margin: 0 0 8px 8px;
+	margin: 0 8px 8px 8px;
 	background-color: #333;
 	color: white;
 	position: relative;
+}
+.um-profile-nav .um-profile-nav-messages {
+    display: none;
 }
 
 .gallery-section li.um--gallery-col-3:nth-child(4n+1) {
@@ -1019,6 +1074,7 @@ ul.um-sub-menu li a {
 	display: flex;
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
+	padding:0;
 }
 
 .gallery-section li.um--gallery-col-3 {
@@ -1194,22 +1250,21 @@ margin-top: 19px;
 
 /*------------------- update events ------------------*/
 .fooevents-calendar-list {
-    width: 100%;
+    /* width: 100%; */
 }
 .event-list {
-	padding: 20px 20px;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
 	vertical-align: middle;
 	margin: auto 0;
 	-webkit-box-flex: 1;
-	    -ms-flex: 1;
-	        flex: 1;
+	-ms-flex: 1;
+	flex: 1;
 }
 
 .img-wrapper {
@@ -1276,9 +1331,9 @@ margin-top: 19px;
     width: 100%;
     display: flex;
     align-items: center;
-    margin-left: -15px;
-	margin-right: -15px;
-	flex-wrap: wrap;
+    /* margin-left: -15px; */
+    /* margin-right: -15px; */
+    flex-wrap: wrap;
 }
 
 .upcoming-event-data {
@@ -1289,8 +1344,8 @@ margin-top: 19px;
 
 .event-title-left ,
 .event-title-right {
-    padding-left: 15px;
-    padding-right: 15px;
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
 }
 /*------- end ----------*/
 
@@ -1301,18 +1356,19 @@ margin-top: 19px;
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
+	flex-wrap: wrap;
 	-webkit-box-shadow: 0 7px 14px 0 rgba(50, 50, 93, .1), 0 3px 6px 0 rgba(0, 0, 0, .07);
-	        box-shadow: 0 7px 14px 0 rgba(50, 50, 93, .1), 0 3px 6px 0 rgba(0, 0, 0, .07);
+	box-shadow: 0 7px 14px 0 rgba(50, 50, 93, .1), 0 3px 6px 0 rgba(0, 0, 0, .07);
 	margin-bottom: 30px;
 	border-radius: 5px;
 }
 
 .upcoming-event-data .img-wrapper img {
 	width: 100%;
-	border-radius: 5px 0 0 5px;
+	height: 100%;
+	border-radius: 5px 5px 0 0px;
 	-o-object-fit: cover !important;
-	   object-fit: cover !important;
+	object-fit: cover !important;
 	margin: 0 !important;
 }
 
@@ -1328,6 +1384,9 @@ margin-top: 19px;
 	font-family: FontAwesome;
 	margin-right: 10px;
 	color: #f0c40f;
+}
+.no-edit-havefan-data .acf-form-submit, .no-edit-havefan-data .acf-label span, .no-edit-havefan-data .acf-actions {
+display:none !important;
 }
 
 .upcoming-event-data .um-readmore-btn {
@@ -1350,12 +1409,7 @@ margin-top: 19px;
 	display: inline-block;
 }
 
-.upcoming-event-data .event-list p {
-/* 	margin-left: 17px; */
-	margin-left: 0px;
-	margin-bottom: 5px;
-	margin-right: 30px;
-}
+.upcoming-event-data .event-list p {/* 	margin-left: 17px; *//* margin-left: 0px; *//* margin-bottom: 5px; *//* margin-right: 30px; */}
 .event-title-right {
     width: 40%;
     text-align: right;
@@ -1425,7 +1479,6 @@ ul.pagination li.active {
 	color: #fff;
 	cursor: pointer;
 }
-
 
 /*----------------- end ------------------*/
 
@@ -1583,10 +1636,10 @@ ul.um-sub-menu li:hover a{
 .gallery-section {
 	padding: 10px;
 }
-
+/* 
 .um-shadow-body {
 	padding: 10px;
-}
+} */
 
 .single-included-services {
 	width: 33%;
@@ -1919,7 +1972,7 @@ vertical-align: middle;
  display: none; /* Hidden by default */
  position: fixed; /* Stay in place */
  z-index: 999; /* Sit on top */
- padding-top: 50px; /* Location of the box */
+ padding-top: 115px; /* Location of the box */
  padding-bottom: 50px;
  left: 0;
  top: 0;
@@ -1977,7 +2030,7 @@ vertical-align: middle;
     height: 100%;
     overflow: auto;
     background-color: #000000bd;
-    z-index:999;
+    z-index:99999999;
 }
 
 #hf_inifiniteLoader .image-modal{
@@ -2073,9 +2126,15 @@ body.single-product form.cart .wc-pao-addon-container {
     width: 100% !important;
     margin-top: 15px;
 }
+.event-list-wrap-inner,
+.event-footer-wrap {
+    display: flex;
+    justify-content: space-around;
+}
 
 .price-heading {
    margin-bottom: 10px;
+   display: block;
 }
 .woocommerce-Price-currencySymbol, .amount {
    text-align: right;
@@ -2084,9 +2143,6 @@ body.single-product form.cart .wc-pao-addon-container {
    font-size: 25px;
    font-weight:600;
    display: inline-block;
-}
-.event-list {
-   padding-top: 20px;
 }
 
 
@@ -2114,7 +2170,7 @@ body.single-product form.cart .wc-pao-addon-container {
 
 .followMeBar.fixed {
   position: fixed;
-  top: 80px;
+  top: 70px;
   width: 100%;
   box-sizing: border-box;
   z-index: 99;
@@ -2123,6 +2179,7 @@ body.single-product form.cart .wc-pao-addon-container {
 .followMeBar.fixed.absolute {
   position: absolute;
 }
+
 
 @media (max-width:1202px) {
 	.header-notification-box {
@@ -2155,7 +2212,10 @@ body.single-product form.cart .wc-pao-addon-container {
 	.language-section {
 		padding-left: 20px;
 		padding-right: 20px;
-	}
+    }
+    .event-price span.woocommerce-Price-amount{
+        font-size:18px;
+    }
 }
 
 
@@ -2187,10 +2247,9 @@ p.sub-heading {
 }
 
 .event-title-right {
-     margin-top: -10px;
+     /* margin-top: -10px; */
 }
 .event-price span.woocommerce-Price-amount {
-   display: block;
    font-size: 28px;
    color: #2fac7d;
    font-weight: 600;
@@ -2198,7 +2257,7 @@ p.sub-heading {
 }
 
 .event-price {
-   text-align: right;
+   /* text-align: right; */
 }
 .upcoming-host-event .event-list {
    display: -webkit-box;
@@ -2218,9 +2277,7 @@ p.sub-heading {
 }
 
 .upcoming-event-data .event-list p {
-   margin: 0;
-   margin-top: 5px;
-   margin-bottom: 5px;
+   /* margin: 7px 15px; */
 }
 .upcoming-guest-event .event-title-wrap {
    padding: 20px 25px 0;
@@ -2248,13 +2305,35 @@ p.sub-heading {
     display: none;
 }
 /*----------- account section---------------------*/
+/*-------- footer static -----------------*/
+.single-experience-bar {
+    display: flex;
+    justify-content: space-around;
+    padding:20px;
+    background: #fff;
+    position: fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:99;
+}
+
+.single-experience-four a {
+    background: #2fac7d;
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 50px;
+}
 
 .um-account .um-profile-photo {
     padding-bottom: 1px;
     padding-top: 20px;
 }
 .um-account .um-profile-photo {
-    padding: 15px;
+    padding: 15px ;
+}
+.um-profile .um-profile-body {
+    padding: 15px 0;
 }
 .um-account .um-account-side {
     padding: 30px 30px;
@@ -2340,11 +2419,105 @@ p.sub-heading {
 	}
 	
 }
+@media (min-width:1560px){
+	
+/* .right-section {
+    padding-right: 60px;
+    width: 1114.5px;
+}
+	
+.website-canvas .boot-row {
+    max-width: 100%;
+    margin: auto;
+}
+.boot-order-first {
+    width: 25%;
+    padding-left: 60px;
+}
+.boot-order-second {
+    width: 75%;
+    /* padding-right: 60px;
+}*/
+} 
+
+@media (min-width:767px){
+	.website-canvas {
+    max-width: 100% !important;
+}
+.boot-order-first {
+    width: 25%;
+    padding-left: 60px;
+}
+	
+.website-canvas > .boot-row {
+   padding-left: 15px;
+   padding-right: 15px;
+}
+.two-column-list {
+    display: flex;
+    justify-content: space-between;
+}
+.two-column-list .upcoming-event-data {
+    flex-direction: column;
+	    margin-left: 0;
+}
+.two-column-wrapper {width: calc(50% - 20px);margin: auto;}
+.two-column-list .img-wrapper {
+    width: 100%;
+    margin-right: 0;
+}
+.two-column-wrapper .event-title-wrap {
+    display: block;
+}
+.two-column-wrapper .event-title-left {
+    width: 100%;
+}
+.two-column-wrapper .event-title-right {
+    width: 100%;
+    text-align: left;
+}
+.two-column-list .event-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+.two-column-list  .event-footer-wrap {
+    margin-top: auto;
+}
+	.event-title-destok {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+	.event-list-wrap-inner p {
+    width: 100%;
+}
+.event-list-wrap-inner {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    padding:10px 0;
+    padding-bottom: 0;
+}
+.event-footer-wrap{
+    padding-top:15px;
+}
+.event-title-mobile {
+	display: none;
+}
+
+}
 
 @media (max-width: 767px) {
 	.single-information-section {
        width: 50%;
     }
+	
+	
+	.event-title-destok {
+		display: none;
+	}
+
 	.user-container.um-theme-profile-single-content-container {
 		margin-top: 0px;
 	}
@@ -2445,7 +2618,7 @@ p.sub-heading {
 .form_horizontal input[type="submit"] {
     margin-left: 0 !important;
 }
-	.nav-link {
+	#menu-primary .nav-link {
     color: #333333 !important;
 }
 	/*-------- account page-------------*/
@@ -2600,6 +2773,30 @@ p.sub-heading {
     width: 100%;
 }
 
+.boot-order-second {
+    margin-top: 0;
+}
+
+.event_subnavigation {
+    margin-bottom: 30px;
+}
+ul.um-gallery--recent-photos {
+    padding-left: 0;
+}
+	
+	/*---- sticky-bottom -----*/
+.single-experience-bar {
+    flex-wrap: wrap;
+    width: 100%;
+    position: static;
+    align-items: center;
+    flex-direction: column;
+}
+
+.single-experience-box,
+.single-experience-four {
+    margin: 10px 0;
+}
 
 	/* for side bar */
 
@@ -2611,6 +2808,23 @@ p.sub-heading {
       width: calc(100% - 60px);
   }
   /*-- end side bar */
+	.upcoming-event-data .event-title-wrap {
+    margin-left: 0;
+}
+
+.upcoming-event-data .event-title-right {
+    margin-top: 10px;
+}
+
+.upcoming-event-data .event-list {
+    padding-top: 0;
+}
+	.havefun-content {
+    width: 90%;
+}
+	.HaveFunModal{
+		padding-top:165px;
+	}
 }
 
 
@@ -2624,6 +2838,9 @@ p.sub-heading {
 @media (max-width:480px) {
 	.single-information-section {
        width: 100%;
+    }
+    .single-information-section-2 {
+      width: 100%;
     }
 
 	.um-profile-content-container {
@@ -2647,6 +2864,9 @@ p.sub-heading {
 	right: 50px !important;
 	top: unset !important;
 	}
+	.details .edit-profile-btn {
+    right: 0px !important;
+}
 }
 
 
@@ -3831,7 +4051,7 @@ font-weight: normal;
 
     padding: 0 4px 0 7px;
 
-    content: "â€¢";
+    content: "Ã¢â‚¬Â¢";
 
 }
 
@@ -3915,4 +4135,16 @@ font-weight: normal;
 
 	cursor: default !important;
 
+}
+
+@media (max-width:400px){
+	#bs-navbar-primary{
+    width: 285px;
+  }
+	.header-inner .boot-text-right {
+    text-align: center !important;
+  }
+	.header-notification-box {
+     	margin-right: 0px;
+  }
 }

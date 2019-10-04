@@ -1,4 +1,4 @@
-<div class="fooevents-calendar-list">
+<div class="fooevents-calendar-list two-column-list">
 
     <?php if(!empty($events)) :?>    
 
@@ -30,8 +30,9 @@
             $default_cover = UM()->options()->get( 'default_cover' );
             $event_title = '';
             if( $userInfo ){
-                $host_product_url = site_url('user/'.$userInfo->user_login.'/?profiletab=next-matches&experienceId='.$event['post_id']);
-                $host_full_name = get_user_meta( $userInfo->ID, 'first_name', true). ' '.get_user_meta( $userInfo->ID, 'last_name', true);
+                $host_product_url = site_url('user/'.$userInfo->user_login.'/?profiletab=experience');
+                // $host_full_name = get_user_meta( $userInfo->ID, 'first_name', true). ' '.get_user_meta( $userInfo->ID, 'last_name', true);
+                 $host_full_name = "By ".get_user_meta( $userInfo->ID, 'first_name', true);
                 $user_team = trim(get_user_meta( $userInfo->ID, 'team-names', true ));
                 $event_city = trim(get_user_meta( $userInfo->ID, 'user-citys', true ));
                 $host_avatar = get_avatar_url( $userInfo->ID );
@@ -75,15 +76,16 @@
             ?>
 
 
-        <div class="upcoming-event-data">
+        <div class="upcoming-event-data two-column-wrapper">
             <?php if(!empty($product_img_url)) :?>
                 <div class="img-wrapper">
                     <img src="<?php echo $product_img_url; ?>">
-                    <span class="event_host_name"><?php echo $host_full_name;?></span>
+                    
                     <?php if( $host_avatar != ''){
                        echo "<img src='".$host_avatar."' class='event-host-avatar'/>";
                     }
                     ?>
+                    <span class="event_host_name"><?php echo $host_full_name;?></span>
                 </div>
              <?php endif; ?>
 
@@ -95,36 +97,58 @@
           <div class="event-list event-list-229026">
              
               <div class="event-title-wrap">
-                    <div class="event-title-left">
-                       <h5 class="event-title" >
+                  <div class="event-title">
+                     <h5 class="event-title event-title-destok" title="<?php echo $event_title;?>">
                          <?php //echo esc_html($event['title']);
-                         
+                         $title_length = strlen( $event_title );
+                         //echo $event_title;
+                         if($title_length > 65 ){
+                          echo substr( $event_title,0,65) .' ...';
+                         }else{
+                            echo $event_title;
+                         }
+                         ?>
+
+                       </h5>
+                       <h5 class="event-title event-title-mobile" title="<?php echo $event_title;?>">
+                         <?php //echo esc_html($event['title']);
                          echo $event_title;
                          ?>
-                       </h5>
-                    </div>
-                    <div class="event-title-right">
-                      <span class="event-title" >
-                          <?php //echo $user_team .' <b> VS </b> '. $default_team2;
 
-                          echo $user_team ;
-                           ?>
+                       </h5>
+                  </div>
+                  <div class="event-list-wrap-inner">
+                     <p><span><strong class="fa fa-futbal">Favourite Team : </strong><?php echo $user_team;?></span></p>
+                    
+                           
                       </span>
-                    </div> 
+                  </div>
+                  <div class="event-list-wrap-inner">
+
+                        <div class="event-list-wrap-inner-left">
+                            <p><span><strong class="fa fa-marker">Location : </strong><?php echo $match_country;?></span></p>
+                            <p><span><strong class="fa fa-users">Max People : </strong><?php echo $MaximumPeople;?></span></p>
+                        </div>
+                       <div class="event-list-wrap-inner-right">
+                            <p><span><strong class="fa fa-trophy">League : </strong><?php echo $default_trophy;?></span></p>
+                            <p><span><strong class="fa fa-date">Minimum Age : </strong><?php echo $MinimumAge;?></span></p>
+                      </div>
+                    
+                  </div>
+                     
+                     
               </div>
-              <p><span><strong class="fa fa-users">Max People : </strong><?php echo $MaximumPeople;?></span></p>
-          <p><span><strong class="fa fa-date">Minimum Age : </strong><?php echo $MinimumAge;?></span></p>
-          <p><span><strong class="fa fa-marker">Location : </strong><?php echo $match_country;?></span></p>
-          <p><span><strong class="fa fa-trophy">League : </strong><?php echo $default_trophy;?></span></p>
-          <div class="event-footer-wrap">
-            <a data-val="" href="<?php  echo $host_product_url; ?>" class="um-readmore-btn" data-message_to="5" title="Message">
-          <span>Read more</span>
-          </a>
-          <p class="event-price">
-            <span class="price-heading">Price</span>
-            <?php echo $thePrice; ?>
-          </p>
-          </div>
+         
+              <div class="event-footer-wrap">
+               
+                  <p class="event-price">
+                    <span class="price-heading">Price</span>
+                    <?php echo $thePrice; ?>
+                  </p>
+                   <a data-val="" href="<?php  echo $host_product_url; ?>" class="um-readmore-btn" data-message_to="5" title="Message">
+                  <span>Read more</span>
+                  </a>
+              </div>
           </div>
              
         

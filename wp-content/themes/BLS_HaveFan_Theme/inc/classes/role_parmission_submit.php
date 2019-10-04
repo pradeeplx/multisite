@@ -1,25 +1,24 @@
 
 <?php
-//add_filter('um_account_page_default_tabs_hook', 'my_custom_tab_in_um_for_request_parmission', 10 );
-// function my_custom_tab_in_um_for_request_parmission( $tabs ) {
+add_filter('um_account_page_default_tabs_hook', 'my_custom_tab_in_um_for_request_parmission', 100 );
+ function my_custom_tab_in_um_for_request_parmission( $tabs ) {
 // 	$tabs[200]['request_host']['icon'] = 'um-faicon-user';
 // 	$tabs[200]['request_host']['title'] = 'Want to Host';
 // 	$tabs[200]['request_host']['custom'] = true;
-// 	unset($tabs['220']['shipping']);
-// 	unset($tabs['210']['billing']);
-// 	unset($tabs['230']['orders']);
-// 	return $tabs;
-// }
+ 	unset($tabs['220']['shipping']);
+ 	unset($tabs['210']['billing']);
+ 	unset($tabs['250']['downloads']);
+    return $tabs;
+ }
 	
 /* make our new tab hookable */
-
-// add_action('um_account_tab__request_host', 'um_account_tab__information_host');
-// function um_account_tab__information_host( $info ) {
-// 	global $ultimatemember;
-// 	extract( $info );
-//     $output = $ultimatemember->account->get_tab_output('request_host');
-// 	if ( $output ) { echo $output; }
-// }
+ // add_action('um_account_tab__request_host', 'um_account_tab__information_host');
+ // function um_account_tab__information_host( $info ) {
+	// global $ultimatemember;
+ // 	extract( $info );
+ //    $output = $ultimatemember->account->get_tab_output('request_host');
+ // 	if ( $output ) { echo $output; }
+ // }
 
 /* Finally we add some content in the tab */
 

@@ -11,8 +11,10 @@
 			<?php } ?>
 	 		<?php 
 				if($profile_id==get_current_user_id()){
+						if ($_GET['um_info_action']=='edit') { 
 				  ?>
 				  <span title="Included Services edit section." class="tooltip">?</span>
+				<?php } ?>
 	 		<a href="?profiletab=experience&subtab=services&um_info_action=edit" class="pull-right edit-profile-btn">Edit Included Services</a>
 	 	<?php } ?>
 	 	</div>
@@ -27,6 +29,30 @@
 	 			 <?php
 					// check if the repeater field has rows of data
 					//print_r(get_field('select_services' , 'user_'.$profile_id ));
+	 			 $fieldTicketServices=get_field('extra_ticket_services' , 'user_'.$profile_id );
+				 	 
+					$ticket_service = array();
+					foreach ( $fieldTicketServices as $field ) {
+						$ticket_service[] = $field->post_title;
+					}
+
+					if(! empty($ticket_service)):
+					?>
+					<div class="single-included-services ticket-included-services">
+						<div class="single-icon">
+							<i class="fa fa-ticket"></i>
+							
+						</div>
+
+						<div class="single-details">
+							<h3>Tickets</h3>
+							<p><?php echo implode(', ', $ticket_service); ?></p>
+							 
+						</div>
+					</div>
+					 <!--- Transport -->
+                     <?php
+                 endif;
 					$fieldExtraServices=get_field('extra_food_services' , 'user_'.$profile_id );
 				 	 
 					$food_service = array();
@@ -75,30 +101,7 @@
 					  <!--- Tickets -->
                      <?php
                  	endif;
-                     $fieldTicketServices=get_field('extra_ticket_services' , 'user_'.$profile_id );
-				 	 
-					$ticket_service = array();
-					foreach ( $fieldTicketServices as $field ) {
-						$ticket_service[] = $field->post_title;
-					}
-
-					if(! empty($ticket_service)):
-					?>
-					<div class="single-included-services ticket-included-services">
-						<div class="single-icon">
-							<i class="fa fa-ticket"></i>
-							
-						</div>
-
-						<div class="single-details">
-							<h3>Tickets</h3>
-							<p><?php echo implode(', ', $ticket_service); ?></p>
-							 
-						</div>
-					</div>
-					 <!--- Transport -->
-                     <?php
-                 endif;
+                     
                      $fieldTransportServices=get_field('extra_transport_services' , 'user_'.$profile_id );
 				 	 
 					$transport_service = array();

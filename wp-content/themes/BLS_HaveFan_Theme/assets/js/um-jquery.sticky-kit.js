@@ -91,7 +91,7 @@
         el_float = elm.css("float");
         if (spacer) {
           spacer.css({
-            width: elm.outerWidth(true),
+            width: elm.outerWidth(true) -1,
             height: height,
             display: elm.css("display"),
             "vertical-align": elm.css("vertical-align"),

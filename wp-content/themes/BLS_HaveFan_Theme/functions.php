@@ -96,5 +96,19 @@ function filter_users_by_course_section( $query ) {
 }
 add_filter( 'pre_get_users', 'filter_users_by_course_section' );
 
+function my_acf_google_map_api( $api ){
+    
+    $api['key'] = 'AIzaSyA8zWhe-ePA2DlDhiuKZE0MErk2_7PrZ6M';
+    
+    return $api;
+    
+}
 
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+function my_acf_init() {
+    
+    acf_update_setting('google_api_key', 'AIzaSyA8zWhe-ePA2DlDhiuKZE0MErk2_7PrZ6M');
+}
+
+add_action('acf/init', 'my_acf_init');
 ?>

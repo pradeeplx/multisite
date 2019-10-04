@@ -10,8 +10,10 @@
 			<?php } ?>
 	 		<?php 
 				if($profile_id==get_current_user_id()){
+				 	if ($_GET['um_info_action']=='edit') { 
 				  ?>
 				  <span title="<?php the_field('information_edit_tool_tip', 'option'); ?>"class="tooltip" >?</span>
+				<?php }?>
 	 		<a href="?profiletab=experience&subtab=information&um_info_action=edit" class="pull-right edit-profile-btn"><?php the_field('information_edit_button_text', 'option'); ?></a>
 	 	<?php } ?>
 	 	</div>
@@ -38,7 +40,7 @@
 	 					</li>
 	 				</ul>
 	 			</div>
-	 			<div class="right-price">
+	 			<div class="right-price hide">
 	 				<p>Price</p>
 	 				<h2>€ <?php echo  get_user_meta( $profile_id , "include_services_base_price" ,true); ?></h2>
 	 			</div>

@@ -1,4 +1,13 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+/**
+ * Fetch all upcoming event a host.
+ * @version 1.0.0
+ * @return json
+ *
+ */
 function get_upcoming_event(){
 	global $wpdb;
 	if(isset($_POST['paged'], $_POST['host_status'], $_POST['wp_nonce']) && wp_verify_nonce( $_POST['wp_nonce'], 'hfwc-fro-form-ajax' )) {
@@ -99,6 +108,13 @@ function get_upcoming_event(){
 add_action( 'wp_ajax_get_upcoming_event', 'get_upcoming_event');
 add_action( 'wp_ajax_nopriv_get_upcoming_event', 'get_upcoming_event');
 
+/**
+ * Fetch all upcoming event for a single host. For other user or guest
+ * @version 1.0.0
+ * @return json
+ *
+ */
+
 function get_guest_upcoming_matches(){
 	global $wpdb;
 	if(isset($_POST['paged'], $_POST['host_status'], $_POST['wp_nonce']) && wp_verify_nonce( $_POST['wp_nonce'], 'hfwc-fro-form-ajax' )) {
@@ -177,7 +193,7 @@ function get_guest_upcoming_matches(){
               		</div>
 			  		<div class='event-list'>
 			  		<div class='event-list-mid'>
-			  		 	<p><span><strong class='fa fa-marker'>Location : </strong>" . $event_address." </span></p>
+			  		 	<p><span><strong class='fa fa-users'>Max People : </strong>" . $product_data->get_stock_quantity()." </span></p>
 			  		 	<p><span><strong class='fa fa-date'>Date &amp; Time : </strong>".date('d F Y', strtotime($MatchDate)). " " . $MatchTime."</span></p>
 			  		</div>
 			  		<div class='event-footer-wrap'>
@@ -203,6 +219,12 @@ function get_guest_upcoming_matches(){
 add_action( 'wp_ajax_get_guest_upcoming_matches', 'get_guest_upcoming_matches');
 add_action( 'wp_ajax_nopriv_get_guest_upcoming_matches', 'get_guest_upcoming_matches');
 
+/**
+ * Create a product for a host.
+ * @version 1.0.0
+ * @return json
+ *
+ */
 function create_host_product(){
 	if(isset($_POST['hv_title'])){
 		global $wpdb;
@@ -584,38 +606,43 @@ error_reporting(E_ALL);
 }
 add_action( 'wp_ajax_create_host_product', 'create_host_product');
 
+/**
+ * Update a single product for a host/product owner
+ * @version 1.0.0
+ * @return json
+ *
+ */
+
 function update_host_product(){
 	if(isset($_POST['u_hv_title'], $_POST['u_hv_host_id'], $_POST['u_hv_host_event_id'], $_POST['u_experience_id'])){
 		global $wpdb;
 	 
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-			$title = sanitize_text_field( trim( $_POST['u_hv_title'] ) );
-			$post_content = sanitize_text_field(trim( $_POST['u_hv_descr']) );
-			$product_id = (int) trim($_POST['u_experience_id']);
-			$product_status = (trim( $_POST['u_availability']) == 'yes') ? 'publish' : 'draft';
-			$my_post = array(
+ 
+		$title = sanitize_text_field( trim( $_POST['u_hv_title'] ) );
+		$post_content = sanitize_text_field(trim( $_POST['u_hv_descr']) );
+		$product_id = (int) trim($_POST['u_experience_id']);
+		$product_status = (trim( $_POST['u_availability']) == 'yes') ? 'publish' : 'draft';
+		$my_post = array(
 
-			   'ID' =>  $product_id,
-			   'post_title'    => $title,
-			   'post_content'  => $post_content,
-			  	'post_status'   => $product_status
-			);
+		   'ID' =>  $product_id,
+		   'post_title'    => $title,
+		   'post_content'  => $post_content,
+		  	'post_status'   => $product_status
+		);
 
-			wp_update_post( $my_post );
-			$hv_match_id = sanitize_text_field(trim( $_POST['u_hv_host_event_id']) );
-			$host_id = trim($_POST['u_hv_host_id']);
-			$event_city = trim(get_user_meta( $host_id, 'user-citys', true )); 
-			// $host_avatar = get_avatar_url( $host_id );
-			$max_people = get_user_meta( $host_id , "max_people" ,true);
-	 		$minimum_age = get_user_meta( $host_id , "minimum_age" ,true);
-			$price = sanitize_text_field( trim( $_POST['u_hv_price'] ) );
-			$basic_price = $price;
-			// total Price
-			$product_addon = array();
-			$included_service = array();
-			$k = 0;
+		wp_update_post( $my_post );
+		$hv_match_id = sanitize_text_field(trim( $_POST['u_hv_host_event_id']) );
+		$host_id = trim($_POST['u_hv_host_id']);
+		$event_city = trim(get_user_meta( $host_id, 'user-citys', true )); 
+		// $host_avatar = get_avatar_url( $host_id );
+		$max_people = get_user_meta( $host_id , "max_people" ,true);
+ 		$minimum_age = get_user_meta( $host_id , "minimum_age" ,true);
+		$price = sanitize_text_field( trim( $_POST['u_hv_price'] ) );
+		$basic_price = $price;
+		// total Price
+		$product_addon = array();
+		$included_service = array();
+		$k = 0;
 			 
 			if(isset($_POST['u_include_food_services'])){
 				$ex_temp = array();
@@ -963,21 +990,13 @@ function update_host_product(){
 	
 }
 add_action( 'wp_ajax_update_host_product', 'update_host_product');
-function get_event_form_old(){
-	global $wpdb;
-	if(isset($_POST['event_id'], $_POST['host_id'], $_POST['wp_nonce']) && wp_verify_nonce( $_POST['wp_nonce'], 'hfwc-fro-form-ajax' )) {
-		$event_id = sanitize_text_field( $_POST['event_id'] );
-		$host_id = sanitize_text_field( $_POST['host_id'] );
-		 
-		$output_string = '<form method="post" id="submitFORM">
-		<input type="text" value="hh" name="myfield" />
-		<input type="submit" value="Update" name="submitUpdateFORM" />
-		</form>';
-		echo json_encode(array('status' => 'success', 'message' => 'successfully', 'response' => $output_string));
-	}
-	echo json_encode(array('status' => 'error', 'message' => 'Invalid Request', 'response' => ''));
-	exit();
-}
+ 
+/**
+ * If host want to product a any product so geneate update form.
+ * @version 1.0.0
+ * @return HTML
+ *
+ */ 
 function get_event_form(){
 	global $wpdb;
 	if(isset($_POST['event_id'], $_POST['host_id'], $_POST['wp_nonce']) && wp_verify_nonce( $_POST['wp_nonce'], 'hfwc-fro-form-ajax' )) {
@@ -1179,7 +1198,6 @@ function get_event_form(){
                           }
                           ?>
                             </select>
-                            
                              
                           </td>
                         </tr>
@@ -1194,7 +1212,6 @@ function get_event_form(){
                             Others
                           </td>
                           <td>
-                          
                             <select name="u_include_other_services[]" multiple="">
                           <?php  
                           foreach ( $extra_other_services as $field ) {
@@ -1208,7 +1225,6 @@ function get_event_form(){
                           }
                           ?>
                             </select>
-                            
                              
                           </td>
                         </tr>
@@ -1263,7 +1279,7 @@ add_action( 'wp_ajax_get_event_form', 'get_event_form');
  			 		update_user_meta( $current_user_id, trim($key), $value );
  			 	}
  			}
-
+      
  		echo json_encode(array('status' => 'success', 'message' => 'User data successfully updated'));
  		UM()->user()->remove_cache( $current_user_id );
  			exit();
@@ -1278,22 +1294,122 @@ add_action( 'wp_ajax_get_event_form', 'get_event_form');
  add_action( 'wp_ajax_havefan_save_acf_usermeta', 'havefan_save_acf_usermeta');
 
 
+
+
+
+
+
+/**
+ * Submit review form  data  with ajax for 
+ * @return json
+ *
+ */
+ function havefan_save_userReview(){
+ 	if(isset($_POST['user_id'], $_POST['action'], $_POST['wp_nonce']) && wp_verify_nonce( $_POST['wp_nonce'], 'hfwc-fro-form-ajax' )) {
+ 		global $wpdb;
+ 		$table = $wpdb->prefix.'postmeta';
+ 		$current_user_id = get_current_user_id();
+ 		$user_id = $_POST['user_id'];
+ 		$order_id = $_POST['order_id'];
+ 		// check exists review or not
+ 		$check_review = $wpdb->get_row( "SELECT * FROM $table WHERE `meta_key` = '_review_order_id' AND `meta_value` = '".$order_id."' ");
+ 		 
+ 		//$check_review = get_post_meta( $order_id, '_review_order_id', true );
+ 		if( isset($check_review->post_id) ){
+ 			echo json_encode(array('status' => 'success', 'message' => 'Review already given.'));
+ 			exit();
+ 		}
+ 	 
+ 		unset($_POST['user_id']);
+ 		unset($_POST['action']);
+ 		unset($_POST['wp_nonce']);
+ 		if( $current_user_id ==  $user_id ){
+           // Create post object
+ 			$post_author=1;
+ 			if($_POST['order_id']){
+               $post   = get_post( $_POST['order_id'] );
+               $post_author=$post->post_author;
+              
+	       }
+		   $my_post = array(
+			  'post_title'    => $_POST['review_title'],
+			  'post_content'  => $_POST['review_details'],
+			  'post_status'   => 'publish',
+			  'post_type' => 'um_review',
+			  'post_author'   => $post_author,
+			);
+	 
+	      // Insert the post into the database
+	       $post_id = wp_insert_post( $my_post );
+	       update_post_meta( $post_id, '_reviewer_id', $user_id );
+	       update_post_meta( $post_id, '_status', 1 );
+	       update_post_meta( $post_id, '_rating', $_POST['review'] );
+	       update_post_meta( $post_id, '_flagged', 0 );
+	       update_post_meta( $post_id, '_user_id', $post_author );
+	       update_post_meta( $post_id, '_review_order_id', $order_id );
+	       // update total review
+	       $_reviews = get_user_meta( $post_author, '_reviews', true);
+
+	       $_reviews_total = get_user_meta( $post_author, '_reviews_total', true);
+	       $_reviews_compound = get_user_meta( $post_author, '_reviews_compound', true);
+
+	       $_reviews_total = $_reviews_total +  1;
+	       $_reviews_compound = $_reviews_compound + (int) $_POST['review'];
+	       if(is_array( $_reviews ) ){
+	       		$_reviews[$post_id] = (int) $_POST['review'];
+	       		update_user_meta( $post_author, '_reviews', $_reviews );
+	       }else{
+
+	       		$temp = array();
+	       		$temp[$post_id] = (int) $_POST['review'];
+	       		update_user_meta( $post_author, '_reviews', $temp );
+
+	       }
+	        $average = ceil( $_reviews_compound / $_reviews_total );
+	       update_user_meta( $post_author, '_reviews_total', $_reviews_total);
+	       update_user_meta( $post_author, '_reviews_compound', $_reviews_compound);
+	       update_user_meta( $post_author, '_reviews_avg', $average);
+
+ 			echo json_encode(array('status' => 'success', 'message' => 'Review Add successfully.'));
+ 			exit();
+ 		}else{
+ 			echo json_encode(array('status' => 'error', 'message' => 'Invalid User Request.'));
+ 			exit();
+ 		}
+ 	}
+ 	echo json_encode(array('status' => 'error', 'message' => 'Invalid Request.'));		
+ 	exit();
+ }
+ add_action( 'wp_ajax_havefan_save_userReview', 'havefan_save_userReview');
+
+
+
+
+
+
+
+
  /**
  * Submit acf user form  data  with ajax for 
  * @return json
  *
  */
  function havefan_event_list(){
- 	if(isset($_POST['type'], $_POST['wp_nonce']) && wp_verify_nonce( $_POST['wp_nonce'], 'hfwc-fro-form-ajax' )) {
- 		$type=$_POST['type'];
+ 	if(isset($_GET['type'], $_GET['wp_nonce']) && wp_verify_nonce( $_GET['wp_nonce'], 'hfwc-fro-form-ajax' )) {
+ 		$type=$_GET['type'];
  		if($type=='calendar'){
-           echo do_shortcode('[fooevents_calendar]'); 
+ 			if(isset($_GET['by_date']) && strlen(trim($_GET['by_date'])) == 10 ){
+ 				$default_dd = trim($_GET['by_date']);
+ 				echo do_shortcode('[fooevents_calendar  defaultDate= "'.$default_dd.'"]'); 
+ 			}else{
+ 				echo do_shortcode('[fooevents_calendar]'); 
+ 			}
+           
  		}else{
            echo do_shortcode('[fooevents_events_list]'); 
  		} 
  		
  	}
- 	//echo json_encode(array('status' => 'error', 'message' => 'Invalid Request.'));		
  	exit();
  }
  add_action( 'wp_ajax_havefan_event_list', 'havefan_event_list');
@@ -1399,5 +1515,30 @@ function havefan_set_search_from_field_data(){
 
  add_action( 'wp_ajax_havefan_set_search_from_field_data', 'havefan_set_search_from_field_data');
  add_action( 'wp_ajax_nopriv_havefan_set_search_from_field_data', 'havefan_set_search_from_field_data');
+
+ function get_host_country_city(){
+ 	// echo "<pre>";
+ 	// print_r($_POST);
+  
+ 	$user_id = $_POST['user_id'];
+ 	$country = $_POST['country'];
+ 	$select_city = get_user_meta( $user_id, 'user-citys', true);
+ 	$select_country = get_user_meta( $user_id, 'country', true);
+ 	global $wpdb;
+ 	$table = $wpdb->prefix.'country_city_list';
+ 	$select_list = $wpdb->get_row("SELECT * FROM $table WHERE `country` = '".$country."' ");
+ 	// echo "<pre>";
+ 	// print_r($select_list);
+ 	if(isset($select_list->id)){
+ 		echo json_encode(array('status' => 'success', 'select_city'=> $select_city, 'select_country'=> $select_country, 'city_list' => json_encode($select_list->city)));
+ 		exit();
+ 	}
+  
+ 	$all_city = json_encode(array());
+ 	echo json_encode(array('status' => 'success', 'select_city'=> '', 'select_country'=> '', 'city_list' => $all_city));
+ 	exit();
+ 	 
+}
+add_action('wp_ajax_get_host_country_city', 'get_host_country_city');
 
 ?>

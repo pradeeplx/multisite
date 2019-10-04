@@ -13,7 +13,7 @@
      <div class="main-container followMeBar">
       <div class="subnavigation">
         <ul class="um-sub-menu">
-          <li class='active' ><a href="#information">Information</a>
+          <li class='active' ><a class="scroll" href="#information">Information</a>
           </li>
           <li >
             <a href="#where-to-go" class="scroll where-to-go-tab">Where to go</a>

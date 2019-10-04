@@ -2624,6 +2624,7 @@ class FooEvents_Calendar {
                                  'compare' => '=');
         }
         $by_checkin = '';
+      
         if(isset($_GET['by_date']) && strlen($_GET['by_date'])){
             $by_checkin = ( trim($_GET['by_date']) != '' ) ? trim($_GET['by_date']) : '';
             $searchArray[]=array ('key' => 'MatchDate',
@@ -2932,7 +2933,7 @@ class FooEvents_Calendar {
             $userInfo = get_user_by('ID', $event->post_author);
             $host_product_url = get_permalink($event->ID);
             if( $userInfo ){
-               $host_product_url = site_url('user/'.$userInfo->user_login.'/?profiletab=next-matches&experienceId='.$event->ID);
+               $host_product_url = site_url('user/'.$userInfo->user_login.'/?profiletab=experience');
             } 
 
             $json_events['events'][$x]= array(

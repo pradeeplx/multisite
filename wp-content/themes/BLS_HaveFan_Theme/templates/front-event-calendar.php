@@ -40,9 +40,9 @@ get_header();?>
 									 ?>
 									
 									<ul class="um-event-list-menu ">
-										<li class="calendar-btn event-btn-list-calendar <?php if($_GET['view']=='calendar' || !isset($_GET['view']) ){ echo 'active'; } ?>" ><a onclick="listOutEvant('calendar','<?php echo $getString; ?>')" href="JavaScript:void(0);">Calendar View</a>
+										<li class="calendar-btn event-btn-list-calendar <?php if($_GET['view']=='calendar'){ echo 'active'; } ?>" ><a onclick="listOutEvant('calendar','<?php echo $getString; ?>')" href="JavaScript:void(0);">Calendar View</a>
 										</li>
-										<li class="list-btn event-btn-list-calendar <?php if($_GET['view']=='list'){ echo 'active'; } ?>">
+										<li class="list-btn event-btn-list-calendar <?php if($_GET['view']=='list' || !isset($_GET['view']) ){ echo 'active'; } ?>">
 											<a onclick="listOutEvant('list','<?php echo $getString; ?>')" href="JavaScript:void(0);" >List View</a>
 										</li>
 										
@@ -57,9 +57,11 @@ get_header();?>
 								}
 								if($_GET['view']=='list'){
 						          echo do_shortcode('[fooevents_events_list]'); 
-								}else{
+								}else if($_GET['view']=='calendar'){
                                   echo do_shortcode('[fooevents_calendar  defaultDate= "'.$default_date_calendar.'"]'); 
                                    
+								}else{
+									 echo do_shortcode('[fooevents_events_list]'); 
 								}
 						// echo do_shortcode('[fooevents_events_list]'); 
                            

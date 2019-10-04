@@ -9,7 +9,7 @@ $cfg['Servers'][$i]['host'] 			= 'localhost';
 $cfg['Servers'][$i]['connect_type'] 	= 'tcp';
 $cfg['Servers'][$i]['socket'] 			= '';
 $cfg['Servers'][$i]['AllowNoPassword']	= false;   // true/false
-$cfg['blowfish_secret']					= '2{tj|O?=@6&n/ugYR@7[&Y/FT7m0_1i2' ;  // i.e. '$b~`lnkwm>^^jNUEE;(4xB$L\'b?."\'o9' 
+$cfg['blowfish_secret']					= 'qoxN_SmS0BD0)@YLloC}Dll5GJ`tT$c}' ;  // i.e. '$b~`lnkwm>^^jNUEE;(4xB$L\'b?."\'o9' 
 $cfg['DefaultLang']						= 'en';		// 'en'
 $cfg['Servers'][$i]['only_db']			= [file_get_contents(__DIR__."/_session_temp_db_name_".$_SERVER["HTTP_HOST"].".php")] ;    //i.e. array('db1', 'db2') Show only listed databases
 $cfg['PmaAbsoluteUri'] 					= '/wp-content/plugins/wp-phpmyadmin-extension/lib/phpMyAdmin_I7x43LQCysm8tkHObGjE9pi/';			//used, if different directory by htaccess ; or parse_url($GLOBALS['PMA_PHP_SELF']);
